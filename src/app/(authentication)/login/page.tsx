@@ -22,6 +22,8 @@ export default function Login() {
             </div>
             <div className="w-full md:w-1/2 flex justify-center items-center bg-white md:order-1 text-black" style={{ flex: '1 0 50%' }}>
                 <div className="w-full max-w-lg p-4 py-10 md:p-8 md:py-16 rounded-2xl">
+                    <h1 className="text-4xl font-bold mb-8 text-blue-700">Login Here</h1>
+
                     <SYForm onSubmit={onSubmit} resolver={zodResolver(loginValidationSchema)}>
                         <div className="space-y-6">
                             <SYInput
