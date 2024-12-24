@@ -1,7 +1,43 @@
+import { Input } from '@nextui-org/react'
 import React from 'react'
+import { useFormContext } from 'react-hook-form';
 
-export default function SYInput() {
+
+
+
+
+interface SYInputProps {
+    variant?: "flat" | "bordered" | "underlined" | "faded";
+    size?: "sm" | "md" | "lg";
+    required?: boolean;
+    type?: "text" | "email" | "password";
+    label: string;
+    name: string;
+};
+
+
+export default function SYInput({
+    variant = "bordered",
+    size = "md",
+    required = false,
+    type = "text",
+    label,
+    name
+}: SYInputProps) {
+
+    const { register, formState: { errors }
+    } = useFormContext();
+
     return (
-        <div>SYInput</div>
+        <Input
+            {...register(name, { required })}
+            errorMessage={errors[name]?.message as string}
+            variant={variant}
+            size={size}
+            type={type}
+            required={required}
+            label={label}
+            name={name}
+        />
     )
-}
+};
