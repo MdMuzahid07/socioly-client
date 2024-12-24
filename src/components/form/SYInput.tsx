@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { Input } from '@nextui-org/react'
 import React from 'react'
@@ -12,16 +13,18 @@ interface SYInputProps {
     type?: "text" | "email" | "password";
     label: string;
     name: string;
+    radius?: "none" | "sm" | "md" | "lg" | "full";
 };
 
 
 export default function SYInput({
     variant = "bordered",
-    size = "md",
+    size = "lg",
     required = false,
     type = "text",
     label,
-    name
+    name,
+    radius = "lg"
 }: SYInputProps) {
 
     // when we handle error using resolver, we found the error message in the formState
@@ -39,6 +42,7 @@ export default function SYInput({
             required={required}
             label={label}
             name={name}
+            radius={radius}
         />
     )
 };

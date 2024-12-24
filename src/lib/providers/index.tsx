@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { NextUIProvider } from '@nextui-org/react'
+import { Toaster } from 'sonner';
 
 
 export interface ProvidersProps {
@@ -8,10 +9,11 @@ export interface ProvidersProps {
 }
 export default function Providers({ children }: ProvidersProps) {
     return (
-        <div>
+        <>
             <NextUIProvider>
                 {children}
             </NextUIProvider>
-        </div>
+            <Toaster position="bottom-right" />
+        </>
     )
 }
