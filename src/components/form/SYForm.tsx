@@ -1,20 +1,16 @@
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
-
-
 
 interface formConfig {
     defaultValues?: Record<string, any>;
     resolver?: any;
 }
-
 interface SYFormProps extends formConfig {
     children: React.ReactNode;
     onSubmit: SubmitHandler<any>;
 };
-
-
 
 export default function SYForm(
     {
@@ -35,10 +31,6 @@ export default function SYForm(
     if (!!resolver) {
         formConfig["resolver"] = resolver;
     }
-
-
-
-
 
 
     const methods = useForm();

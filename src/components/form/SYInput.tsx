@@ -1,8 +1,7 @@
+"use client";
 import { Input } from '@nextui-org/react'
 import React from 'react'
 import { useFormContext } from 'react-hook-form';
-
-
 
 
 
@@ -25,6 +24,7 @@ export default function SYInput({
     name
 }: SYInputProps) {
 
+    // when we handle error using resolver, we found the error message in the formState
     const { register, formState: { errors }
     } = useFormContext();
 
@@ -32,6 +32,7 @@ export default function SYInput({
         <Input
             {...register(name, { required })}
             errorMessage={errors[name]?.message as string}
+            isInvalid={!!errors[name]}
             variant={variant}
             size={size}
             type={type}
