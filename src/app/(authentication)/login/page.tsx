@@ -41,7 +41,7 @@ export default function Login() {
                             <div className="flex justify-between items-center text-sm font-bold text-blue-700">
                                 <p ><Link href="/signup">Create an account</Link></p>
                                 <p>
-                                    <Link href="/signup">Forget Password</Link>
+                                    <Link href="/password-reset">Forget Password</Link>
                                 </p>
                             </div>
                             <Button
