@@ -2,9 +2,11 @@
 "use client";
 import SYForm from "@/components/form/SYForm";
 import SYInput from "@/components/form/SYInput";
+import { logo } from "@/constants/Images";
 import loginValidationSchema from "@/schemas/login.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@nextui-org/react";
+import Image from "next/image";
 import Link from "next/link";
 
 
@@ -18,7 +20,13 @@ export default function SignUP() {
     return (
         <section className="min-h-screen flex flex-col md:flex-row">
             <div className="w-full md:w-1/2 flex justify-center items-center bg-blue-700 text-white p-4 md:p-8" style={{ flex: '0 0 50%' }}>
-                <h1 className="text-4xl md:text-6xl font-bold">Socioly</h1>
+                <Image
+                    src={logo}
+                    width={110}
+                    height={100}
+                    alt=""
+                    className="object-cover object-center w-20 h-10 sm:w-44 sm:h-20"
+                />
             </div>
             <div className="w-full md:w-1/2 flex justify-center items-center bg-white md:order-1 text-black" style={{ flex: '1 0 50%' }}>
                 <div className="w-full max-w-lg p-4 py-10 md:p-8 md:py-16 rounded-2xl">
