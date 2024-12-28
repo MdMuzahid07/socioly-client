@@ -51,4 +51,4 @@ export default function SearchResultCard() {
             </CardFooter>
         </Card>
     )
-}
+};
