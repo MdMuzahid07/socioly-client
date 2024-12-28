@@ -1,11 +1,9 @@
 "use client";
 import { logo } from "@/constants/Images";
 import { navLinks } from "@/constants/NavItems";
-import { Button } from "@nextui-org/react";
-import { Menu, MessageCircle, X } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import UserDropdown from "./UserDropdown";
 import NotificationDropDown from "./NotificationDropDown";
 import SearchBar from "./SearchBar";
@@ -13,9 +11,9 @@ import MobileUserSidebar from "./MobileUserSidebar";
 
 
 const Navbar = () => {
-    const [isMobileNavOpen, setIsMobileAppOpen] = useState(false);
+    // const [isMobileNavOpen, setIsMobileAppOpen] = useState(false);
 
-    const handleMobileNav = () => setIsMobileAppOpen(!isMobileNavOpen);
+    // const handleMobileNav = () => setIsMobileAppOpen(!isMobileNavOpen);
 
 
     return (

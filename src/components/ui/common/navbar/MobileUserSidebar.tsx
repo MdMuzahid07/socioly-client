@@ -4,7 +4,6 @@ import {
     DrawerHeader,
     DrawerBody,
     DrawerFooter,
-    Button,
     useDisclosure,
     Avatar,
 } from "@nextui-org/react";
@@ -25,7 +24,7 @@ export default function MobileUserSidebar() {
             </button>
             <Drawer isOpen={isOpen} onOpenChange={onOpenChange} className="bg-slate-100 text-black rounded-none">
                 <DrawerContent>
-                    {(onClose) => (
+                    {() => (
                         <>
                             <DrawerHeader className="flex flex-col gap-1">Drawer Title</DrawerHeader>
                             <DrawerBody>
