@@ -1,5 +1,6 @@
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
 import { Bell } from "lucide-react";
+import NotificationCard from "./NotificationCard";
 
 export default function NotificationDropDown() {
     return (
@@ -9,13 +10,14 @@ export default function NotificationDropDown() {
                     <Bell className="w-4 sm:w-5 h-4 sm:h-5 text-black" />
                 </button>
             </DropdownTrigger>
-            <DropdownMenu aria-label="Static Actions" className="bg-white text-black">
-                <DropdownItem key="new">New file</DropdownItem>
-                <DropdownItem key="copy">Copy link</DropdownItem>
-                <DropdownItem key="edit">Edit file</DropdownItem>
-                <DropdownItem key="delete" className="text-danger" color="danger">
-                    Delete file
-                </DropdownItem>
+            <DropdownMenu className="max-h-[40vh] overflow-y-auto custom-scrollbar">
+                {
+                    [1, 2, 3, 4, 5, 6, 7]?.map((index) => (
+                        <DropdownItem key={index} className="p-0"  >
+                            <NotificationCard />
+                        </DropdownItem>
+                    ))
+                }
             </DropdownMenu>
         </Dropdown>
     );

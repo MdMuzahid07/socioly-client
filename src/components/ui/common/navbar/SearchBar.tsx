@@ -51,12 +51,10 @@ export default function SearchBar() {
                             <ModalHeader className="flex flex-row gap-1 bg-blue-700">
                                 <Input size="md" radius="full" placeholder="Type here, result will appear automatically" className="w-[95%]" />
                             </ModalHeader>
-                            <ModalBody className="max-h-[70vh] sm:max-h-[60vh] overflow-y-auto pt-4">
-                                {
-                                    [1, 1, 1, 3, 5, 5, 6, 6, 7, 7, 7, 1, 3, 3, , 5, 5, 6, 3, 3]?.map((index) => (
-                                        <SearchResultCard key={index} />
-                                    ))
-                                }
+                            <ModalBody className="max-h-[70vh] sm:max-h-[60vh] overflow-y-auto custom-scrollbar pt-4">
+
+                                <SearchResultCard />
+
                             </ModalBody>
                         </>
                     )}
