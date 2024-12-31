@@ -3,8 +3,9 @@
 
 import { Button, Card, CardBody, CardHeader } from "@nextui-org/react"
 import { motion } from "framer-motion"
-import { Plus, Users } from 'lucide-react'
+import { Plus, UserRoundCheck, Users } from 'lucide-react'
 import Image from "next/image"
+import { useState } from "react"
 
 
 interface ISuggestProfiles {
@@ -48,6 +49,19 @@ const fakeData: ISuggestProfiles[] = [
 ];
 
 export default function YouMayLikeToConnect() {
+    const [followedProfiles, setFollowedProfiles] = useState<number[]>([]);
+
+
+    const handleFollow = (id: number) => {
+
+        setFollowedProfiles((prev) =>
+            prev.includes(id) ? prev.filter((profileId) => profileId !== id) : [...prev, id]
+        );
+    };
+
+
+
+
     return (
         <Card className="max-h-[350px] h-full rounded-lg border text-black relative">
             <CardHeader className="pb-2">
@@ -87,9 +101,10 @@ export default function YouMayLikeToConnect() {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                         >
-
-                            <Button className="rounded-full bg-white hover:bg-slate-100 hover:border" size="sm" isIconOnly aria-label="Like" >
-                                <Plus className="h-4 w-4" />
+                            <Button onPress={() => handleFollow(profile.id)} className={`rounded-full bg-white hover:bg-blue-700 hover:border ${followedProfiles.includes(profile.id) ? "bg-blue-700 text-white" : ""}`} size="sm" isIconOnly aria-label="Like" >
+                                {
+                                    followedProfiles.includes(profile.id) ? <UserRoundCheck className="h-4 w-4" /> : <Plus className="h-4 w-4" />
+                                }
                             </Button>
                         </motion.div>
                     </motion.div>
