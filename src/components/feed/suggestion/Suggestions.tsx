@@ -1,6 +1,9 @@
+import YouMayLikeToConnect from "./YouMayLikeToConnect";
 
 export default function Suggestions() {
   return (
-    <div className="bg-white md:col-span-3 max-h-[70vh] h-full rounded-lg border drop-shadow-sm sticky top-20">Suggesstion</div>
+    <div className="max-h-[80vh] md:col-span-3  drop-shadow-sm sticky top-20">
+      <YouMayLikeToConnect />
+    </div>
   )
-}
+};
