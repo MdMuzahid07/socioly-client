@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function page() {
     return (
-        <div>page</div>
+        <div className="bg-slate-100 min-h-screen min-w-screen">
+            chatting
+        </div>
     )
 }

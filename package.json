@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
+    "@nextui-org/chip": "^2.2.5",
     "@nextui-org/react": "^2.6.10",
+    "@nextui-org/system": "^2.4.5",
+    "@nextui-org/theme": "^2.4.4",
     "framer-motion": "^11.15.0",
     "lucide-react": "^0.469.0",
     "next": "15.1.2",
