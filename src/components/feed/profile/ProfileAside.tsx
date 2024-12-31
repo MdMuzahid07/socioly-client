@@ -95,7 +95,7 @@ export default function ProfileAside() {
                             { icon: Users2, label: "Groups" },
                             { icon: Bell, label: "Notifications", indicator: 5 },
                             // { icon: Settings, label: "Settings" },
-                        ].map((item, index) => (
+                        ]?.map((item, index) => (
                             <motion.div
                                 key={item.label}
                                 initial={{ opacity: 0, y: 10 }}
