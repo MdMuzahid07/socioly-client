@@ -4,7 +4,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Card, CardBody, CardHeader, Avatar, Button } from '@nextui-org/react'
-import { Building2, Users, Plus, UserRoundCheck, Check } from 'lucide-react'
+import { Building2, Users, Plus, Check } from 'lucide-react'
 
 interface SuggestedPage {
     id: number
@@ -15,11 +15,12 @@ interface SuggestedPage {
 }
 
 const fakeData: SuggestedPage[] = [
-    { id: 1, name: "TechCorp Solutions", industry: "Information Technology", followers: 25420, logo: "https://i.pravatar.cc/150?img=6" },
-    { id: 2, name: "Global Innovations", industry: "Software Development", followers: 158900, logo: "https://i.pravatar.cc/150?img=7" },
-    { id: 3, name: "Future Finance", industry: "Financial Services", followers: 89300, logo: "https://i.pravatar.cc/150?img=8" },
-    { id: 4, name: "EcoSmart Systems", industry: "Environmental Services", followers: 12800, logo: "https://i.pravatar.cc/150?img=9" },
-]
+    { id: 1, name: "TechCorp Solutions", industry: "Information Technology", followers: 25420, logo: "https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid" },
+    { id: 2, name: "Global Innovations", industry: "Software Development", followers: 158900, logo: "https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid" },
+    { id: 3, name: "Future Finance", industry: "Financial Services", followers: 89300, logo: "https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid" },
+    { id: 4, name: "EcoSmart Systems", industry: "Environmental Services", followers: 12800, logo: "https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid" },
+];
+
 
 
 export default function SuggestPages() {
@@ -37,7 +38,7 @@ export default function SuggestPages() {
 
 
     return (
-        <Card className="w-ful rounded-lg max-h-[300px] text-black">
+        <Card className="w-full rounded-lg max-h-[300px] text-black">
             <CardHeader className="flex gap-3">
                 <Building2 className="w-4 h-4" />
                 <p className="text-md font-semibold">Pages you may follow</p>

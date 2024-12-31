@@ -5,8 +5,18 @@ import Link from "next/link"
 import { Users, Users2, Bell, ExternalLink, BadgeCheck } from 'lucide-react'
 import { motion } from "framer-motion"
 import { Button, Card, Chip } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 export default function ProfileAside() {
+    const router = useRouter();
+
+
+    const handleProfileView = (profileId: string) => {
+        router.push(`/profile/${profileId}`)
+    };
+
+
+
     return (
         <Card className="relative w-full overflow-hidden text-black rounded-lg">
             {/* Cover Image with Gradient */}
@@ -124,6 +134,7 @@ export default function ProfileAside() {
 
                     {/* View Profile Button */}
                     <Button
+                        onPress={() => handleProfileView("8745")}
                         className="w-full rounded-full group bg-blue-700 text-white"
                     >
                         View Profile
