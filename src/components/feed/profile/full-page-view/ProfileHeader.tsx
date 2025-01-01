@@ -3,11 +3,11 @@ import { Avatar } from "@nextui-org/avatar"
 import { Button } from "@nextui-org/button"
 import { Image } from "@nextui-org/react"
 import { motion } from "framer-motion"
-import { MapPin, Calendar, LinkIcon } from 'lucide-react'
+import { MapPin, Calendar, LinkIcon, BadgeCheck } from 'lucide-react'
 
 export default function ProfileHeader() {
     return (
-        <header className="bg-white text-black rounded-lg overflow-hidden border drop-shadow-sm w-full">
+        <header className="bg-white text-black overflow-hidden border-b w-full">
             <section className="relative">
                 {/* Banner */}
                 <motion.div
@@ -41,7 +41,7 @@ export default function ProfileHeader() {
 
                     {/* Profile Actions */}
                     <div className="flex justify-end py-3">
-                        <Button color="primary" variant="bordered">Edit profile</Button>
+                        <Button className="rounded-full" size="sm" color="primary" variant="faded">Edit profile</Button>
                     </div>
 
                     {/* Profile Info */}
@@ -51,7 +51,7 @@ export default function ProfileHeader() {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.3 }}
                     >
-                        <h1 className="text-2xl font-bold">John Doe</h1>
+                        <h1 className="text-2xl font-bold flex items-center">John Doe  <BadgeCheck className="w-4 h-4 ml-2" /></h1>
                         <p className="text-gray-500">@johndoe</p>
                         <p className="mt-2">Full-stack developer(MERN) | Open source enthusiast | Coffee lover</p>
                         <div className="flex flex-wrap gap-4 mt-2 text-gray-500">
