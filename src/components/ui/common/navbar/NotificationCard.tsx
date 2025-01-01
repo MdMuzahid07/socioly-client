@@ -1,9 +1,9 @@
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter, Avatar, Button } from "@nextui-org/react";
+import { Card, CardHeader, CardFooter, Avatar, Button } from "@nextui-org/react";
 import { UserCheck, UserX } from "lucide-react";
 
 export default function NotificationCard() {
-    const [isFollowed, setIsFollowed] = React.useState(false);
+    // const [isFollowed, setIsFollowed] = React.useState(false);
 
     return (
         <Card className="w-full shadow-none border-b pb-2 rounded-none">
