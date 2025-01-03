@@ -12,8 +12,8 @@ export default function MobileUserSidebar() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     return (
-        <div >
-            <button className="flex sm:hidden" onClick={onOpen}>
+        <div className="flex sm:hidden">
+            <button onClick={onOpen}>
                 <Avatar
 
                     isBordered

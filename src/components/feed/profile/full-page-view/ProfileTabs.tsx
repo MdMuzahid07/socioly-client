@@ -4,6 +4,7 @@ import React from 'react'
 import { Tabs, Tab, Card, CardBody, Avatar, Button, Input, Image } from "@nextui-org/react"
 import { motion } from "framer-motion"
 import { ImageIcon, Video, Calendar, Smile, Send } from 'lucide-react'
+import PostCard from '@/components/ui/cards/profile/PostCard'
 
 export default function ProfileTabs() {
     const posts = [
@@ -67,23 +68,11 @@ export default function ProfileTabs() {
                                 </section>
                             </CardBody>
                         </Card>
-                        {posts?.map((post) => (
-                            <Card key={post.id} className="mt-4 border-none shadow-none p-0 text-black">
-                                <CardBody>
-                                    <div className="flex gap-3">
-                                        <Avatar src="https://img.freepik.com/free-photo/rocket-flying-through-space_23-2150378594.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid" size="md" />
-                                        <div>
-                                            <div className="flex items-center gap-2">
-                                                <p className="font-semibold">John Doe</p>
-                                                <p className="text-small text-default-500">@johndoe</p>
-                                                <p className="text-small text-default-500">· 2h</p>
-                                            </div>
-                                            <p className="mt-2">{post.content}</p>
-                                        </div>
-                                    </div>
-                                </CardBody>
-                            </Card>
-                        ))}
+                        <div className="space-y-16">
+                            {posts?.map((post, index) => (
+                                <PostCard key={index} />
+                            ))}
+                        </div>
                     </motion.div>
                 </Tab>
                 <Tab className="px-4" key="about" title="About">
