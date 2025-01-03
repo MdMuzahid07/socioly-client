@@ -8,7 +8,7 @@ export default function Feed() {
             <AddStory />
             <CreatePostInput styles="mb-10 rounded-lg shadow-none drop-shadow-sm border" />
             {
-                [1, 2, 3, 4, 5, 6, 7, 8, 9]?.map((item, index) => (<PostCard styles="border drop-shadow-sm shadow-none rounded-lg" key={index} />))
+                [1, 2, 3, 4, 5]?.map((item, index) => (<PostCard styles="border drop-shadow-sm shadow-none rounded-lg" key={index} />))
             }
         </div>
     )

@@ -1,5 +1,7 @@
+import EmojiPickerDropDown from "@/components/EmojiPickerDropDown";
 import { Card, CardBody, Avatar, Button, Input } from "@nextui-org/react";
-import { ImageIcon, Video, Calendar, Smile, Send } from "lucide-react";
+import { ImageIcon, Video, Calendar, Send } from "lucide-react";
+
 
 export default function CreatePostInput({ styles }: { styles: string }) {
     return (
@@ -22,11 +24,9 @@ export default function CreatePostInput({ styles }: { styles: string }) {
                     <Button className="rounded-full" variant="light" startContent={<Calendar className="w-4 h-4" />}>
                         Schedule
                     </Button>
-                    <Button className="rounded-full" variant="light" startContent={<Smile className="w-4 h-4" />}>
-                        Feeling
-                    </Button>
+                    <EmojiPickerDropDown />
                 </section>
             </CardBody>
         </Card>
     )
-}
+};
