@@ -1,11 +1,16 @@
 "use client";
+import ProfileEdit from "@/components/modals/Profile/ProfileEdit";
 import { Avatar } from "@nextui-org/avatar"
-import { Button } from "@nextui-org/button"
-import { Image } from "@nextui-org/react"
+import { Image, useDisclosure } from "@nextui-org/react"
 import { motion } from "framer-motion"
 import { MapPin, Calendar, LinkIcon, BadgeCheck } from 'lucide-react'
 
 export default function ProfileHeader() {
+
+    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+
+
     return (
         <header className="bg-white text-black overflow-hidden border-b w-full">
             <section className="relative">
@@ -41,7 +46,11 @@ export default function ProfileHeader() {
 
                     {/* Profile Actions */}
                     <div className="flex justify-end py-3">
-                        <Button className="rounded-full" size="sm" color="primary" variant="faded">Edit profile</Button>
+                        <ProfileEdit
+                            isOpen={isOpen}
+                            onOpen={onOpen}
+                            onOpenChange={onOpenChange}
+                        />
                     </div>
 
                     {/* Profile Info */}

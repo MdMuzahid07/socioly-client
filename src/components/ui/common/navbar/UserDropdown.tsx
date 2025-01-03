@@ -5,9 +5,13 @@ import {
     DropdownItem,
     Avatar,
 } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 
 export default function UserDropdown() {
+    const router = useRouter();
+
+
     return (
         <div className="flex items-center gap-4">
             <Dropdown placement="bottom-end" className="rounded-lg w-60 mt-4 bg-white">
@@ -34,7 +38,7 @@ export default function UserDropdown() {
                             </div>
                         </div>
                     </DropdownItem>
-                    <DropdownItem key="new"> Settings & Privacy</DropdownItem>
+                    <DropdownItem onPress={() => router.push("/settings-privacy")} key="new"> Settings & Privacy</DropdownItem>
                     <DropdownItem key="copy">Support</DropdownItem>
                     <DropdownItem key="edit">Edit file</DropdownItem>
                     <DropdownItem key="delete" >
