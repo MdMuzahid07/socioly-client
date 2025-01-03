@@ -4,10 +4,30 @@ import React from 'react';
 import { motion } from "framer-motion";
 
 
-const connections = [
+export const connections = [
     { id: 1, name: "Jane Smith", username: "", role: "UX Designer" },
     { id: 2, name: "Bob Johnson", username: "", role: "Frontend Developer" },
     { id: 3, name: "Alice Williams", username: "", role: "Product Manager" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
+    { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
     { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
     { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
     { id: 4, name: "Charlie Brown", username: "", role: "Data Scientist" },
