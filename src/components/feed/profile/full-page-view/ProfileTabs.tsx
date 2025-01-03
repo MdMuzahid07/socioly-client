@@ -1,10 +1,11 @@
 'use client'
 
 import React from 'react'
-import { Tabs, Tab, Card, CardBody, Avatar, Button, Input, Image } from "@nextui-org/react"
+import { Tabs, Tab, Card, CardBody, Avatar, Image } from "@nextui-org/react"
 import { motion } from "framer-motion"
-import { ImageIcon, Video, Calendar, Smile, Send } from 'lucide-react'
+import { Video } from 'lucide-react'
 import PostCard from '@/components/ui/cards/profile/PostCard'
+import CreatePostInput from '../../feed/CreatePostInput'
 
 export default function ProfileTabs() {
     const posts = [
@@ -37,40 +38,16 @@ export default function ProfileTabs() {
                 variant="underlined"
                 className="border-b w-full"
             >
-                <Tab key="posts" title="Posts">
+                <Tab className="px-4" key="posts" title="Posts">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <Card className="mt-4 rounded-none border-b shadow-none text-black pb-4 mb-6">
-                            <CardBody>
-                                <section className="flex gap-3 relative">
-                                    <Avatar className="w-8 h-8" src="https://img.freepik.com/free-photo/rocket-flying-through-space_23-2150378594.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid" size="md" />
-                                    <Input variant="underlined" placeholder="What's happening?" className="flex-1 " />
-                                    <button className="rounded-full absolute right-0 bottom-3">
-                                        <Send className="w-4 h-4" />
-                                    </button>
-                                </section>
-                                <section className="flex justify-between mt-4">
-                                    <Button className="rounded-full" variant="light" startContent={<ImageIcon className="w-4 h-4" />}>
-                                        Photo
-                                    </Button>
-                                    <Button className="rounded-full" variant="light" startContent={<Video className="w-4 h-4" />}>
-                                        Video
-                                    </Button>
-                                    <Button className="rounded-full" variant="light" startContent={<Calendar className="w-4 h-4" />}>
-                                        Schedule
-                                    </Button>
-                                    <Button className="rounded-full" variant="light" startContent={<Smile className="w-4 h-4" />}>
-                                        Feeling
-                                    </Button>
-                                </section>
-                            </CardBody>
-                        </Card>
-                        <div className="space-y-16">
+                        <CreatePostInput styles="mt-4 rounded-none border-b shadow-none text-black pb-4 mb-6" />
+                        <div className="space-y-10">
                             {posts?.map((post, index) => (
-                                <PostCard key={index} />
+                                <PostCard key={index} styles="border-b shadow-none drop-shadow-none rounded-none p-0" />
                             ))}
                         </div>
                     </motion.div>

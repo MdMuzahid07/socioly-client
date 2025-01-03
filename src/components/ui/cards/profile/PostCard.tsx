@@ -17,7 +17,7 @@ interface Comment {
     timestamp: string
 }
 
-export default function PostCard() {
+export default function PostCard({ styles }: { styles: string }) {
     const [isLiked, setIsLiked] = useState(false)
     const [isDisLiked, setIsDisLiked] = useState(false)
     const [likeCount, setLikeCount] = useState(10)
@@ -78,7 +78,7 @@ export default function PostCard() {
     }
 
     return (
-        <Card className="w-full p-4 rounded-none shadow-none border-b">
+        <Card className={`w-full p-4 shadow-none mb-10 ${styles}`}>
             <CardBody className="gap-4 p-0 text-black">
                 {/* Post Header section */}
                 <section className="flex justify-between items-start">
@@ -125,7 +125,7 @@ export default function PostCard() {
                         height={300}
                         width={600}
                         layout="responsive"
-                        className="rounded-lg"
+                        className="rounded-lg object-cover object-center"
                     />
                 </section>
 

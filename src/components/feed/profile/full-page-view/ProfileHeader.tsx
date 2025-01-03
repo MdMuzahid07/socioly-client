@@ -12,7 +12,7 @@ export default function ProfileHeader() {
 
 
     return (
-        <header className="bg-white text-black overflow-hidden border-b w-full">
+        <header className="bg-white text-black overflow-hidden border-b w-full rounded-t-lg">
             <section className="relative">
                 {/* Banner */}
                 <motion.div
