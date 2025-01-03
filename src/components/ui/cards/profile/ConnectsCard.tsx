@@ -22,7 +22,7 @@ export default function ConnectsCard() {
         <Card className="mt-4 rounded-none border-none shadow-none text-black">
             <CardBody>
                 <h3 className="text-xl font-semibold mb-4">Connections (250)</h3>
-                <div className="flex flex-wrap items-center gap-6">
+                <div className="flex flex-wrap items-center gap-6 overflow-hidden">
                     {connections?.map((user) => (
                         <motion.div
                             key={user.id}
