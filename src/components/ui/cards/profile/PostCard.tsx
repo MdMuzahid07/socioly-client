@@ -78,7 +78,7 @@ export default function PostCard() {
     }
 
     return (
-        <Card className="w-full p-0 rounded-none shadow-none border-b">
+        <Card className="w-full p-4 rounded-none shadow-none border-b">
             <CardBody className="gap-4 p-0 text-black">
                 {/* Post Header section */}
                 <section className="flex justify-between items-start">

@@ -3,7 +3,6 @@ import {
     Modal,
     ModalContent,
     ModalBody,
-    ModalFooter,
     Button,
     Tooltip,
     Avatar,
@@ -13,7 +12,6 @@ import {
 } from "@nextui-org/react";
 import { motion } from 'framer-motion'
 import { X, Camera } from 'lucide-react'
-import SYInput from '@/components/form/SYInput';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ProfileEdit({ onOpen, onOpenChange, isOpen }: { onOpen: any; onOpenChange: any; isOpen: any }) {
@@ -36,11 +34,6 @@ export default function ProfileEdit({ onOpen, onOpenChange, isOpen }: { onOpen: 
         if (fileInputRef.current) {
             fileInputRef.current.value = ''
         }
-    }
-
-
-    const onSubmit = async (data: any) => {
-        console.log(data);
     }
 
 

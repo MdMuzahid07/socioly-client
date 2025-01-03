@@ -37,7 +37,7 @@ export default function ProfileTabs() {
                 variant="underlined"
                 className="border-b w-full"
             >
-                <Tab className="px-4" key="posts" title="Posts">
+                <Tab key="posts" title="Posts">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
