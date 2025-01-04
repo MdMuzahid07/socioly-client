@@ -1,19 +1,26 @@
+import ChatCard from '@/components/ui/chat/ChatCard';
 import ChatHeader from '@/components/ui/chat/ChatHeader';
 import ChatInput from '@/components/ui/chat/ChatInput';
 import React from 'react';
 
+
 export default function ChatInbox() {
     return (
-        <div className="w-full h-full text-black relative">
+        <section className="w-full h-full text-black relative">
             <ChatHeader styles="w-full bg-white drop-shadow-sm h-14 px-4 border-b" />
 
-            <div className="overflow-y-scroll max-h-[79.8vh] p-4 pb-10 custom-scrollbar">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae porro commodi quos. Modi, voluptas? Ut nostrum corrupti fugiat adipisci non! Esse ea voluptatibus sit repellat corrupti non culpa exercitationem dolorem corporis! Excepturi at eum eligendi dolores. Alias accusantium explicabo vero quis eveniet sit ullam corporis mollitia aliquam pariatur blanditiis necessitatibus laudantium, aliquid nam et ad enim vitae voluptatum non corrupti nemo sint. Quia provident cum facere culpa dolorem veritatis libero doloribus praesentium modi aliquam, perspiciatis ex itaque assumenda magni veniam iste saepe consectetur? Asperiores, corrupti! Excepturi praesentium saepe eveniet adipisci accusamus vel nisi iure quo, hic modi similique sunt beatae inventore, accusantium qui aut? Tempore eaque quasi at unde quibusdam dicta voluptatem recusandae accusamus consectetur eos cumque fuga quas, et iusto maiores nihil accusantium modi aspernatur nesciunt iste quae. Ipsum, harum fugiat corporis neque reiciendis consequatur autem rerum? Odio excepturi ducimus provident perspiciatis, sapiente fugiat exercitationem soluta deserunt explicabo sunt recusandae tenetur obcaecati modi fuga, nihil voluptas, placeat suscipit laudantium asperiores commodi enim blanditiis nisi dolorem mollitia. Expedita voluptas ea sint veniam aspernatur labore dolore quae error. Debitis ex neque et soluta repudiandae iste nulla reiciendis maiores id labore, repellat doloremque necessitatibus, atque minus eligendi. Eveniet, error voluptatum dolores nostrum a totam rerum odio maxime ea tempora vitae, ipsum velit animi corrupti expedita commodi blanditiis voluptatibus neque dolorem eaque reprehenderit aliquam illo! Asperiores officiis pariatur laudantium quo repellat at repudiandae perspiciatis autem exercitationem sint, provident velit tempora voluptatem omnis corrupti, fuga nisi quas numquam sit, maxime temporibus qui nulla. Magni in harum tempore animi, illo quasi. Iusto, magnam nulla! Ducimus repellat minus a, non recusandae consequatur iure optio at illum officia rem, praesentium perspiciatis blanditiis. Atque quisquam facere sequi consequuntur natus pariatur soluta fuga molestiae nobis minima culpa maiores, accusamus inventore! Perferendis porro adipisci hic delectus similique voluptas ipsum earum repellendus, est cupiditate labore necessitatibus praesentium molestiae dolorem maxime harum consequatur! Labore, sed inventore cum tenetur nisi adipisci saepe eligendi numquam illum culpa laudantium at velit quae molestiae quas qui facere voluptatibus perspiciatis asperiores nemo! Fugiat molestias recusandae eaque cumque, saepe perferendis et suscipit deserunt aliquid sit culpa libero atque numquam non fugit hic dolorem ullam laudantium quo aspernatur corporis impedit dolores nostrum. Reiciendis itaque rerum maiores cumque quae omnis nostrum et tempore ad illo suscipit porro maxime officiis, magni iure voluptatem accusamus distinctio at labore cupiditate possimus nihil, fugiat quasi saepe. Atque, non voluptas rerum, ullam recusandae assumenda, cupiditate ducimus nemo similique error nobis? Officiis natus, et rerum temporibus quos earum consectetur quam corrupti deleniti omnis, quis voluptatibus adipisci nihil fugit aperiam. Obcaecati ullam aliquam corrupti id perspiciatis temporibus nemo distinctio, provident ab ipsa laboriosam pariatur exercitationem repellendus magnam sequi architecto nesciunt eligendi at sapiente optio aspernatur sint totam explicabo. Minus architecto exercitationem perspiciatis aliquid quae, veritatis minima id, velit reprehenderit ea beatae? Aspernatur repellendus accusamus labore minima corrupti nam magni ratione voluptas maiores error itaque doloribus, exercitationem voluptatibus quo aut a, ut reiciendis animi porro quis assumenda ipsa aliquid! Unde eius maiores cum quae ex, aperiam natus nesciunt.
-                </p>
-            </div>
+            <section className="overflow-y-scroll max-h-[79.8vh] p-4 pb-10 custom-scrollbar relative">
+                {
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item, index) => (
+                        <div key={index}>
+                            <ChatCard styles=" float-right" />
+                            <ChatCard styles=" mt-20" />
+                        </div>
+                    ))
+                }
+            </section>
 
             <ChatInput styles="absolute bottom-0 drop-shadow-sm left-0 h-14 bg-white  w-full border-t px-4" />
-        </div>
+        </section>
     )
-}
+};
