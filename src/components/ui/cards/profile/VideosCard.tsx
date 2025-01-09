@@ -9,7 +9,7 @@ const videos = Array.from({ length: 8 }, (_, i) => ({
 export default function VideosCard() {
     return (
         <div className="mt-4">
-            <h3 className="text-xl font-semibold mb-4 ml-4 text-black">Videos</h3>
+            <h3 className="text-xl font-semibold ml-4 text-black">Videos</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2">
                 {videos?.map((video, index) => (
