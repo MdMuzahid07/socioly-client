@@ -2,10 +2,7 @@ import PhotosCard from "@/components/ui/cards/profile/PhotosCard";
 import {
     Modal,
     ModalContent,
-    ModalHeader,
     ModalBody,
-    ModalFooter,
-    Button,
     useDisclosure,
 } from "@nextui-org/react";
 import Image from "next/image";
@@ -18,7 +15,7 @@ export default function ProfileImageView() {
             <span className="cursor-pointer" onClick={onOpen}>
                 <PhotosCard />
             </span>
-            <Modal backdrop="blur" isOpen={isOpen} className="max-h-[75vh] h-full" size="4xl" onOpenChange={onOpenChange}>
+            <Modal backdrop="blur" isOpen={isOpen} className="max-h-[75vh] h-full rounded-lg" size="4xl" onOpenChange={onOpenChange}>
                 <ModalContent>
                     <>
                         <ModalBody className="p-0">

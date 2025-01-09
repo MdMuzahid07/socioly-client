@@ -1,6 +1,5 @@
 import { Card, CardBody } from '@nextui-org/react'
 import React from 'react'
-import Video from 'next-video';
 
 const videos = Array.from({ length: 8 }, (_, i) => ({
     id: i + 1,
@@ -9,20 +8,25 @@ const videos = Array.from({ length: 8 }, (_, i) => ({
 
 export default function VideosCard() {
     return (
-        <Card className="mt-4 rounded-none border-none shadow-none text-black">
-            <CardBody className="rounded-none">
-                <h3 className="text-xl font-semibold mb-4">Videos</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {videos?.map((video) => (
-                        <div key={video.id} className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                            <Video src="https://www.youtube.com/embed/aqz-KE-bpKQ?si=CphPINk0l5tapH85" />;
-                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                                <Video className="h-12 w-12 text-white" />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </CardBody>
-        </Card>
+        <div className="mt-4">
+            <h3 className="text-xl font-semibold mb-4 ml-4 text-black">Videos</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2">
+                {videos?.map((video, index) => (
+                    <Card key={index + Math.random()} className="rounded-lg border-none shadow-none text-black">
+                        <CardBody>
+                            <video
+                                src="/videos/my-video.mp4"
+                                controls
+                                autoPlay
+                                loop
+                                style={{ width: '100%', height: 'auto', borderRadius: "8px" }}
+                            />
+                        </CardBody>
+                    </Card>
+                ))}
+
+            </div>
+        </div>
     )
 };

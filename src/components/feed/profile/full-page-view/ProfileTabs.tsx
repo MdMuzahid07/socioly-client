@@ -6,8 +6,8 @@ import PostCard from '@/components/ui/cards/profile/PostCard'
 import CreatePostInput from '../../feed/CreatePostInput'
 import AboutCard from '@/components/ui/cards/profile/AboutCard'
 import ConnectsCard from '@/components/ui/cards/profile/ConnectsCard'
-import VideosCard from '@/components/ui/cards/profile/VideosCard'
 import ProfileImageView from '@/components/modals/FullProfileView/ProfileImageView';
+import VideoFullView from '@/components/modals/FullProfileView/VideoFullView';
 
 export default function ProfileTabs() {
     const posts = [
@@ -95,7 +95,7 @@ export default function ProfileTabs() {
                         transition={{ duration: 0.3 }}
                     >
                         <div>
-                            <VideosCard />
+                            <VideoFullView />
                         </div>
                     </motion.div>
                 </Tab>
