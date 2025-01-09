@@ -10,6 +10,7 @@ import './styles.css';
 // import required modules
 import { Pagination, Autoplay } from 'swiper/modules';
 import StoryCard from '@/components/ui/cards/add-story/StoryCard';
+import AddStoryModal from '@/components/modals/AddStory/AddStoryModal';
 
 export default function AddStory() {
     return (
@@ -37,8 +38,12 @@ export default function AddStory() {
                     },
                 }}
                 modules={[Pagination, Autoplay]}
-                className="mySwiper"
+                className="mySwiper flex"
             >
+                <SwiperSlide >
+                    <AddStoryModal />
+                </SwiperSlide>
+
                 {
                     [1, 2, 3, 4, 5, 5, 6, 67, 77]?.map((item, index) => (
                         <SwiperSlide key={index}>
@@ -46,6 +51,7 @@ export default function AddStory() {
                         </SwiperSlide>
                     ))
                 }
+
             </Swiper>
         </section>
     );

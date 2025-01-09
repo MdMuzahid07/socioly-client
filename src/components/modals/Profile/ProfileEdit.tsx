@@ -32,11 +32,9 @@ export default function ProfileEdit({ onOpen, onOpenChange, isOpen }: { onOpen: 
     const removeImage = () => {
         setProfileImage(null)
         if (fileInputRef.current) {
-            fileInputRef.current.value = ''
+            fileInputRef.current.value = ""
         }
     }
-
-
 
     return (
         <>
