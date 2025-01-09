@@ -5,6 +5,7 @@ import Image from 'next/image'
 import React from 'react'
 
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function PhotosCard() {
 
     const photos = Array.from({ length: 18 }, (_, i) => ({
@@ -13,8 +14,10 @@ export default function PhotosCard() {
     }))
     return (
         <Card className="mt-4 rounded-none border-none shadow-none text-black">
-            <CardBody>
+            <CardBody
+            >
                 <h3 className="text-xl font-semibold mb-4">Photos</h3>
+
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {photos?.map((photo) => (
                         <Image
@@ -31,4 +34,4 @@ export default function PhotosCard() {
             </CardBody>
         </Card>
     )
-}
+};
