@@ -13,15 +13,13 @@ export default function MobileUserSidebar() {
 
     return (
         <div className="flex sm:hidden">
-            <button onClick={onOpen}>
-                <Avatar
-
-                    isBordered
-                    as="button"
-                    className="transition-transform w-6 h-6 sm:h-8 sm:w-8"
-                    src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
-                />
-            </button>
+            <Avatar
+                onClick={onOpen}
+                isBordered
+                as="button"
+                className="transition-transform w-6 h-6 sm:h-8 sm:w-8"
+                src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+            />
             <Drawer isOpen={isOpen} onOpenChange={onOpenChange} className="bg-slate-100 text-black rounded-none">
                 <DrawerContent>
                     {() => (
