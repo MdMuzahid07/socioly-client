@@ -1,5 +1,5 @@
 import { logo } from "@/constants/Images";
-import { Lock, User } from "lucide-react";
+import { Lock, Trash, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -61,8 +61,13 @@ export default function SettingsAside({ isSidebarOpen, setIsSidebarOpen }: any) 
                             <Lock className="w-5 h-5 mb-1" />  Privacy & Security
                         </Link>
                     </li>
+                    <li>
+                        <Link className="w-full flex items-center gap-3 text-lg tracking-wide" href="/settings/close-account">
+                            <Trash className="w-5 h-5 mb-1" />  Close Account
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </aside>
     );
-}
+};
