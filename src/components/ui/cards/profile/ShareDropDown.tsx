@@ -1,16 +1,15 @@
+import { useState, useEffect } from "react";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
 import { ArrowRight, Share } from "lucide-react";
 
 import {
     FacebookIcon,
-    FacebookMessengerIcon,
     LinkedinIcon,
     RedditIcon,
     TelegramIcon,
     TwitterIcon,
     WhatsappIcon,
 } from "react-share";
-
 
 import {
     FacebookShareButton,
@@ -21,8 +20,14 @@ import {
     WhatsappShareButton,
 } from "react-share";
 
-
 export default function ShareDropDown() {
+    const [currentUrl, setCurrentUrl] = useState("");
+
+    useEffect(() => {
+        // Only runs on the client side
+        setCurrentUrl(window.location.href);
+    }, []);
+
     return (
         <Dropdown placement="top-end" className="text-black rounded-lg">
             <DropdownTrigger>
@@ -32,7 +37,7 @@ export default function ShareDropDown() {
             </DropdownTrigger>
             <DropdownMenu aria-label="Share options">
                 <DropdownItem key="facebook">
-                    <FacebookShareButton url={window.location.href} className="flex items-center justify-between w-full">
+                    <FacebookShareButton url={currentUrl} className="flex items-center justify-between w-full">
                         <div className="flex items-center">
                             <FacebookIcon size={24} round={true} />
                             <span className="ml-2">Facebook</span>
@@ -40,17 +45,8 @@ export default function ShareDropDown() {
                         <ArrowRight className="w-4 h-4 text-slate-400" />
                     </FacebookShareButton>
                 </DropdownItem>
-                <DropdownItem key="facebook-messenger">
-                    <div className="flex items-center justify-between w-full">
-                        <div className="flex items-center">
-                            <FacebookMessengerIcon size={24} round={true} />
-                            <span className="ml-2">Messenger</span>
-                        </div>
-                        <ArrowRight className="w-4 h-4 text-slate-400" />
-                    </div>
-                </DropdownItem>
                 <DropdownItem key="linkedin">
-                    <LinkedinShareButton url={window.location.href} className="flex items-center justify-between w-full">
+                    <LinkedinShareButton url={currentUrl} className="flex items-center justify-between w-full">
                         <div className="flex items-center">
                             <LinkedinIcon size={24} round={true} />
                             <span className="ml-2">LinkedIn</span>
@@ -59,7 +55,7 @@ export default function ShareDropDown() {
                     </LinkedinShareButton>
                 </DropdownItem>
                 <DropdownItem key="reddit">
-                    <RedditShareButton url={window.location.href} className="flex items-center justify-between w-full">
+                    <RedditShareButton url={currentUrl} className="flex items-center justify-between w-full">
                         <div className="flex items-center">
                             <RedditIcon size={24} round={true} />
                             <span className="ml-2">Reddit</span>
@@ -68,7 +64,7 @@ export default function ShareDropDown() {
                     </RedditShareButton>
                 </DropdownItem>
                 <DropdownItem key="telegram">
-                    <TelegramShareButton url={window.location.href} className="flex items-center justify-between w-full">
+                    <TelegramShareButton url={currentUrl} className="flex items-center justify-between w-full">
                         <div className="flex items-center">
                             <TelegramIcon size={24} round={true} />
                             <span className="ml-2">Telegram</span>
@@ -77,7 +73,7 @@ export default function ShareDropDown() {
                     </TelegramShareButton>
                 </DropdownItem>
                 <DropdownItem key="twitter">
-                    <TwitterShareButton url={window.location.href} className="flex items-center justify-between w-full">
+                    <TwitterShareButton url={currentUrl} className="flex items-center justify-between w-full">
                         <div className="flex items-center">
                             <TwitterIcon size={24} round={true} />
                             <span className="ml-2">Twitter</span>
@@ -86,7 +82,7 @@ export default function ShareDropDown() {
                     </TwitterShareButton>
                 </DropdownItem>
                 <DropdownItem key="whatsapp">
-                    <WhatsappShareButton url={window.location.href} className="flex items-center justify-between w-full">
+                    <WhatsappShareButton url={currentUrl} className="flex items-center justify-between w-full">
                         <div className="flex items-center">
                             <WhatsappIcon size={24} round={true} />
                             <span className="ml-2">WhatsApp</span>
@@ -96,6 +92,5 @@ export default function ShareDropDown() {
                 </DropdownItem>
             </DropdownMenu>
         </Dropdown>
-    )
-}
-
+    );
+};
