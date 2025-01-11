@@ -1,4 +1,5 @@
 import { logo } from "@/constants/Images";
+import { Lock, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,10 +7,11 @@ import Link from "next/link";
 export default function SettingsAside({ isSidebarOpen, setIsSidebarOpen }: any) {
 
 
+
     return (
         <aside
             className={
-                `col-span-12 lg:col-span-4 xl:col-span-2 text-[18px] sm:text-[25px] bg-blue-700 text-black min-h-screen sm:max-h-screen h-full w-full sticky top-0 z-50 ${isSidebarOpen ? "flex" : "hidden"
+                `col-span-12 lg:col-span-4 xl:col-span-2 text-[18px] sm:text-[25px] bg-white shadow-lg text-black min-h-screen sm:max-h-screen h-full w-full sticky top-0 z-50 ${isSidebarOpen ? "flex" : "hidden"
                 }`
             }
         >
@@ -17,13 +19,15 @@ export default function SettingsAside({ isSidebarOpen, setIsSidebarOpen }: any) 
                 className="relative p-8 w-full"
             >
                 <Link href="/">
-                    <Image
-                        src={logo}
-                        width={110}
-                        height={100}
-                        alt=""
-                        className="object-cover object-center w-20 h-10 sm:w-44 sm:h-20"
-                    />
+                    <div className="bg-blue-700 px-4 rounded-lg">
+                        <Image
+                            src={logo}
+                            width={110}
+                            height={100}
+                            alt=""
+                            className="object-cover object-center w-20 h-10 sm:w-44 sm:h-20"
+                        />
+                    </div>
                 </Link>
 
                 <button
@@ -46,9 +50,18 @@ export default function SettingsAside({ isSidebarOpen, setIsSidebarOpen }: any) 
                     </svg>
                 </button>
 
-                <div className="mt-6 sm:mt-14 md:mt-16 text-white">
-                    Nav area
-                </div>
+                <ul className="mt-6 sm:mt-14 md:mt-16 text-black space-y-4">
+                    <li>
+                        <Link className={`w-full flex items-center gap-3 text-lg  tracking-wide `} href="/settings/account-preferences">
+                            <User className="w-5 h-5" />  Account Preferences
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className="w-full flex items-center gap-3 text-lg tracking-wide" href="/settings/privacy-security">
+                            <Lock className="w-5 h-5 mb-1" />  Privacy & Security
+                        </Link>
+                    </li>
+                </ul>
             </div>
         </aside>
     );

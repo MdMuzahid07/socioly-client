@@ -60,7 +60,7 @@ export default function UserDropdown() {
                                     View Profile
                                 </Button>
                                 <div className="mt-6">
-                                    <div onClick={() => router.push("/settings-privacy")} className="flex items-center w-full h-5 cursor-pointer hover:text-blue-700">
+                                    <div onClick={() => router.push("/settings")} className="flex items-center w-full h-5 cursor-pointer hover:text-blue-700">
                                         <Settings className="w-4 h-4 mr-2" /> <p>Setting & Privacy</p>
                                     </div>
                                     <div className="flex items-center mt-2 w-full h-5 cursor-pointer hover:text-blue-700">

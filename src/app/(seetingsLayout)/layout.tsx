@@ -1,5 +1,6 @@
 "use client";
-import SettingAside from "@/components/settings/Aside";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import SettingAside from "@/components/settings/SettingsAside";
 import SettingHeader from "@/components/settings/Header";
 import React, { useEffect, useState } from "react";
 
@@ -17,7 +18,9 @@ export default function SettingLayout({ children }: { children: React.ReactNode 
     return (
         <>
             {
-                isLoading ? (<p>Loading...</p>) : (
+                isLoading ? (
+                    <LoadingSpinner styles="text-white bg-blue-700 h-screen w-full flex justify-center items-center" />
+                ) : (
                     <>
                         <div className="grid grid-cols-12 h-full w-full relative">
                             <SettingAside
@@ -38,7 +41,7 @@ export default function SettingLayout({ children }: { children: React.ReactNode 
                                 />
                                 <div className="bg-slate-50 text-black">
                                     <div
-                                        className={`sm:px-16 px-6 ${isSidebarOpen ? "max-w-screen-2xl" : "max-w-screen-2xl"
+                                        className={`sm:px-16 px-6 ${isSidebarOpen ? "max-w-4xl" : "max-w-4xl"
                                             } min-h-screen w-full mx-auto `}
                                     >
                                         {children}
