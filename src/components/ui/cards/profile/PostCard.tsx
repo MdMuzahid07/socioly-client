@@ -18,12 +18,12 @@ interface Comment {
 }
 
 export default function PostCard({ styles }: { styles: string }) {
-    const [isLiked, setIsLiked] = useState(false)
-    const [isDisLiked, setIsDisLiked] = useState(false)
-    const [likeCount, setLikeCount] = useState(10)
-    const [disLikeCount, setDisLikeCount] = useState(1)
-    const [showComments, setShowComments] = useState(false)
-    const [newComment, setNewComment] = useState('')
+    const [isLiked, setIsLiked] = useState(false);
+    const [isDisLiked, setIsDisLiked] = useState(false);
+    const [likeCount, setLikeCount] = useState(10);
+    const [disLikeCount, setDisLikeCount] = useState(1);
+    const [showComments, setShowComments] = useState(false);
+    const [newComment, setNewComment] = useState("");
 
     const [comments] = useState<Comment[]>([
         {
