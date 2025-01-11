@@ -8,7 +8,6 @@ import {
 import EmojiPickerDropDown from "@/components/EmojiPickerDropDown";
 import { Card, CardBody, Avatar, Button } from "@nextui-org/react";
 import { ImageIcon, Video, Calendar, Send } from "lucide-react";
-import SYTextArea from "@/components/form/SYTextArea";
 
 export default function PostModal({ styles }: { styles?: string }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
