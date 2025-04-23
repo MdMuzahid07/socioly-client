@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "prepare": "husky",
+    "test": "next lint && tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -32,8 +35,26 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "npm": "^11.3.0",
     "postcss": "^8",
+    "prettier": "^3.5.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "next lint --fix",
+      "prettier --write",
+      "tsc --noEmit --pretty"
+    ],
+    "*.{css,scss}": [
+      "prettier --write"
+    ],
+    "*.{json,md,mdx}": [
+      "prettier --write"
+    ]
   }
 }
