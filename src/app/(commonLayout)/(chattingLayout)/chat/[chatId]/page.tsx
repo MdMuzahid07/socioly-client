@@ -53,6 +53,46 @@ const messages: IMessage[] = [
     receiverId: 5243,
     timestamp: "2025-04-24T10:19:00Z",
   },
+  {
+    _id: 458,
+    text: "Do you need anything else before we meet?",
+    sender: "me",
+    senderId: 245245,
+    receiverId: 5243,
+    timestamp: "2025-04-24T10:20:15Z",
+  },
+  {
+    _id: 459,
+    text: "Hmm, maybe a printout of the last month’s report?",
+    sender: "other",
+    senderId: 5243,
+    receiverId: 245245,
+    timestamp: "2025-04-24T10:21:10Z",
+  },
+  {
+    _id: 460,
+    text: "Got it. I'll bring a couple of copies.",
+    sender: "me",
+    senderId: 245245,
+    receiverId: 5243,
+    timestamp: "2025-04-24T10:22:05Z",
+  },
+  {
+    _id: 461,
+    text: "Awesome. You're the best!",
+    sender: "other",
+    senderId: 5243,
+    receiverId: 245245,
+    timestamp: "2025-04-24T10:22:45Z",
+  },
+  {
+    _id: 462,
+    text: "Haha, don’t mention it. 😄",
+    sender: "me",
+    senderId: 245245,
+    receiverId: 5243,
+    timestamp: "2025-04-24T10:23:30Z",
+  },
 ];
 
 export default function ChatInbox() {
