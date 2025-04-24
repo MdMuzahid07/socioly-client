@@ -45,15 +45,11 @@
     "typescript": "^5"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "next lint --fix",
-      "prettier --write",
-      "tsc --noEmit --pretty"
-    ],
+     "src/**/*.{js,jsx,ts,tsx}": [
+    "eslint --fix --max-warnings=0",
+    "prettier --write"
+  ],
     "*.{css,scss}": [
-      "prettier --write"
-    ],
-    "*.{json,md,mdx}": [
       "prettier --write"
     ]
   }

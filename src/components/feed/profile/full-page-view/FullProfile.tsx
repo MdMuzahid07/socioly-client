@@ -1,12 +1,12 @@
-import React from 'react'
-import ProfileHeader from './ProfileHeader'
-import ProfileTabs from './ProfileTabs'
+import React from "react";
+import ProfileHeader from "./ProfileHeader";
+import ProfileTabs from "./ProfileTabs";
 
 export default function FullProfile() {
-    return (
-        <section className="col-span-9 pb-32 bg-white min-h-screen rounded-t-lg drop-shadow-sm border overflow-hidden">
-            <ProfileHeader />
-            <ProfileTabs />
-        </section>
-    )
+  return (
+    <section className="col-span-9 min-h-screen overflow-hidden rounded-t-lg border bg-white pb-32 drop-shadow-sm">
+      <ProfileHeader />
+      <ProfileTabs />
+    </section>
+  );
 }

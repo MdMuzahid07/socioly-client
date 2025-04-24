@@ -1,10 +1,6 @@
 .next
 node_modules
 dist
-out
 *.md
 *.svg
 *.ico
-*.json
-*.yaml
-*.xml
