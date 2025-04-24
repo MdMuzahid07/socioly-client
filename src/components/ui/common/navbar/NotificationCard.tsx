@@ -13,13 +13,11 @@ export default function NotificationCard() {
             isBordered
             radius="full"
             size="sm"
-            src="https://nextui.org/avatars/avatar-1.png"
+            src="https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?t=st=1735653575~exp=1735657175~hmac=692eb217b46f3a8d64c255c1106bc86e5ee72755f115570662280c586f35a0a5&w=826"
           />
           <div className="flex flex-col items-start justify-center gap-1">
-            <h4 className="text-sm leading-none text-default-600">
-              Zoey Lang send you a connect request
-            </h4>
-            <h5 className="text-small tracking-tight text-default-400">@zoeylang</h5>
+            <h4 className="text-sm leading-none text-default-600">Md send you a connect request</h4>
+            <h5 className="text-small tracking-tight text-default-400">@Md</h5>
           </div>
         </div>
       </CardHeader>

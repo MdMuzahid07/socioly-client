@@ -110,8 +110,8 @@ export default function PostCard({ styles }: { styles: string }) {
               className="h-10 w-10"
             />
             <div>
-              <p className="font-semibold">Alex Morgan</p>
-              <p className="text-small text-default-500">Frontend Developer at TechCorp</p>
+              <p className="font-semibold">Md.</p>
+              <p className="text-small text-default-500">Full Stack Developer</p>
               <p className="text-tiny text-default-400">2h • 🌏</p>
             </div>
           </div>

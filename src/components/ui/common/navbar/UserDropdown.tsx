@@ -25,7 +25,7 @@ export default function UserDropdown() {
         isBordered
         as="button"
         className="h-6 w-6 transition-transform sm:h-8 sm:w-8"
-        src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+        src="https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?t=st=1735653575~exp=1735657175~hmac=692eb217b46f3a8d64c255c1106bc86e5ee72755f115570662280c586f35a0a5&w=826"
       />
       {isDropdownOpen && (
         <motion.div
@@ -40,7 +40,7 @@ export default function UserDropdown() {
                 <Avatar
                   as="button"
                   className="h-11 w-11 transition-transform"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                  src="https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?t=st=1735653575~exp=1735657175~hmac=692eb217b46f3a8d64c255c1106bc86e5ee72755f115570662280c586f35a0a5&w=826"
                 />
                 <div>
                   <h1 className="text-lg font-bold">John Doe</h1>
