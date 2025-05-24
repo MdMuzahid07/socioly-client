@@ -1,4 +1,3 @@
-import EmojiPickerDropDown from "@/components/EmojiPickerDropDown";
 import PostModal from "@/components/modals/post/PostModal";
 import { Card, CardBody, Avatar, Button } from "@nextui-org/react";
 import { ImageIcon, Video, Calendar, Send } from "lucide-react";
@@ -40,7 +39,6 @@ export default function CreatePostInput({ styles }: { styles: string }) {
           >
             Schedule
           </Button>
-          <EmojiPickerDropDown />
         </section>
       </CardBody>
     </Card>

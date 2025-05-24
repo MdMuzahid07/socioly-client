@@ -1,5 +1,10 @@
-import { Modal, ModalContent, ModalBody, useDisclosure, Input } from "@nextui-org/react";
-import EmojiPickerDropDown from "@/components/EmojiPickerDropDown";
+import {
+  Modal,
+  ModalContent,
+  ModalBody,
+  useDisclosure,
+  Input,
+} from "@nextui-org/react";
 import { Card, CardBody, Avatar, Button } from "@nextui-org/react";
 import { ImageIcon, Video, Calendar, Send } from "lucide-react";
 
@@ -9,7 +14,11 @@ export default function PostModal({ styles }: { styles?: string }) {
   return (
     <>
       <span className="w-full cursor-pointer" onClick={onOpen}>
-        <Input variant="underlined" placeholder="What's happening?" className="w-full flex-1" />
+        <Input
+          variant="underlined"
+          placeholder="What's happening?"
+          className="w-full flex-1"
+        />
       </span>
       <Modal
         backdrop="blur"
@@ -67,7 +76,6 @@ export default function PostModal({ styles }: { styles?: string }) {
                       >
                         Schedule
                       </Button>
-                      <EmojiPickerDropDown />
                     </section>
                   </section>
                 </CardBody>
