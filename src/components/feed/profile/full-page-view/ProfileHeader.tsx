@@ -3,7 +3,7 @@ import ProfileEdit from "@/components/modals/Profile/ProfileEdit";
 import { Avatar } from "@nextui-org/avatar";
 import { Image, useDisclosure } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { MapPin, Calendar, LinkIcon, BadgeCheck } from "lucide-react";
+import { BadgeCheck, Calendar, LinkIcon, MapPin } from "lucide-react";
 
 export default function ProfileHeader() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -43,7 +43,11 @@ export default function ProfileHeader() {
 
           {/* Profile Actions */}
           <div className="flex justify-end py-3">
-            <ProfileEdit isOpen={isOpen} onOpen={onOpen} onOpenChange={onOpenChange} />
+            <ProfileEdit
+              isOpen={isOpen}
+              onOpen={onOpen}
+              onOpenChange={onOpenChange}
+            />
           </div>
 
           {/* Profile Info */}
@@ -78,10 +82,12 @@ export default function ProfileHeader() {
             </div>
             <div className="mt-2 flex gap-4">
               <p>
-                <strong>1,234</strong> <span className="text-gray-500">Following</span>
+                <strong>1,234</strong>{" "}
+                <span className="text-gray-500">Following</span>
               </p>
               <p>
-                <strong>5,678</strong> <span className="text-gray-500">Followers</span>
+                <strong>5,678</strong>{" "}
+                <span className="text-gray-500">Followers</span>
               </p>
             </div>
           </motion.div>

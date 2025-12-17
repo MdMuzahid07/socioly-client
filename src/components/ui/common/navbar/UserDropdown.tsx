@@ -50,6 +50,7 @@ export default function UserDropdown() {
                 </div>
               </div>
               <Button
+                onPress={() => router.push("/profile/8745")}
                 size="sm"
                 className="text-md w-full rounded-full bg-primary font-medium text-primary-foreground"
               >
