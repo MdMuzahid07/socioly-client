@@ -3,7 +3,7 @@ import YouMayLikeToConnect from "./YouMayLikeToConnect";
 
 export default function Suggestions() {
   return (
-    <aside className="sticky top-20 max-h-[80vh] space-y-6 drop-shadow-sm md:col-span-3">
+    <aside className="sticky top-20 hidden max-h-[80vh] space-y-6 drop-shadow-sm md:col-span-3 md:block">
       <YouMayLikeToConnect />
       <SuggestPages />
     </aside>

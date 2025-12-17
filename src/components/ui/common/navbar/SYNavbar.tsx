@@ -4,11 +4,11 @@ import { navLinks } from "@/constants/NavItems";
 import { MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import UserDropdown from "./UserDropdown";
+import Container from "../Container";
 import NotificationDropDown from "./NotificationDropDown";
 import SearchBar from "./SearchBar";
-import MobileUserSidebar from "./MobileUserSidebar";
-import Container from "../Container";
+import UnifiedMobileSidebar from "./UnifiedMobileSidebar";
+import UserDropdown from "./UserDropdown";
 
 const Navbar = () => {
   // const [isMobileNavOpen, setIsMobileAppOpen] = useState(false);
@@ -34,7 +34,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3 sm:gap-5">
             <SearchBar />
 
-            <ul>
+            <ul className="hidden items-center gap-2 md:flex">
               {navLinks?.map((nav) => (
                 <li key={nav?.title}>
                   <Link
@@ -53,11 +53,20 @@ const Navbar = () => {
                 href="/chat"
                 className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 hover:bg-white sm:h-9 sm:w-9"
               >
-                <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
+                <div className="relative">
+                  <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
+                  {/* Can add badge here later */}
+                </div>
               </Link>
               <NotificationDropDown />
-              <UserDropdown />
-              <MobileUserSidebar />
+
+              {/* Desktop User Dropdown */}
+              <div className="hidden sm:block">
+                <UserDropdown />
+              </div>
+
+              {/* Mobile Unified Sidebar (Avatar Trigger) */}
+              <UnifiedMobileSidebar />
             </div>
           </div>
           {/* // desktop menu end =================>>>>>>>>>>>>>>>>> */}

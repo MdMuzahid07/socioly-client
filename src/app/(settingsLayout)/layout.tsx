@@ -1,10 +1,14 @@
 "use client";
 import LoadingSpinner from "@/components/LoadingSpinner";
-import SettingAside from "@/components/settings/SettingsAside";
 import SettingHeader from "@/components/settings/Header";
+import SettingAside from "@/components/settings/SettingsAside";
 import React, { useEffect, useState } from "react";
 
-export default function SettingLayout({ children }: { children: React.ReactNode }) {
+export default function SettingLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,14 +25,22 @@ export default function SettingLayout({ children }: { children: React.ReactNode 
       ) : (
         <>
           <div className="relative grid h-full w-full grid-cols-12">
-            <SettingAside isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+            <SettingAside
+              isSidebarOpen={isSidebarOpen}
+              setIsSidebarOpen={setIsSidebarOpen}
+            />
             <div
               className={`${
-                isSidebarOpen ? "col-span-12 lg:col-span-8 xl:col-span-10" : "col-span-12"
+                isSidebarOpen
+                  ? "col-span-12 lg:col-span-8 xl:col-span-10"
+                  : "col-span-12"
               }`}
             >
-              <SettingHeader setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} />
-              <div className="bg-slate-50 text-black">
+              <SettingHeader
+                setIsSidebarOpen={setIsSidebarOpen}
+                isSidebarOpen={isSidebarOpen}
+              />
+              <div className="bg-background text-foreground">
                 <div
                   className={`px-6 sm:px-16 ${
                     isSidebarOpen ? "max-w-4xl" : "max-w-4xl"

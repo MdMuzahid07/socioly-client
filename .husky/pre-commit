@@ -1,2 +1,2 @@
-yarn test
-yarn lint-staged
+node scripts/precommit.mjs
+

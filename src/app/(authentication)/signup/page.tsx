@@ -9,9 +9,17 @@ import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { useAuth } from "@/context/AuthContext";
+
 export default function SignUP() {
+  const { signup, isLoading } = useAuth();
+
   const onSubmit = async (data: any) => {
-    console.log(data);
+    try {
+      await signup(data["full-name"], data.email, data.password);
+    } catch (error) {
+      // Handled by context
+    }
   };
 
   return (
@@ -34,11 +42,29 @@ export default function SignUP() {
       >
         <div className="w-full max-w-lg rounded-2xl p-4 py-10 md:p-8 md:py-16">
           <h1 className="text-Black mb-8 text-4xl font-bold">Create Account</h1>
-          <SYForm onSubmit={onSubmit} resolver={zodResolver(loginValidationSchema)}>
+          <SYForm
+            onSubmit={onSubmit}
+            resolver={zodResolver(loginValidationSchema)}
+          >
             <div className="space-y-6">
-              <SYInput label="Full Name" type="text" name="full-name" radius="full" />
-              <SYInput label="Email Address" type="email" name="email" radius="full" />
-              <SYInput label="Password" type="password" name="password" radius="full" />
+              <SYInput
+                label="Full Name"
+                type="text"
+                name="full-name"
+                radius="full"
+              />
+              <SYInput
+                label="Email Address"
+                type="email"
+                name="email"
+                radius="full"
+              />
+              <SYInput
+                label="Password"
+                type="password"
+                name="password"
+                radius="full"
+              />
               <div className="flex items-center justify-between text-sm font-bold text-blue-700">
                 <p>
                   <span className="text-black">Already have an account? </span>
@@ -47,6 +73,7 @@ export default function SignUP() {
               </div>
               <Button
                 type="submit"
+                isLoading={isLoading}
                 className="w-full rounded-full bg-blue-700 py-7 text-xl text-white"
               >
                 SignUp

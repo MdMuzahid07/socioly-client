@@ -1,47 +1,90 @@
 "use client";
 
-import SCEmojiPickerDropDown from "@/components/SCEmojiPickerDropDown";
-import { Button } from "@nextui-org/react";
-import { Plus, Send, Smile } from "lucide-react";
+import { Button, Textarea, Tooltip } from "@nextui-org/react";
+import { Image as ImageIcon, Paperclip, Plus, Send, Smile } from "lucide-react";
 import { useState } from "react";
 
 export default function ChatInput({ styles }: { styles: string }) {
-  const [emoji, setEmoji] = useState<string | null>(null);
-  const [dropEmojiPicker, setDropEmojiPicker] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSend = () => {
+    if (!message.trim()) return;
+    console.log("Sending:", message);
+    setMessage("");
+  };
 
   return (
-    <div className={`${styles} relative flex items-center gap-3`}>
-      <div className="flex items-center gap-3">
-        <Button isIconOnly className="rounded-full border" size="sm">
+    <div
+      className={`${styles} relative flex items-end gap-2 border-t border-divider bg-content1/80 p-3 backdrop-blur-md`}
+    >
+      <div className="flex items-center gap-1 pb-1">
+        <Button
+          isIconOnly
+          variant="light"
+          radius="full"
+          size="sm"
+          className="text-default-500 hover:text-default-700"
+        >
           <Plus className="h-5 w-5" />
         </Button>
         <Button
-          onPress={() => setDropEmojiPicker(!dropEmojiPicker)}
           isIconOnly
-          className="rounded-full"
+          variant="light"
+          radius="full"
           size="sm"
-          color="warning"
+          className="text-default-500 hover:text-default-700"
         >
-          <Smile className="h-full w-full text-white" />
+          <ImageIcon className="h-5 w-5" />
+        </Button>
+        <Button
+          isIconOnly
+          variant="light"
+          radius="full"
+          size="sm"
+          className="text-default-500 hover:text-default-700"
+        >
+          <Paperclip className="h-5 w-5" />
         </Button>
       </div>
-      <div className="flex w-full items-center gap-3">
-        <input
-          type="text"
-          placeholder="Type a message"
-          onChange={(e) => setEmoji(e.target.value)}
-          value={emoji || ""}
-          className="w-full rounded-full border-2 border-gray-200 px-4 py-1 focus:border-primary focus:outline-none"
+
+      <div className="relative flex-1">
+        <Textarea
+          minRows={1}
+          maxRows={4}
+          placeholder="Type a message..."
+          value={message}
+          onValueChange={setMessage}
+          radius="full"
+          variant="flat"
+          classNames={{
+            inputWrapper:
+              "bg-default-100 dark:bg-default-50 shadow-none pr-10 hover:bg-default-200 dark:hover:bg-default-100 transition-colors",
+            input: "py-2.5 text-medium",
+          }}
         />
-        <Button isIconOnly className="rounded-full bg-blue-700" size="sm">
-          <Send className="h-5 w-5 text-white" />
-        </Button>
+        <Tooltip content="Emoji picker coming soon" placement="top">
+          <Button
+            isIconOnly
+            className="absolute bottom-1.5 right-2 z-10 text-default-400 hover:text-default-600"
+            size="sm"
+            variant="light"
+            radius="full"
+            isDisabled
+          >
+            <Smile className="h-5 w-5" />
+          </Button>
+        </Tooltip>
       </div>
-      <SCEmojiPickerDropDown
-        dropEmojiPicker={dropEmojiPicker}
-        setDropEmojiPicker={setDropEmojiPicker}
-        setEmoji={setEmoji}
-      />
+
+      <Button
+        isIconOnly
+        className="mb-0.5 rounded-full bg-primary pb-0 text-white shadow-lg shadow-primary/20"
+        size="md"
+        onPress={handleSend}
+        isDisabled={!message.trim()}
+      >
+        <Send className="ml-0.5 h-5 w-5" />
+      </Button>
     </div>
   );
 }

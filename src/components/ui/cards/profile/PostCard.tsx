@@ -1,294 +1,238 @@
 "use client";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/context/AuthContext";
+import { useLikePostMutation } from "@/lib/store/features/api/apiSlice";
+import { Post } from "@/types";
 import {
   Avatar,
   Button,
   Card,
   CardBody,
   CardFooter,
-  Input,
   Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
   DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+  Input,
+  Image as NextImage,
 } from "@nextui-org/react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
+  Edit,
+  Heart,
   MessageCircle,
   MoreHorizontal,
   Send,
-  Edit,
   Trash,
-  UserMinus,
-  ThumbsDown,
-  ThumbsUp,
 } from "lucide-react";
-import Image from "next/image";
+import { useState } from "react";
 import ShareDropDown from "./ShareDropDown";
 
-interface Comment {
-  id: number;
-  user: {
-    name: string;
-    avatar: string;
-    role: string;
-  };
-  content: string;
-  timestamp: string;
+interface PostCardProps {
+  post: Post;
+  className?: string;
 }
 
-export default function PostCard({ styles }: { styles: string }) {
-  const [isLiked, setIsLiked] = useState(false);
-  const [isDisLiked, setIsDisLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(10);
-  const [disLikeCount, setDisLikeCount] = useState(1);
+export default function PostCard({ post, className }: PostCardProps) {
+  const { user } = useAuth(); // If needed for ownership checks
+  const [isLiked, setIsLiked] = useState(post.isLikedByCurrentUser);
+  const [likeCount, setLikeCount] = useState(post.likesCount);
   const [showComments, setShowComments] = useState(false);
   const [newComment, setNewComment] = useState("");
 
-  const [comments] = useState<Comment[]>([
-    {
-      id: 1,
-      user: {
-        name: "Sarah Chen",
-        avatar:
-          "https://img.freepik.com/free-photo/view-3d-space-rocket-model_23-2151113269.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid",
-        role: "Product Designer",
-      },
-      content: "This is really insightful! Thanks for sharing your experience.",
-      timestamp: "2h",
-    },
-    {
-      id: 2,
-      user: {
-        name: "Mark Thompson",
-        avatar:
-          "https://img.freepik.com/free-photo/view-3d-space-rocket-model_23-2151113269.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid",
-        role: "Senior Developer",
-      },
-      content: "Great points! Would love to hear more about your implementation approach.",
-      timestamp: "4h",
-    },
-  ]);
+  const [likePost] = useLikePostMutation();
 
-  const handleLike = () => {
-    setIsLiked(!isLiked);
-    setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
+  const handleLike = async () => {
+    // Optimistic UI update
+    const newIsLiked = !isLiked;
+    setIsLiked(newIsLiked);
+    setLikeCount(newIsLiked ? likeCount + 1 : likeCount - 1);
+
+    try {
+      await likePost(post.id).unwrap();
+    } catch (error) {
+      // Revert on failure
+      setIsLiked(!newIsLiked);
+      setLikeCount(newIsLiked ? likeCount - 1 : likeCount + 1);
+      console.error("Failed to like post", error);
+    }
   };
 
-  const handleDislike = () => {
-    setIsDisLiked(!isDisLiked);
-    setDisLikeCount(isDisLiked ? disLikeCount - 1 : disLikeCount + 1);
-  };
+  const timeAgo = (dateStr: string) => {
+    // Basic date parsing safely
+    let date = new Date();
+    try {
+      date = new Date(dateStr);
+    } catch (e) {
+      return "now";
+    }
 
-  const handleComment = () => {
-    setShowComments(!showComments);
-  };
+    const now = new Date();
+    const diff = Math.floor((now.getTime() - date.getTime()) / 1000); // seconds
 
-  const handleDelete = () => {
-    console.log("Delete post");
-    // Implement delete functionality here
-  };
-
-  const handleEdit = () => {
-    console.log("Edit post");
-    // Implement edit functionality here
-  };
-
-  const handleUnfollow = () => {
-    console.log("Unfollow user");
-    // Implement unfollow functionality here
+    if (diff < 60) return `${diff}s`;
+    if (diff < 3600) return `${Math.floor(diff / 60)}m`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)}h`;
+    return `${Math.floor(diff / 86400)}d`;
   };
 
   return (
-    <Card className={`mb-10 w-full p-4 shadow-none ${styles}`}>
-      <CardBody className="gap-4 p-0 text-black">
-        {/* Post Header section */}
-        <section className="flex items-start justify-between">
-          <div className="flex gap-3">
-            <Avatar
-              src="https://img.freepik.com/free-photo/view-3d-space-rocket-model_23-2151113269.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid"
-              className="h-10 w-10"
-            />
-            <div>
-              <p className="font-semibold">Md.</p>
-              <p className="text-small text-default-500">Full Stack Developer</p>
-              <p className="text-tiny text-default-400">2h • 🌏</p>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
+      <Card className={`w-full ${className || ""}`}>
+        <CardBody className="gap-4 p-4">
+          <section className="flex items-start justify-between">
+            <div className="flex gap-3">
+              <Avatar
+                src={post.user.avatar}
+                className="h-10 w-10 cursor-pointer"
+                isBordered
+              />
+              <div>
+                <p className="cursor-pointer text-medium font-semibold hover:underline">
+                  {post.user.name}
+                </p>
+                <p className="text-small text-default-500">
+                  {timeAgo(post.createdAt)} • 🌏
+                </p>
+              </div>
             </div>
-          </div>
-          <Dropdown placement="bottom-end" className="rounded-lg text-black">
-            <DropdownTrigger>
-              <Button isIconOnly variant="light" className="text-default-400">
-                <MoreHorizontal className="h-5 w-5" />
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu aria-label="Post actions">
-              <DropdownItem
-                key="edit"
-                startContent={<Edit className="h-4 w-4" />}
-                onPress={handleEdit}
-              >
-                Edit post
-              </DropdownItem>
-              <DropdownItem
-                key="delete"
-                className="text-danger"
-                color="danger"
-                startContent={<Trash className="h-4 w-4" />}
-                onPress={handleDelete}
-              >
-                Delete post
-              </DropdownItem>
-              <DropdownItem
-                key="unfollow"
-                startContent={<UserMinus className="h-4 w-4" />}
-                onPress={handleUnfollow}
-              >
-                Unfollow Alex Morgan
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </section>
+            <Dropdown placement="bottom-end">
+              <DropdownTrigger>
+                <Button
+                  isIconOnly
+                  variant="light"
+                  size="sm"
+                  className="text-default-400"
+                >
+                  <MoreHorizontal className="h-5 w-5" />
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Post actions">
+                <DropdownItem
+                  key="edit"
+                  startContent={<Edit className="h-4 w-4" />}
+                >
+                  Edit
+                </DropdownItem>
+                <DropdownItem
+                  key="delete"
+                  className="text-danger"
+                  color="danger"
+                  startContent={<Trash className="h-4 w-4" />}
+                >
+                  Delete
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </section>
 
-        {/* Post Content section */}
-        <section className="space-y-4">
-          <p className="text-default-700">
-            Just wrapped up an exciting project using Next.js 13 and Tailwind CSS. The new App
-            Router features are game-changing! Here a quick overview of what we built... 🚀
-          </p>
-          <Image
-            src="https://img.freepik.com/free-photo/view-3d-space-rocket-model_23-2151113269.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid"
-            alt="Project preview"
-            height={300}
-            width={600}
-            layout="responsive"
-            className="rounded-lg object-cover object-center"
-          />
-        </section>
+          <section className="space-y-3">
+            <p className="whitespace-pre-wrap text-medium leading-relaxed text-default-700">
+              {post.content}
+            </p>
+            {post.images && post.images.length > 0 && (
+              <div className="mt-2 overflow-hidden rounded-xl">
+                {/* Using NextUI Image for better integration or Next/Image */}
+                <NextImage
+                  src={post.images[0]}
+                  alt="Post image"
+                  className="h-full max-h-[500px] w-full object-cover"
+                />
+              </div>
+            )}
+          </section>
 
-        {/* Engagement Stats, like, dislike */}
-        <section className="flex items-center justify-between pt-2 text-small text-default-400">
-          <div className="flex items-center gap-4">
-            <motion.div animate={{ scale: isLiked ? [1, 1.2, 1] : 1 }}>
+          <section className="mt-2 flex items-center justify-between border-t border-divider pt-2 text-small text-default-400">
+            <div className="flex gap-4">
               <span>{likeCount} Likes</span>
-            </motion.div>
-            <motion.div animate={{ scale: isDisLiked ? [1, 1.2, 1] : 1 }}>
-              <span>{disLikeCount} DisLikes</span>
-            </motion.div>
-          </div>
-          <div className="flex gap-4">
-            <span>{comments.length} Comments</span>
-            <span>12 Shares</span>
-          </div>
-        </section>
-      </CardBody>
+              <span>{post.commentsCount} Comments</span>
+            </div>
+          </section>
+        </CardBody>
 
-      {/* Action Buttons, or footer section */}
-      <CardFooter className="border-t border-default-200">
-        <div className="flex w-full gap-1">
+        <CardFooter className="gap-2 pt-0">
           <Button
             variant="light"
-            className="flex-1"
-            startContent={
-              <ThumbsUp className={`h-5 w-5 ${isLiked ? "fill-blue-700 text-blue-700" : ""}`} />
-            }
+            className="flex-1 data-[hover=true]:bg-default-100"
             onPress={handleLike}
-          >
-            Like
-          </Button>
-          <Button
-            variant="light"
-            className="flex-1"
             startContent={
-              <ThumbsDown className={`h-5 w-5 ${isDisLiked ? "fill-red-500 text-red-500" : ""}`} />
+              <motion.div
+                animate={{ scale: isLiked ? 1.2 : 1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <Heart
+                  className={`h-5 w-5 ${isLiked ? "fill-red-500 text-red-500" : "text-default-500"}`}
+                />
+              </motion.div>
             }
-            onPress={handleDislike}
           >
-            Like
+            <span
+              className={
+                isLiked ? "font-medium text-red-500" : "text-default-500"
+              }
+            >
+              Like
+            </span>
           </Button>
+
           <Button
             variant="light"
-            className="flex-1"
+            className="flex-1 text-default-500 data-[hover=true]:bg-default-100"
+            onPress={() => setShowComments(!showComments)}
             startContent={<MessageCircle className="h-5 w-5" />}
-            onPress={handleComment}
           >
             Comment
           </Button>
-          <ShareDropDown />
-        </div>
-      </CardFooter>
 
-      {/* Comments Section */}
-      <AnimatePresence>
-        {showComments && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="border-t border-default-200 text-black"
-          >
-            <section className="space-y-4 p-4">
-              {/* Comment Input */}
-              <section className="flex items-center gap-3">
-                <Avatar
-                  src="https://img.freepik.com/free-photo/view-3d-space-rocket-model_23-2151113269.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid"
-                  className="h-8 w-8"
-                />
-                <div className="flex flex-1 gap-2">
+          <div className="flex flex-1 justify-center">
+            <ShareDropDown />
+          </div>
+        </CardFooter>
+
+        <AnimatePresence>
+          {showComments && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden"
+            >
+              <div className="border-t border-divider bg-default-50 p-4">
+                <div className="mb-4 flex gap-2">
                   <Input
-                    placeholder="Add a comment..."
+                    placeholder="Write a comment..."
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
-                    className="flex-1"
                     size="sm"
+                    radius="full"
+                    classNames={{
+                      inputWrapper: "bg-white dark:bg-default-100 shadow-sm",
+                    }}
+                    endContent={
+                      <Button
+                        isIconOnly
+                        size="sm"
+                        variant="light"
+                        color="primary"
+                        isDisabled={!newComment}
+                      >
+                        <Send size={16} />
+                      </Button>
+                    }
                   />
-                  <Button
-                    isIconOnly
-                    variant="light"
-                    isDisabled={!newComment}
-                    className="text-primary"
-                  >
-                    <Send className="h-4 w-4" />
-                  </Button>
                 </div>
-              </section>
-
-              {/* Comments List */}
-              <section className="space-y-4">
-                {comments.map((comment) => (
-                  <motion.div
-                    key={comment.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex gap-3"
-                  >
-                    <Avatar src={comment.user.avatar} className="h-8 w-8" />
-                    <section className="flex-1">
-                      <div className="rounded-lg bg-default-100 p-3">
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <p className="text-small font-semibold">{comment.user.name}</p>
-                            <p className="text-tiny text-default-500">{comment.user.role}</p>
-                          </div>
-                          <span className="text-tiny text-default-400">{comment.timestamp}</span>
-                        </div>
-                        <p className="mt-1 text-small">{comment.content}</p>
-                      </div>
-                      <div className="ml-3 mt-1 flex gap-4">
-                        <Button size="sm" variant="light" className="text-tiny text-default-500">
-                          Like
-                        </Button>
-                        <Button size="sm" variant="light" className="text-tiny text-default-500">
-                          Reply
-                        </Button>
-                      </div>
-                    </section>
-                  </motion.div>
-                ))}
-              </section>
-            </section>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </Card>
+                {/* Placeholder for comments list */}
+                <p className="py-2 text-center text-tiny text-default-400">
+                  No comments yet. Be the first!
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Card>
+    </motion.div>
   );
 }

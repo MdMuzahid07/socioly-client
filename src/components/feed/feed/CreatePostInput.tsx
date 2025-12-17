@@ -1,45 +1,93 @@
-import PostModal from "@/components/modals/post/PostModal";
-import { Card, CardBody, Avatar, Button } from "@nextui-org/react";
-import { ImageIcon, Video, Calendar, Send } from "lucide-react";
+"use client";
+import { useAuth } from "@/context/AuthContext";
+import { useCreatePostMutation } from "@/lib/store/features/api/apiSlice";
+import { Avatar, Button, Card, CardBody, Input } from "@nextui-org/react";
+import { Image, Send, Smile, Video } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
-export default function CreatePostInput({ styles }: { styles: string }) {
+interface Props {
+  className?: string; // Changing styles to className for standard pattern, or support both if legacy needed, but className is better
+}
+
+export default function CreatePostInput({ className }: Props = {}) {
+  const { user } = useAuth();
+  const [content, setContent] = useState("");
+  const [createPost, { isLoading }] = useCreatePostMutation();
+
+  const handleSubmit = async () => {
+    if (!content.trim()) return;
+
+    try {
+      await createPost({ content }).unwrap();
+      setContent("");
+      toast.success("Post created successfully!");
+    } catch (error) {
+      toast.error("Failed to create post");
+    }
+  };
+
   return (
-    <Card className={`${styles} p-0`}>
-      <CardBody>
-        <section className="relative flex gap-3">
-          <Avatar
-            className="h-8 w-8"
-            src="https://img.freepik.com/free-photo/rocket-flying-through-space_23-2150378594.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid"
-            size="md"
+    <Card className={`w-full ${className || ""}`}>
+      <CardBody className="gap-4">
+        <div className="flex gap-4">
+          <Avatar src={user?.avatar} />
+          <Input
+            placeholder={`What's on your mind, ${user?.name}?`}
+            value={content}
+            onValueChange={setContent}
+            variant="flat"
+            size="lg"
+            classNames={{
+              inputWrapper: "bg-default-100 hover:bg-default-200",
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSubmit();
+              }
+            }}
           />
-          <PostModal />
-          <button className="absolute bottom-3 right-0 rounded-full">
-            <Send className="h-4 w-4" />
-          </button>
-        </section>
-        <section className="mt-4 flex justify-between">
+        </div>
+
+        <div className="flex items-center justify-between pl-14">
+          <div className="flex gap-2">
+            <Button
+              isIconOnly
+              variant="light"
+              size="sm"
+              className="text-default-500"
+            >
+              <Image size={20} />
+            </Button>
+            <Button
+              isIconOnly
+              variant="light"
+              size="sm"
+              className="text-default-500"
+            >
+              <Video size={20} />
+            </Button>
+            <Button
+              isIconOnly
+              variant="light"
+              size="sm"
+              className="text-default-500"
+            >
+              <Smile size={20} />
+            </Button>
+          </div>
+
           <Button
-            className="rounded-full"
-            variant="light"
-            startContent={<ImageIcon className="h-4 w-4" />}
+            color="primary"
+            endContent={<Send size={18} />}
+            onPress={handleSubmit}
+            isLoading={isLoading}
+            isDisabled={!content.trim()}
           >
-            Photo
+            Post
           </Button>
-          <Button
-            className="rounded-full"
-            variant="light"
-            startContent={<Video className="h-4 w-4" />}
-          >
-            Video
-          </Button>
-          <Button
-            className="rounded-full"
-            variant="light"
-            startContent={<Calendar className="h-4 w-4" />}
-          >
-            Schedule
-          </Button>
-        </section>
+        </div>
       </CardBody>
     </Card>
   );

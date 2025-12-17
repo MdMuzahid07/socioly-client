@@ -1,10 +1,26 @@
-import React from "react";
+"use client";
+import { Button } from "@nextui-org/react";
+import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function ChatHeader({ styles }: { styles: string }) {
+  const router = useRouter();
+
   return (
     <div className={`${styles} flex items-center justify-between`}>
-      <div className="flex cursor-pointer items-center justify-between">
+      <div className="flex cursor-pointer items-center justify-between gap-2">
+        {/* Back button - visible only on mobile */}
+        <Button
+          isIconOnly
+          variant="light"
+          size="sm"
+          className="text-default-600 sm:hidden"
+          onPress={() => router.push("/chat")}
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Button>
+
         <div className="flex items-center gap-3">
           <div className="relative h-8 w-8 rounded-full">
             <Image

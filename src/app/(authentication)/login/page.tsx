@@ -9,9 +9,17 @@ import { Button } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { useAuth } from "@/context/AuthContext";
+
 export default function Login() {
+  const { login, isLoading } = useAuth();
+
   const onSubmit = async (data: any) => {
-    console.log(data);
+    try {
+      await login(data.email, data.password);
+    } catch (e) {
+      // Handled by context
+    }
   };
 
   return (
@@ -35,10 +43,18 @@ export default function Login() {
         <div className="w-full max-w-lg rounded-2xl p-4 py-10 md:p-8 md:py-16">
           <h1 className="mb-8 text-4xl font-bold text-blue-700">Login Here</h1>
 
-          <SYForm onSubmit={onSubmit} resolver={zodResolver(loginValidationSchema)}>
+          <SYForm
+            onSubmit={onSubmit}
+            resolver={zodResolver(loginValidationSchema)}
+          >
             <div className="space-y-6">
               <SYInput label="Email" type="email" name="email" radius="full" />
-              <SYInput label="Password" type="password" name="password" radius="full" />
+              <SYInput
+                label="Password"
+                type="password"
+                name="password"
+                radius="full"
+              />
               <div className="flex items-center justify-between text-sm font-bold text-blue-700">
                 <p>
                   <Link href="/signup">Create an account</Link>
@@ -49,6 +65,7 @@ export default function Login() {
               </div>
               <Button
                 type="submit"
+                isLoading={isLoading}
                 className="w-full rounded-full bg-blue-700 py-7 text-xl text-white"
               >
                 Login

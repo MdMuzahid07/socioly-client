@@ -1,9 +1,8 @@
 "use client";
-import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { connections } from "../cards/profile/ConnectsCard";
 import { useRouter } from "next/navigation";
+import { connections } from "../cards/profile/ConnectsCard";
 
 export default function ChatBoxAside({ styles }: { styles: string }) {
   const router = useRouter();
@@ -15,11 +14,13 @@ export default function ChatBoxAside({ styles }: { styles: string }) {
 
   return (
     <section
-      className={`sticky top-16 h-full max-h-screen w-full border bg-blue-100 p-6 drop-shadow-sm ${styles}`}
+      className={`sticky top-16 h-full max-h-screen w-full border-r border-default-200 bg-content1 p-6 drop-shadow-sm ${styles}`}
     >
-      <div className="mb-10 border-b border-black pb-4">
-        <h2 className="text-lg font-semibold text-blue-700">Connections</h2>
-        <p className="text-muted-foreground text-sm">Your connections on the platform</p>
+      <div className="mb-10 border-b border-default-200 pb-4">
+        <h2 className="text-lg font-semibold text-primary">Connections</h2>
+        <p className="text-sm text-default-500">
+          Your connections on the platform
+        </p>
       </div>
       <div className="custom-scrollbar flex max-h-[70vh] flex-col space-y-6 overflow-y-auto">
         {connections?.map((user) => (

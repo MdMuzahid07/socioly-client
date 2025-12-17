@@ -1,12 +1,14 @@
+import { navLinks } from "@/constants/NavItems";
 import {
-  Drawer,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
-  useDisclosure,
   Avatar,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  useDisclosure,
 } from "@nextui-org/react";
+import Link from "next/link";
 
 export default function MobileUserSidebar() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -28,33 +30,24 @@ export default function MobileUserSidebar() {
         <DrawerContent>
           {() => (
             <>
-              <DrawerHeader className="flex flex-col gap-1">Drawer Title</DrawerHeader>
+              <DrawerHeader className="flex flex-col gap-1">Menu</DrawerHeader>
               <DrawerBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-                  risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-                  quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-                  risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-                  quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor
-                  adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
-                  officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa
-                  deserunt nostrud ad veniam.
-                </p>
+                <div className="flex flex-col gap-4">
+                  {navLinks.map((nav) => (
+                    <Link
+                      key={nav.title}
+                      href={nav.path}
+                      className="flex items-center gap-3 rounded-lg p-2 hover:bg-slate-200"
+                      onClick={() => onOpenChange()}
+                    >
+                      <nav.icon className="h-6 w-6" />
+                      <span className="text-lg font-medium">{nav.title}</span>
+                    </Link>
+                  ))}
+                </div>
               </DrawerBody>
-              <DrawerFooter>
-                {/* <Button color="danger" variant="light" onPress={onClose}>
-                                    Close
-                                </Button>
-                                <Button color="primary" onPress={onClose}>
-                                    Action
-                                </Button> */}
+              <DrawerFooter className="flex flex-col gap-2">
+                {/* Footer content if needed */}
               </DrawerFooter>
             </>
           )}

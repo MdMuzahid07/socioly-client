@@ -1,15 +1,23 @@
+"use client";
+import LoadingSpinner from "@/components/LoadingSpinner";
 import PostCard from "@/components/ui/cards/profile/PostCard";
-import AddStory from "./AddStory";
+import { useGetFeedQuery } from "@/lib/store/features/api/apiSlice";
 import CreatePostInput from "./CreatePostInput";
 
 export default function Feed() {
+  const { data: posts, isLoading } = useGetFeedQuery();
+
+  if (isLoading) return <LoadingSpinner />;
+
   return (
-    <div className="min-h-screen w-full text-black md:col-span-6">
-      <AddStory />
-      <CreatePostInput styles="mb-10 rounded-lg shadow-none drop-shadow-sm border" />
-      {[1, 2, 3, 4, 5]?.map((item, index) => (
-        <PostCard styles="border drop-shadow-sm shadow-none rounded-lg" key={index} />
-      ))}
+    <div className="space-y-6 pb-6">
+      <CreatePostInput />
+
+      <div className="space-y-4">
+        {posts?.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </div>
     </div>
   );
 }

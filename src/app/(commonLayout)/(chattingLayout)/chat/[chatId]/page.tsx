@@ -1,7 +1,6 @@
 import ChatCard from "@/components/ui/chat/ChatCard";
 import ChatHeader from "@/components/ui/chat/ChatHeader";
 import ChatInput from "@/components/ui/chat/ChatInput";
-import React from "react";
 
 interface IMessage {
   _id: number;
@@ -97,10 +96,10 @@ const messages: IMessage[] = [
 
 export default function ChatInbox() {
   return (
-    <section className="relative h-full w-full text-black">
-      <ChatHeader styles="w-full bg-white drop-shadow-sm h-14 px-4 border-b" />
+    <section className="relative h-full w-full text-foreground">
+      <ChatHeader styles="w-full bg-content1 drop-shadow-sm h-14 px-4 border-b border-divider" />
 
-      <section className="custom-scrollbar relative max-h-[79.8vh] overflow-y-scroll p-4 pb-10">
+      <section className="custom-scrollbar hero-pattern-chat-box-bg relative max-h-[79.8vh] overflow-y-scroll p-4 pb-10">
         {messages?.map((msg) => (
           <div
             key={msg?._id}
@@ -111,7 +110,7 @@ export default function ChatInbox() {
         ))}
       </section>
 
-      <ChatInput styles="absolute bottom-0 drop-shadow-sm left-0 h-14 bg-white  w-full border-t px-4" />
+      <ChatInput styles="absolute bottom-0 drop-shadow-sm left-0 h-14 bg-content1 w-full border-t border-divider px-4" />
     </section>
   );
 }

@@ -1,36 +1,73 @@
-import React from "react";
-import { Card, CardHeader, CardFooter, Avatar, Button } from "@nextui-org/react";
-import { UserCheck, UserX } from "lucide-react";
+import { Notification } from "@/types";
+import { Avatar, cn } from "@nextui-org/react";
+import { Heart, UserPlus } from "lucide-react";
 
-export default function NotificationCard() {
-  // const [isFollowed, setIsFollowed] = React.useState(false);
+interface NotificationCardProps {
+  notification: Notification;
+}
+
+export default function NotificationCard({
+  notification,
+}: NotificationCardProps) {
+  const getIcon = () => {
+    switch (notification.type) {
+      case "like":
+        return <Heart size={14} className="fill-white text-white" />;
+      case "follow":
+        return <UserPlus size={14} className="text-white" />;
+      default:
+        return null;
+    }
+  };
+
+  const getIconColor = () => {
+    switch (notification.type) {
+      case "like":
+        return "bg-danger";
+      case "follow":
+        return "bg-primary";
+      default:
+        return "bg-default";
+    }
+  };
 
   return (
-    <Card className="w-full rounded-none border-b pb-2 shadow-none">
-      <CardHeader className="justify-between">
-        <div className="flex gap-5">
-          <Avatar
-            isBordered
-            radius="full"
-            size="sm"
-            src="https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?t=st=1735653575~exp=1735657175~hmac=692eb217b46f3a8d64c255c1106bc86e5ee72755f115570662280c586f35a0a5&w=826"
-          />
-          <div className="flex flex-col items-start justify-center gap-1">
-            <h4 className="text-sm leading-none text-default-600">Md send you a connect request</h4>
-            <h5 className="text-small tracking-tight text-default-400">@Md</h5>
-          </div>
+    <div
+      className={cn(
+        "flex w-full gap-3 rounded-md px-3 py-3 transition-colors",
+        !notification.read ? "bg-primary-50/50" : "hover:bg-default-100",
+      )}
+    >
+      <div className="relative">
+        <Avatar
+          isBordered
+          radius="full"
+          size="md"
+          src={notification.user.avatar}
+        />
+        <div
+          className={cn(
+            "absolute -bottom-1 -right-1 rounded-full border-2 border-background p-1",
+            getIconColor(),
+          )}
+        >
+          {getIcon()}
         </div>
-      </CardHeader>
-      <CardFooter className="gap-3">
-        <Button className={`bg-blue-700 text-white`} radius="full" size="sm" variant="solid">
-          <UserCheck className="h-4 w-4" />
-          Accept
-        </Button>
-        <Button className={`bg-red-500 text-white`} radius="full" size="sm" variant="solid">
-          <UserX className="h-4 w-4" />
-          Cancel
-        </Button>
-      </CardFooter>
-    </Card>
+      </div>
+
+      <div className="flex flex-1 flex-col gap-1">
+        <div className="text-small text-foreground">
+          <span className="font-semibold">{notification.user.name}</span>
+          <span className="ml-1 text-default-500">
+            {notification.type === "like"
+              ? "liked your post"
+              : "started following you"}
+          </span>
+        </div>
+        <span className="text-tiny text-default-400">
+          {notification.createdAt}
+        </span>
+      </div>
+    </div>
   );
 }

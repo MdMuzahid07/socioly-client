@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useState } from "react";
+import { Avatar, Button, Card, CardBody, CardHeader } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { Card, CardBody, CardHeader, Avatar, Button } from "@nextui-org/react";
-import { Building2, Users, Plus, Check } from "lucide-react";
+import { Building2, Check, Plus, Users } from "lucide-react";
+import { useState } from "react";
 
 interface SuggestedPage {
   id: number;
@@ -50,15 +50,19 @@ export default function SuggestPages() {
 
   const handleFollow = (id: number) => {
     setFollowPage((prev) =>
-      prev.includes(id) ? prev.filter((profileId: any) => profileId !== id) : [...prev, id]
+      prev.includes(id)
+        ? prev.filter((profileId: any) => profileId !== id)
+        : [...prev, id],
     );
   };
 
   return (
-    <Card className="max-h-[300px] w-full rounded-lg text-black">
-      <CardHeader className="flex gap-3">
-        <Building2 className="h-4 w-4" />
-        <p className="text-md font-semibold">Pages you may follow</p>
+    <Card className="max-h-[300px] w-full rounded-lg border-none bg-content1 shadow-sm">
+      <CardHeader className="flex gap-3 pb-2">
+        <Building2 className="h-4 w-4 text-default-500" />
+        <p className="text-md font-semibold text-foreground">
+          Pages you may follow
+        </p>
       </CardHeader>
       <CardBody>
         <div className="custom-scrollbar space-y-4 overflow-y-auto pb-4">
@@ -71,27 +75,33 @@ export default function SuggestPages() {
               className="group relative"
             >
               <div className="flex items-center gap-3">
-                <Avatar className="h-8 w-8" src={page.logo} />
+                <Avatar className="h-8 w-8" src={page.logo} isBordered />
                 <div className="min-w-0 flex-1">
-                  <p className="text-sm">{page.name}</p>
-                  <p className="text-xs">{page.industry}</p>
-                  <div className="flex items-center gap-1 text-xs text-gray-500">
+                  <p className="text-sm font-medium text-foreground">
+                    {page.name}
+                  </p>
+                  <p className="text-xs text-default-500">{page.industry}</p>
+                  <div className="mt-0.5 flex items-center gap-1 text-xs text-default-400">
                     <Users className="h-3 w-3" />
-                    {page.followers}
+                    {page.followers.toLocaleString()}
                   </div>
                 </div>
               </div>
               <motion.div
-                className="absolute right-3 top-3"
+                className="absolute right-0 top-1/2 -translate-y-1/2"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <Button
                   onPress={() => handleFollow(page?.id)}
-                  className={`rounded-full bg-white hover:border hover:bg-blue-700 ${followPage.includes(page?.id) ? "bg-blue-700 text-white" : ""}`}
+                  className={`h-8 w-8 min-w-0 rounded-full ${
+                    followPage.includes(page?.id)
+                      ? "bg-blue-700 text-white"
+                      : "bg-default-100 text-default-500 hover:bg-blue-700 hover:text-white"
+                  }`}
                   size="sm"
                   isIconOnly
-                  aria-label="Like"
+                  aria-label="Follow"
                 >
                   {followPage.includes(page?.id) ? (
                     <Check className="h-4 w-4" />

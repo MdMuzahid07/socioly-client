@@ -1,37 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Socioly - Next.js Social Media Platform
 
-First, run the development server:
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.0-green.svg)
+![Status](https://img.shields.io/badge/status-Production_Ready-success.svg)
+
+**Socioly** is an enterprise-grade social media frontend application built with the latest web technologies. It is designed to be scalable, performant, and developer-friendly, featuring a modern UI and a robust state management system.
+
+## 🚀 Teck Stack
+
+*   **Core**: [Next.js 16](https://nextjs.org/), [React 19](https://react.dev/)
+*   **State**: [Redux Toolkit](https://redux-toolkit.js.org/) & RTK Query
+*   **Styling**: [Tailwind CSS](https://tailwindcss.com/), [NextUI](https://nextui.org/)
+*   **Language**: [TypeScript](https://www.typescriptlang.org/)
+*   **PWA**: Next-PWA
+
+## 📂 Documentation
+
+Detailed documentation is available in the `docs/` directory:
+
+*   [**Architecture Overview**](./docs/ARCHITECTURE.md): Learn about the directory structure and design patterns.
+*   [**Features List**](./docs/FEATURES.md): Explore the capabilities of Socioly.
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+*   Node.js 18+
+*   Yarn or npm
+
+### Installation
+
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/socioly-client.git
+    cd socioly-client
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    yarn install
+    ```
+
+3.  **Run the development server**:
+    ```bash
+    yarn dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 🏗️ Build for Production
+
+To create a production build:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+yarn build
+yarn start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🧪 Architecture Highlights
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+*   **Redux-First**: All data fetching and global state is managed by Redux Toolkit to ensure predictability and ease of debugging.
+*   **Mock Data Layer**: A sophisticated mock data layer (`src/lib/data`) simulates real-world API latency and response structures, allowing for frontend development without a backend dependency.
+*   **Feature-Sliced**: components are organized by domain (Feed, Profile, Settings) for better maintainability.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🤝 Contributing
 
-## Learn More
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with ❤️ by [Md. Muzahid](https://github.com/MdMuzahid07)
 # socioly-client

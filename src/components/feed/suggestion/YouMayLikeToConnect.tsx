@@ -57,14 +57,16 @@ export default function YouMayLikeToConnect() {
 
   const handleFollow = (id: number) => {
     setFollowedProfiles((prev) =>
-      prev.includes(id) ? prev.filter((profileId) => profileId !== id) : [...prev, id]
+      prev.includes(id)
+        ? prev.filter((profileId) => profileId !== id)
+        : [...prev, id],
     );
   };
 
   return (
-    <Card className="relative h-full max-h-[350px] rounded-lg border text-black">
+    <Card className="relative h-full max-h-[350px] rounded-lg border-none bg-content1 shadow-sm">
       <CardHeader className="pb-2">
-        <div className="flex items-center gap-2 text-lg font-semibold">
+        <div className="flex items-center gap-2 text-lg font-semibold text-foreground">
           <Users className="h-4 w-4" />
           You may follow
         </div>
@@ -83,21 +85,32 @@ export default function YouMayLikeToConnect() {
               whileHover={{ x: 5 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="relative h-8 w-8 overflow-hidden rounded-full">
-                <Image src={profile.image} alt={profile.name} fill className="object-cover" />
+              <div className="relative h-8 w-8 overflow-hidden rounded-full ring-2 ring-default-100">
+                <Image
+                  src={profile.image}
+                  alt={profile.name}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div>
-                <h3 className="text-sm font-medium">{profile.name}</h3>
-                <p className="text-muted-foreground text-xs">{profile.role}</p>
+                <h3 className="text-sm font-medium text-foreground">
+                  {profile.name}
+                </h3>
+                <p className="text-xs text-default-500">{profile.role}</p>
               </div>
             </motion.div>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <Button
                 onPress={() => handleFollow(profile.id)}
-                className={`rounded-full bg-white hover:border hover:bg-blue-700 ${followedProfiles.includes(profile.id) ? "bg-blue-700 text-white" : ""}`}
+                className={`h-8 w-8 min-w-0 rounded-full ${
+                  followedProfiles.includes(profile.id)
+                    ? "bg-blue-700 text-white"
+                    : "bg-default-100 text-default-500 hover:bg-blue-700 hover:text-white"
+                }`}
                 size="sm"
                 isIconOnly
-                aria-label="Like"
+                aria-label="Follow"
               >
                 {followedProfiles.includes(profile.id) ? (
                   <UserRoundCheck className="h-4 w-4" />
@@ -108,8 +121,10 @@ export default function YouMayLikeToConnect() {
             </motion.div>
           </motion.div>
         ))}
-        <section className="absolute bottom-0 left-0 right-0 w-full border-t">
-          <button className="w-full bg-slate-100 py-1 text-black">View more</button>
+        <section className="absolute bottom-0 left-0 right-0 w-full border-t border-divider">
+          <button className="w-full bg-default-50 py-2 text-small font-medium text-default-600 transition-colors hover:bg-default-100">
+            View more
+          </button>
         </section>
       </CardBody>
     </Card>

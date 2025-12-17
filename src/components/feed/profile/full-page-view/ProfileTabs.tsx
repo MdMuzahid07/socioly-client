@@ -1,31 +1,17 @@
 "use client";
-import React from "react";
-import { Tabs, Tab } from "@nextui-org/react";
-import { motion } from "framer-motion";
-import PostCard from "@/components/ui/cards/profile/PostCard";
-import CreatePostInput from "../../feed/CreatePostInput";
-import AboutCard from "@/components/ui/cards/profile/AboutCard";
-import ConnectsCard from "@/components/ui/cards/profile/ConnectsCard";
 import ProfileImageView from "@/components/modals/FullProfileView/ProfileImageView";
 import VideoFullView from "@/components/modals/FullProfileView/VideoFullView";
+import AboutCard from "@/components/ui/cards/profile/AboutCard";
+import ConnectsCard from "@/components/ui/cards/profile/ConnectsCard";
+import PostCard from "@/components/ui/cards/profile/PostCard";
+import { MOCK_POSTS } from "@/lib/data/mockData";
+import { Post } from "@/types";
+import { Tab, Tabs } from "@nextui-org/react";
+import { motion } from "framer-motion";
+import CreatePostInput from "../../feed/CreatePostInput";
 
 export default function ProfileTabs() {
-  const posts = [
-    {
-      id: 1,
-      content: "Just launched a new project! Check it out at https://example.com",
-      likes: 42,
-      retweets: 10,
-      comments: 5,
-    },
-    {
-      id: 2,
-      content: "Excited to speak at the upcoming tech conference next month!",
-      likes: 78,
-      retweets: 25,
-      comments: 12,
-    },
-  ];
+  const posts: Post[] = MOCK_POSTS;
 
   return (
     <div className="w-full">
@@ -42,12 +28,13 @@ export default function ProfileTabs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <CreatePostInput styles="mt-4 rounded-none border-b shadow-none text-black pb-4 mb-6" />
+            <CreatePostInput className="mb-6 mt-4 rounded-none border-b pb-4 text-black shadow-none" />
             <div className="space-y-10">
               {posts?.map((post, index) => (
                 <PostCard
                   key={index}
-                  styles="border-b shadow-none drop-shadow-none rounded-none p-0"
+                  post={post}
+                  className="rounded-none border-b shadow-none"
                 />
               ))}
             </div>

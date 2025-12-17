@@ -1,16 +1,26 @@
 "use client";
-import React from "react";
+import { AuthProvider } from "@/context/AuthContext";
+import { store } from "@/lib/store/store";
 import { NextUIProvider } from "@nextui-org/react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { Provider } from "react-redux";
 import { Toaster } from "sonner";
 
-export interface ProvidersProps {
-  children: React.ReactNode;
-}
-export default function Providers({ children }: ProvidersProps) {
+export default function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <NextUIProvider>{children}</NextUIProvider>
-      <Toaster position="bottom-right" />
-    </>
+    <Provider store={store}>
+      <NextUIProvider>
+        <NextThemesProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+        >
+          <AuthProvider>
+            {children}
+            <Toaster />
+          </AuthProvider>
+        </NextThemesProvider>
+      </NextUIProvider>
+    </Provider>
   );
 }
