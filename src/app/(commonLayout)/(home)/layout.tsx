@@ -14,7 +14,7 @@ export default function HomeLayout({
           <div className="hidden md:col-span-3 md:block">
             <Profile />
           </div>
-          <div className="md:col-span-12 lg:col-span-6">{children}</div>
+          <div className="md:col-span-9 lg:col-span-6">{children}</div>
           <div className="hidden md:col-span-3 lg:block">
             <Suggestions />
           </div>

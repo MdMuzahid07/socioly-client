@@ -57,62 +57,68 @@ export default function SuggestPages() {
   };
 
   return (
-    <Card className="max-h-[300px] w-full rounded-lg border-none bg-content1 shadow-sm">
-      <CardHeader className="flex gap-3 pb-2">
-        <Building2 className="h-4 w-4 text-default-500" />
-        <p className="text-md font-semibold text-foreground">
+    <Card className="glass-panel premium-shadow relative w-full rounded-xl border-none bg-transparent shadow-none">
+      <CardHeader className="border-b border-divider/10 pb-4 pt-4">
+        <div className="flex items-center gap-3 text-lg font-semibold text-foreground">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
+            <Building2 className="h-4 w-4" />
+          </div>
           Pages you may follow
-        </p>
+        </div>
       </CardHeader>
-      <CardBody>
-        <div className="custom-scrollbar space-y-4 overflow-y-auto pb-4">
-          {fakeData?.map((page, index) => (
-            <motion.div
-              key={page?.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="group relative"
-            >
-              <div className="flex items-center gap-3">
-                <Avatar className="h-8 w-8" src={page.logo} isBordered />
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium text-foreground">
-                    {page.name}
-                  </p>
+      <CardBody className="custom-scrollbar space-y-4 overflow-y-auto p-4 pb-4">
+        {fakeData?.map((page, index) => (
+          <motion.div
+            key={page?.id}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: index * 0.1 }}
+            className="group relative flex items-center justify-between rounded-xl p-2 transition-colors hover:bg-default-100/30"
+          >
+            <div className="flex items-center gap-3">
+              <Avatar
+                className="h-10 w-10 ring-2 ring-background transition-transform duration-300 group-hover:scale-105"
+                src={page.logo}
+                isBordered
+              />
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
+                  {page.name}
+                </p>
+                <div className="flex items-center gap-2">
                   <p className="text-xs text-default-500">{page.industry}</p>
-                  <div className="mt-0.5 flex items-center gap-1 text-xs text-default-400">
-                    <Users className="h-3 w-3" />
-                    {page.followers.toLocaleString()}
-                  </div>
+                </div>
+                <div className="mt-1 flex items-center gap-1 text-xs text-primary/80">
+                  <Users className="h-3 w-3" />
+                  {page.followers.toLocaleString()}
                 </div>
               </div>
-              <motion.div
-                className="absolute right-0 top-1/2 -translate-y-1/2"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+            </div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="relative z-10"
+            >
+              <Button
+                onPress={() => handleFollow(page?.id)}
+                className={`h-8 w-8 min-w-0 rounded-full transition-all duration-300 ${
+                  followPage.includes(page?.id)
+                    ? "bg-primary text-white shadow-lg shadow-primary/40"
+                    : "bg-default-100 text-default-500 hover:bg-primary hover:text-white hover:shadow-lg hover:shadow-primary/40"
+                }`}
+                size="sm"
+                isIconOnly
+                aria-label="Follow"
               >
-                <Button
-                  onPress={() => handleFollow(page?.id)}
-                  className={`h-8 w-8 min-w-0 rounded-full ${
-                    followPage.includes(page?.id)
-                      ? "bg-blue-700 text-white"
-                      : "bg-default-100 text-default-500 hover:bg-blue-700 hover:text-white"
-                  }`}
-                  size="sm"
-                  isIconOnly
-                  aria-label="Follow"
-                >
-                  {followPage.includes(page?.id) ? (
-                    <Check className="h-4 w-4" />
-                  ) : (
-                    <Plus className="h-4 w-4" />
-                  )}
-                </Button>
-              </motion.div>
+                {followPage.includes(page?.id) ? (
+                  <Check className="h-4 w-4" />
+                ) : (
+                  <Plus className="h-4 w-4" />
+                )}
+              </Button>
             </motion.div>
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </CardBody>
     </Card>
   );

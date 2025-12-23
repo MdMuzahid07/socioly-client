@@ -15,7 +15,7 @@ export default function ProfileAside() {
   };
 
   return (
-    <Card className="relative w-full overflow-hidden rounded-lg bg-content1 text-foreground">
+    <Card className="relative w-full overflow-hidden rounded-xl bg-content1 text-foreground">
       {/* Cover Image with Gradient */}
       <section className="relative h-28 bg-gradient-to-r from-blue-700 to-indigo-700">
         <Image
