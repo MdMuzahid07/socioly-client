@@ -1,4 +1,3 @@
-import { Button } from "@nextui-org/react";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
@@ -14,20 +13,18 @@ export default function ThemeSwitcher() {
   if (!mounted) return null;
 
   return (
-    <Button
-      onPress={() => setTheme(theme === "dark" ? "light" : "dark")}
-      size="sm"
-      isIconOnly
-      variant="light"
-      radius="full"
-      className="text-default-500 hover:text-foreground"
+    <span
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="flex h-5 w-full cursor-pointer items-center gap-2 text-default-600 transition-colors hover:text-primary dark:text-default-300"
       aria-label="Toggle theme"
     >
       {theme === "light" ? (
-        <SunIcon className="h-5 w-5" />
+        <SunIcon className="h-4 w-4" />
       ) : (
-        <MoonIcon className="h-5 w-5" />
+        <MoonIcon className="h-4 w-4" />
       )}
-    </Button>
+
+      <p>Appearance</p>
+    </span>
   );
 }

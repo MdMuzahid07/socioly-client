@@ -1,33 +1,81 @@
 "use client";
-import { Avatar, Card, CardBody } from "@nextui-org/react";
+import { MOCK_USERS } from "@/lib/data/mockData";
+import { Avatar } from "@nextui-org/react";
 
-export default function ChatCard({
-  styles,
-  text,
-  isMine,
-}: {
+interface ChatCardProps {
   styles?: string;
   text: string;
   isMine: boolean;
-}) {
+  senderId?: string;
+  timestamp?: string;
+  showAvatar?: boolean;
+  senderName?: string;
+  senderAvatar?: string;
+}
+
+export default function ChatCard({
+  styles = "",
+  text,
+  isMine,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  senderId,
+  timestamp,
+  showAvatar = true,
+  senderName,
+  senderAvatar,
+}: ChatCardProps) {
+  const currentUser = MOCK_USERS.current;
+  const displayName = isMine
+    ? currentUser.name.split(" ")[0]
+    : senderName || "User";
+  const displayAvatar = isMine
+    ? currentUser.avatar
+    : senderAvatar || "https://i.pravatar.cc/150?u=default";
+
   return (
-    <div className="flex flex-col">
-      <Card
-        className={`${styles} min-h-[70px] max-w-[400px] rounded-xl text-black ${
-          isMine
-            ? "mr-3.5 rounded-br-none bg-blue-600 text-white"
-            : "ml-3.5 rounded-bl-none bg-gray-100 text-gray-900"
-        }`}
+    <div
+      className={`flex w-full gap-2 ${isMine ? "justify-end" : "justify-start"} ${styles}`}
+    >
+      {!isMine && showAvatar && (
+        <Avatar
+          src={displayAvatar}
+          size="sm"
+          className="mt-auto flex-shrink-0"
+        />
+      )}
+
+      <div
+        className={`flex max-w-[75%] flex-col gap-1 ${isMine ? "items-end" : "items-start"}`}
       >
-        <CardBody>
-          <p>{text}</p>
-        </CardBody>
-      </Card>
-      <div className={`${isMine ? "justify-end" : ""} mt-3 flex w-full items-center`}>
-        {isMine && <h1 className="mr-2">Md</h1>}
-        <Avatar size="sm" src="https://i.pravatar.cc/150?u=a04258a2462d826712d" />
-        {!isMine && <h1 className="ml-2">John</h1>}
+        <div
+          className={`group relative rounded-2xl px-4 py-2.5 shadow-sm transition-all ${
+            isMine
+              ? "rounded-br-md bg-primary text-primary-foreground"
+              : "rounded-bl-md bg-default-100 text-foreground"
+          }`}
+        >
+          <p className="break-words text-sm leading-relaxed">{text}</p>
+        </div>
+
+        {timestamp && (
+          <div className="flex items-center gap-1.5 px-1">
+            <span className="text-[10px] text-default-500">{timestamp}</span>
+            {isMine && (
+              <span className="text-[10px] text-default-400">
+                {displayName}
+              </span>
+            )}
+          </div>
+        )}
       </div>
+
+      {isMine && showAvatar && (
+        <Avatar
+          src={displayAvatar}
+          size="sm"
+          className="mt-auto flex-shrink-0"
+        />
+      )}
     </div>
   );
 }

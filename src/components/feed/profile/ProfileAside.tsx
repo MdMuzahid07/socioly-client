@@ -2,7 +2,7 @@
 
 import { Button, Card, Chip } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { BadgeCheck, Bell, ExternalLink, Users, Users2 } from "lucide-react";
+import { BadgeCheck, Bell, ExternalLink, Users2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -89,7 +89,6 @@ export default function ProfileAside() {
           {/* Navigation */}
           <nav className="space-y-2">
             {[
-              { icon: Users, label: "Connections", indicator: 12 },
               { icon: Users2, label: "Groups" },
               { icon: Bell, label: "Notifications", indicator: 5 },
             ]?.map((item, index) => (

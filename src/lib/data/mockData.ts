@@ -1,4 +1,4 @@
-import { Notification, Post, User } from "@/types";
+import { Comment, Notification, Post, User } from "@/types";
 
 // --- Mock Users ---
 export const MOCK_USERS: Record<string, User> = {
@@ -20,15 +20,60 @@ export const MOCK_USERS: Record<string, User> = {
   },
   u2: {
     id: "u2",
-    name: "Sarah Chen",
-    handle: "@sarah_codes",
+    name: "John Doe",
+    handle: "@johndoe",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024e",
-    bio: "Frontend Wizard",
+    bio: "Software Developer",
+    work: "Software Developer",
     followers: "1.2K",
     following: "150",
     cover:
       "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
     posts: "45",
+  },
+  u3: {
+    id: "u3",
+    name: "Jane Smith",
+    handle: "@janesmith",
+    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024f",
+    bio: "UX Designer",
+    work: "UX Designer",
+    followers: "890",
+    following: "120",
+    posts: "32",
+  },
+  u4: {
+    id: "u4",
+    name: "Bob Johnson",
+    handle: "@bobjohnson",
+    avatar: "https://i.pravatar.cc/150?u=a042581f4e290260250",
+    bio: "Frontend Developer",
+    work: "Frontend Developer",
+    followers: "1.5K",
+    following: "200",
+    posts: "67",
+  },
+  u5: {
+    id: "u5",
+    name: "Alice Williams",
+    handle: "@alicewilliams",
+    avatar: "https://i.pravatar.cc/150?u=a042581f4e290260251",
+    bio: "Product Manager",
+    work: "Product Manager",
+    followers: "2.1K",
+    following: "180",
+    posts: "89",
+  },
+  u6: {
+    id: "u6",
+    name: "Charlie Brown",
+    handle: "@charliebrown",
+    avatar: "https://i.pravatar.cc/150?u=a042581f4e290260252",
+    bio: "Data Scientist",
+    work: "Data Scientist",
+    followers: "3.2K",
+    following: "250",
+    posts: "124",
   },
 };
 
@@ -143,30 +188,351 @@ export const MOCK_NOTIFICATIONS: Notification[] = [
   },
 ];
 
-// --- Mock Chat ---
+// --- Mock Chat Connections ---
+export const MOCK_CONNECTIONS = [
+  {
+    id: "u2",
+    name: "John Doe",
+    username: "@johndoe",
+    role: "Software Developer",
+    avatar: MOCK_USERS.u2.avatar,
+    isOnline: true,
+  },
+  {
+    id: "u3",
+    name: "Jane Smith",
+    username: "@janesmith",
+    role: "UX Designer",
+    avatar: MOCK_USERS.u3.avatar,
+    isOnline: true,
+  },
+  {
+    id: "u4",
+    name: "Bob Johnson",
+    username: "@bobjohnson",
+    role: "Frontend Developer",
+    avatar: MOCK_USERS.u4.avatar,
+    isOnline: false,
+  },
+  {
+    id: "u5",
+    name: "Alice Williams",
+    username: "@alicewilliams",
+    role: "Product Manager",
+    avatar: MOCK_USERS.u5.avatar,
+    isOnline: true,
+  },
+  {
+    id: "u6",
+    name: "Charlie Brown",
+    username: "@charliebrown",
+    role: "Data Scientist",
+    avatar: MOCK_USERS.u6.avatar,
+    isOnline: false,
+  },
+];
+
+// --- Mock Chat Conversations ---
 export const MOCK_CHATS = {
   c1: {
     id: "c1",
     user: MOCK_USERS.u2,
-    lastMessage: "Hey, are you free tonight?",
-    lastMessageTime: "10:30 AM",
+    lastMessage: "Perfect. Thanks!",
+    lastMessageTime: "2:30 PM",
+    unreadCount: 0,
+  },
+  c2: {
+    id: "c2",
+    user: MOCK_USERS.u3,
+    lastMessage: "That sounds great! Let's schedule it.",
+    lastMessageTime: "1:15 PM",
     unreadCount: 2,
+  },
+  c3: {
+    id: "c3",
+    user: MOCK_USERS.u4,
+    lastMessage: "I'll send you the details soon.",
+    lastMessageTime: "12:45 PM",
+    unreadCount: 0,
+  },
+  c4: {
+    id: "c4",
+    user: MOCK_USERS.u5,
+    lastMessage: "Thanks for the update!",
+    lastMessageTime: "11:20 AM",
+    unreadCount: 1,
+  },
+  c5: {
+    id: "c5",
+    user: MOCK_USERS.u6,
+    lastMessage: "See you tomorrow!",
+    lastMessageTime: "10:00 AM",
+    unreadCount: 0,
   },
 };
 
-export const MOCK_MESSAGES = {
+// --- Mock Messages ---
+// --- Mock Comments ---
+export const MOCK_COMMENTS: Record<string, Comment[]> = {
+  p1: [
+    {
+      id: "c1",
+      content: "Amazing work! 🔥",
+      user: MOCK_USERS.u2,
+      createdAt: new Date(Date.now() - 30 * 60 * 1000).toISOString(),
+    },
+    {
+      id: "c2",
+      content: "This is so cool! Can you share the code?",
+      user: MOCK_USERS.u3,
+      createdAt: new Date(Date.now() - 45 * 60 * 1000).toISOString(),
+    },
+    {
+      id: "c3",
+      content: "Great job! Keep it up! 💪",
+      user: MOCK_USERS.u4,
+      createdAt: new Date(Date.now() - 60 * 60 * 1000).toISOString(),
+    },
+  ],
+  p2: [
+    {
+      id: "c4",
+      content: "Next.js 15 is indeed amazing!",
+      user: MOCK_USERS.current,
+      createdAt: new Date(Date.now() - 15 * 60 * 1000).toISOString(),
+    },
+  ],
+  p3: [
+    {
+      id: "c5",
+      content: "Beautiful! 🌅",
+      user: MOCK_USERS.u2,
+      createdAt: new Date(Date.now() - 20 * 60 * 1000).toISOString(),
+    },
+  ],
+};
+
+// --- Mock Photos ---
+export const MOCK_PHOTOS = [
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
+  "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1556155092-8707de31f9c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1557683311-eac922347aa1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+  "https://images.unsplash.com/photo-1557682257-2f9c37a3a5dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+];
+
+// --- Mock Videos ---
+// YouTube video ID: M-2eAiU09qg
+// Source: https://www.youtube.com/watch?v=M-2eAiU09qg
+const YOUTUBE_VIDEO_ID = "M-2eAiU09qg";
+const YOUTUBE_THUMBNAIL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`;
+const YOUTUBE_VIDEO_URL = `https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`;
+const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`;
+
+export const MOCK_VIDEOS = [
+  {
+    id: "v1",
+    thumbnail: YOUTUBE_THUMBNAIL,
+    videoUrl: YOUTUBE_VIDEO_URL,
+    embedUrl: YOUTUBE_EMBED_URL,
+    title: "Video 1",
+  },
+  {
+    id: "v2",
+    thumbnail: YOUTUBE_THUMBNAIL,
+    videoUrl: YOUTUBE_VIDEO_URL,
+    embedUrl: YOUTUBE_EMBED_URL,
+    title: "Video 2",
+  },
+  {
+    id: "v3",
+    thumbnail: YOUTUBE_THUMBNAIL,
+    videoUrl: YOUTUBE_VIDEO_URL,
+    embedUrl: YOUTUBE_EMBED_URL,
+    title: "Video 3",
+  },
+  {
+    id: "v4",
+    thumbnail: YOUTUBE_THUMBNAIL,
+    videoUrl: YOUTUBE_VIDEO_URL,
+    embedUrl: YOUTUBE_EMBED_URL,
+    title: "Video 4",
+  },
+  {
+    id: "v5",
+    thumbnail: YOUTUBE_THUMBNAIL,
+    videoUrl: YOUTUBE_VIDEO_URL,
+    embedUrl: YOUTUBE_EMBED_URL,
+    title: "Video 5",
+  },
+  {
+    id: "v6",
+    thumbnail: YOUTUBE_THUMBNAIL,
+    videoUrl: YOUTUBE_VIDEO_URL,
+    embedUrl: YOUTUBE_EMBED_URL,
+    title: "Video 6",
+  },
+  {
+    id: "v7",
+    thumbnail: YOUTUBE_THUMBNAIL,
+    videoUrl: YOUTUBE_VIDEO_URL,
+    embedUrl: YOUTUBE_EMBED_URL,
+    title: "Video 7",
+  },
+  {
+    id: "v8",
+    thumbnail: YOUTUBE_THUMBNAIL,
+    videoUrl: YOUTUBE_VIDEO_URL,
+    embedUrl: YOUTUBE_EMBED_URL,
+    title: "Video 8",
+  },
+];
+
+export const MOCK_MESSAGES: Record<
+  string,
+  Array<{ id: string; senderId: string; content: string; createdAt: string }>
+> = {
   c1: [
     {
       id: "m1",
       senderId: "u2",
-      content: "Hey, are you free tonight?",
-      createdAt: "10:30 AM",
+      content: "Hey! How's the project going?",
+      createdAt: "2:15 PM",
     },
     {
       id: "m2",
       senderId: "u1",
-      content: "Yeah, what's up?",
-      createdAt: "10:32 AM",
+      content: "Going well! Just finished the chat feature.",
+      createdAt: "2:16 PM",
+    },
+    {
+      id: "m3",
+      senderId: "u2",
+      content: "That's awesome! Can you share the code?",
+      createdAt: "2:17 PM",
+    },
+    {
+      id: "m4",
+      senderId: "u1",
+      content: "Sure, I'll send it over in a bit.",
+      createdAt: "2:18 PM",
+    },
+    {
+      id: "m5",
+      senderId: "u2",
+      content: "Perfect. Thanks!",
+      createdAt: "2:30 PM",
+    },
+    {
+      id: "m6",
+      senderId: "u2",
+      content: "Hmm, maybe a printout of the last month's report?",
+      createdAt: "2:32 PM",
+    },
+    {
+      id: "m7",
+      senderId: "u1",
+      content: "No problem. 😊",
+      createdAt: "2:33 PM",
+    },
+    {
+      id: "m8",
+      senderId: "u1",
+      content: "Do you need anything else before we meet?",
+      createdAt: "2:34 PM",
+    },
+  ],
+  c2: [
+    {
+      id: "m9",
+      senderId: "u3",
+      content: "Hi! Are you available for a quick call?",
+      createdAt: "1:10 PM",
+    },
+    {
+      id: "m10",
+      senderId: "u1",
+      content: "Yes, I can do that. When works for you?",
+      createdAt: "1:12 PM",
+    },
+    {
+      id: "m11",
+      senderId: "u3",
+      content: "That sounds great! Let's schedule it.",
+      createdAt: "1:15 PM",
+    },
+  ],
+  c3: [
+    {
+      id: "m12",
+      senderId: "u4",
+      content: "Hey, I've reviewed your proposal.",
+      createdAt: "12:40 PM",
+    },
+    {
+      id: "m13",
+      senderId: "u1",
+      content: "Great! What do you think?",
+      createdAt: "12:42 PM",
+    },
+    {
+      id: "m14",
+      senderId: "u4",
+      content: "I'll send you the details soon.",
+      createdAt: "12:45 PM",
+    },
+  ],
+  c4: [
+    {
+      id: "m15",
+      senderId: "u5",
+      content: "The meeting is scheduled for tomorrow.",
+      createdAt: "11:15 AM",
+    },
+    {
+      id: "m16",
+      senderId: "u1",
+      content: "Got it, thanks for letting me know!",
+      createdAt: "11:18 AM",
+    },
+    {
+      id: "m17",
+      senderId: "u5",
+      content: "Thanks for the update!",
+      createdAt: "11:20 AM",
+    },
+  ],
+  c5: [
+    {
+      id: "m18",
+      senderId: "u6",
+      content: "See you at the conference!",
+      createdAt: "9:50 AM",
+    },
+    {
+      id: "m19",
+      senderId: "u1",
+      content: "Looking forward to it!",
+      createdAt: "9:55 AM",
+    },
+    {
+      id: "m20",
+      senderId: "u6",
+      content: "See you tomorrow!",
+      createdAt: "10:00 AM",
     },
   ],
 };

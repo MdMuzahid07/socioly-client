@@ -4,6 +4,8 @@ import {
   Avatar,
   Button,
   Card,
+  Chip,
+  Input,
   Tab,
   Tabs,
   useDisclosure,
@@ -11,23 +13,30 @@ import {
 import {
   Calendar,
   CheckCircle2,
+  Filter,
   MapPin,
   MessageCircle,
+  MoreVertical,
+  Phone,
+  Search,
   UserPlus,
+  Video,
 } from "lucide-react";
 import { use, useState } from "react";
 
 import EditProfileModal from "@/components/modals/EditProfileModal";
-import { MOCK_POSTS, MOCK_USERS } from "@/lib/data/mockData";
+import { MOCK_CONNECTIONS, MOCK_POSTS, MOCK_USERS } from "@/lib/data/mockData";
 
 export default function ProfilePage({
   params,
 }: {
   params: Promise<{ profileId: string }>;
 }) {
-  const { profileId } = use(params);
+  const { profileId: _profileId } = use(params);
   const [isFollowing, setIsFollowing] = useState(false);
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filterOnline, setFilterOnline] = useState<boolean | null>(null);
 
   // Use centralized mock data
   const user = MOCK_USERS.current;
@@ -332,6 +341,234 @@ export default function ProfilePage({
                     ></iframe>
                   </div>
                 ))}
+              </div>
+            </Tab>
+            <Tab key="connections" title="My Connections">
+              <div className="mt-6 space-y-6">
+                {/* Search and Filter Section */}
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex-1">
+                    <Input
+                      placeholder="Search connections..."
+                      value={searchQuery}
+                      onValueChange={setSearchQuery}
+                      startContent={
+                        <Search className="h-4 w-4 text-default-400" />
+                      }
+                      classNames={{
+                        inputWrapper: "bg-default-100",
+                      }}
+                    />
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant={filterOnline === true ? "solid" : "flat"}
+                      color={filterOnline === true ? "primary" : "default"}
+                      size="sm"
+                      onPress={() =>
+                        setFilterOnline(filterOnline === true ? null : true)
+                      }
+                      startContent={<Filter className="h-4 w-4" />}
+                    >
+                      Online
+                    </Button>
+                    <Button
+                      variant={filterOnline === false ? "solid" : "flat"}
+                      color={filterOnline === false ? "default" : "default"}
+                      size="sm"
+                      onPress={() =>
+                        setFilterOnline(filterOnline === false ? null : false)
+                      }
+                    >
+                      Offline
+                    </Button>
+                    {filterOnline !== null && (
+                      <Button
+                        variant="light"
+                        size="sm"
+                        onPress={() => setFilterOnline(null)}
+                      >
+                        Clear
+                      </Button>
+                    )}
+                  </div>
+                </div>
+
+                {/* Connections Count */}
+                <div className="flex items-center justify-between">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {
+                      MOCK_CONNECTIONS.filter((conn) => {
+                        const matchesSearch =
+                          searchQuery === "" ||
+                          conn.name
+                            .toLowerCase()
+                            .includes(searchQuery.toLowerCase()) ||
+                          conn.role
+                            .toLowerCase()
+                            .includes(searchQuery.toLowerCase()) ||
+                          conn.username
+                            ?.toLowerCase()
+                            .includes(searchQuery.toLowerCase());
+                        const matchesFilter =
+                          filterOnline === null ||
+                          conn.isOnline === filterOnline;
+                        return matchesSearch && matchesFilter;
+                      }).length
+                    }{" "}
+                    Connections
+                  </h3>
+                </div>
+
+                {/* Connections Grid */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {MOCK_CONNECTIONS.filter((conn) => {
+                    const matchesSearch =
+                      searchQuery === "" ||
+                      conn.name
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase()) ||
+                      conn.role
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase()) ||
+                      conn.username
+                        ?.toLowerCase()
+                        .includes(searchQuery.toLowerCase());
+                    const matchesFilter =
+                      filterOnline === null || conn.isOnline === filterOnline;
+                    return matchesSearch && matchesFilter;
+                  }).map((connection) => (
+                    <Card
+                      key={connection.id}
+                      className="group relative overflow-hidden border border-default-200 transition-all hover:border-primary hover:shadow-lg"
+                    >
+                      <div className="p-6">
+                        {/* Header with Avatar and Online Status */}
+                        <div className="mb-4 flex items-start justify-between">
+                          <div
+                            className="flex cursor-pointer items-center gap-4"
+                            onClick={() => {
+                              window.location.href = `/profile/${connection.id}`;
+                            }}
+                          >
+                            <div className="relative">
+                              <Avatar
+                                src={connection.avatar}
+                                size="lg"
+                                className="h-16 w-16 ring-2 ring-default-200 transition-all group-hover:ring-primary"
+                              />
+                              {connection.isOnline && (
+                                <span className="absolute bottom-0 right-0 flex h-4 w-4">
+                                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+                                  <span className="relative inline-flex h-4 w-4 rounded-full bg-green-500 ring-2 ring-background"></span>
+                                </span>
+                              )}
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center gap-2">
+                                <h3 className="truncate text-base font-semibold text-foreground">
+                                  {connection.name}
+                                </h3>
+                                {connection.isOnline && (
+                                  <Chip
+                                    size="sm"
+                                    variant="flat"
+                                    color="success"
+                                    className="h-5 text-[10px]"
+                                  >
+                                    Online
+                                  </Chip>
+                                )}
+                              </div>
+                              <p className="truncate text-sm text-default-500">
+                                {connection.role}
+                              </p>
+                              {connection.username && (
+                                <p className="truncate text-xs text-default-400">
+                                  {connection.username}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                          <Button
+                            isIconOnly
+                            variant="light"
+                            size="sm"
+                            className="text-default-400"
+                          >
+                            <MoreVertical className="h-4 w-4" />
+                          </Button>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex gap-2">
+                          <Button
+                            size="sm"
+                            variant="flat"
+                            color="primary"
+                            className="flex-1"
+                            startContent={<MessageCircle className="h-4 w-4" />}
+                            onPress={() => {
+                              window.location.href = `/messages/${connection.id}`;
+                            }}
+                          >
+                            Message
+                          </Button>
+                          <Button
+                            isIconOnly
+                            size="sm"
+                            variant="flat"
+                            className="text-default-500"
+                            aria-label="Audio call"
+                          >
+                            <Phone className="h-4 w-4" />
+                          </Button>
+                          <Button
+                            isIconOnly
+                            size="sm"
+                            variant="flat"
+                            className="text-default-500"
+                            aria-label="Video call"
+                          >
+                            <Video className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+
+                {/* Empty State */}
+                {MOCK_CONNECTIONS.filter((conn) => {
+                  const matchesSearch =
+                    searchQuery === "" ||
+                    conn.name
+                      .toLowerCase()
+                      .includes(searchQuery.toLowerCase()) ||
+                    conn.role
+                      .toLowerCase()
+                      .includes(searchQuery.toLowerCase()) ||
+                    conn.username
+                      ?.toLowerCase()
+                      .includes(searchQuery.toLowerCase());
+                  const matchesFilter =
+                    filterOnline === null || conn.isOnline === filterOnline;
+                  return matchesSearch && matchesFilter;
+                }).length === 0 && (
+                  <div className="flex flex-col items-center justify-center py-16">
+                    <div className="rounded-full bg-default-100 p-6">
+                      <UserPlus className="h-12 w-12 text-default-400" />
+                    </div>
+                    <h3 className="mt-4 text-lg font-semibold text-foreground">
+                      No connections found
+                    </h3>
+                    <p className="mt-2 text-sm text-default-500">
+                      {searchQuery || filterOnline !== null
+                        ? "Try adjusting your search or filters"
+                        : "Start connecting with people to see them here"}
+                    </p>
+                  </div>
+                )}
               </div>
             </Tab>
           </Tabs>

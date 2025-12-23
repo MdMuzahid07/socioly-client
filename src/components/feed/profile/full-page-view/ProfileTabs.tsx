@@ -1,9 +1,9 @@
 "use client";
-import ProfileImageView from "@/components/modals/FullProfileView/ProfileImageView";
-import VideoFullView from "@/components/modals/FullProfileView/VideoFullView";
 import AboutCard from "@/components/ui/cards/profile/AboutCard";
 import ConnectsCard from "@/components/ui/cards/profile/ConnectsCard";
+import PhotosCard from "@/components/ui/cards/profile/PhotosCard";
 import PostCard from "@/components/ui/cards/profile/PostCard";
+import VideosCard from "@/components/ui/cards/profile/VideosCard";
 import { MOCK_POSTS } from "@/lib/data/mockData";
 import { Post } from "@/types";
 import { Tab, Tabs } from "@nextui-org/react";
@@ -75,9 +75,7 @@ export default function ProfileTabs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div>
-              <ProfileImageView />
-            </div>
+            <PhotosCard />
           </motion.div>
         </Tab>
         {/* photos tab end here  */}
@@ -89,9 +87,7 @@ export default function ProfileTabs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div>
-              <VideoFullView />
-            </div>
+            <VideosCard />
           </motion.div>
         </Tab>
         {/* videos tab end here  */}

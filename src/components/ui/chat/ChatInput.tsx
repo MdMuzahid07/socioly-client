@@ -1,65 +1,94 @@
 "use client";
 
-import { Button, Textarea, Tooltip } from "@nextui-org/react";
+import { Button, Input, Tooltip } from "@nextui-org/react";
 import { Image as ImageIcon, Paperclip, Plus, Send, Smile } from "lucide-react";
-import { useState } from "react";
+import { KeyboardEvent, useState } from "react";
 
-export default function ChatInput({ styles }: { styles: string }) {
+interface ChatInputProps {
+  styles?: string;
+  onSendMessage?: (message: string) => void;
+  disabled?: boolean;
+}
+
+export default function ChatInput({
+  styles = "",
+  onSendMessage,
+  disabled = false,
+}: ChatInputProps) {
   const [message, setMessage] = useState("");
 
   const handleSend = () => {
-    if (!message.trim()) return;
-    console.log("Sending:", message);
+    if (!message.trim() || disabled) return;
+    const trimmedMessage = message.trim();
+    if (onSendMessage) {
+      onSendMessage(trimmedMessage);
+    }
     setMessage("");
+  };
+
+  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
   };
 
   return (
     <div
-      className={`${styles} relative flex items-end gap-2 border-t border-divider bg-content1/80 p-3 backdrop-blur-md`}
+      className={`${styles} relative flex items-end gap-2 border-t border-divider bg-content1/95 p-4 backdrop-blur-md`}
     >
-      <div className="flex items-center gap-1 pb-1">
-        <Button
-          isIconOnly
-          variant="light"
-          radius="full"
-          size="sm"
-          className="text-default-500 hover:text-default-700"
-        >
-          <Plus className="h-5 w-5" />
-        </Button>
-        <Button
-          isIconOnly
-          variant="light"
-          radius="full"
-          size="sm"
-          className="text-default-500 hover:text-default-700"
-        >
-          <ImageIcon className="h-5 w-5" />
-        </Button>
-        <Button
-          isIconOnly
-          variant="light"
-          radius="full"
-          size="sm"
-          className="text-default-500 hover:text-default-700"
-        >
-          <Paperclip className="h-5 w-5" />
-        </Button>
+      <div className="flex items-center gap-1">
+        <Tooltip content="Add media" placement="top">
+          <Button
+            isIconOnly
+            variant="light"
+            radius="full"
+            size="sm"
+            className="text-default-500 hover:bg-default-100 hover:text-default-700"
+            isDisabled={disabled}
+          >
+            <Plus className="h-5 w-5" />
+          </Button>
+        </Tooltip>
+        <Tooltip content="Attach image" placement="top">
+          <Button
+            isIconOnly
+            variant="light"
+            radius="full"
+            size="sm"
+            className="text-default-500 hover:bg-default-100 hover:text-default-700"
+            isDisabled={disabled}
+          >
+            <ImageIcon className="h-5 w-5" />
+          </Button>
+        </Tooltip>
+        <Tooltip content="Attach file" placement="top">
+          <Button
+            isIconOnly
+            variant="light"
+            radius="full"
+            size="sm"
+            className="text-default-500 hover:bg-default-100 hover:text-default-700"
+            isDisabled={disabled}
+          >
+            <Paperclip className="h-5 w-5" />
+          </Button>
+        </Tooltip>
       </div>
 
       <div className="relative flex-1">
-        <Textarea
-          minRows={1}
-          maxRows={4}
+        <Input
           placeholder="Type a message..."
           value={message}
           onValueChange={setMessage}
+          onKeyDown={handleKeyPress}
           radius="full"
           variant="flat"
+          isDisabled={disabled}
           classNames={{
             inputWrapper:
-              "bg-default-100 dark:bg-default-50 shadow-none pr-10 hover:bg-default-200 dark:hover:bg-default-100 transition-colors",
-            input: "py-2.5 text-medium",
+              "bg-default-100 dark:bg-default-50 shadow-none pr-10 hover:bg-default-200 dark:hover:bg-default-100 transition-colors border-none",
+            input: "py-2.5 text-sm",
           }}
         />
         <Tooltip content="Emoji picker coming soon" placement="top">
@@ -69,7 +98,7 @@ export default function ChatInput({ styles }: { styles: string }) {
             size="sm"
             variant="light"
             radius="full"
-            isDisabled
+            isDisabled={disabled}
           >
             <Smile className="h-5 w-5" />
           </Button>
@@ -78,10 +107,10 @@ export default function ChatInput({ styles }: { styles: string }) {
 
       <Button
         isIconOnly
-        className="mb-0.5 rounded-full bg-primary pb-0 text-white shadow-lg shadow-primary/20"
+        className="mb-0.5 rounded-full bg-primary text-white shadow-lg shadow-primary/20 transition-all hover:scale-105 hover:shadow-primary/30"
         size="md"
         onPress={handleSend}
-        isDisabled={!message.trim()}
+        isDisabled={!message.trim() || disabled}
       >
         <Send className="ml-0.5 h-5 w-5" />
       </Button>
