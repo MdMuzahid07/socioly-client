@@ -103,7 +103,7 @@ export default function ChatPage({
 
       return () => clearTimeout(timer);
     }
-    return undefined;
+    return () => {};
   }, [activeCall, callModalOpen]);
 
   if (!currentUser) {
