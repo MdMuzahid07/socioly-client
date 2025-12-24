@@ -5,6 +5,8 @@ import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { Provider } from "react-redux";
 import { Toaster } from "sonner";
+import PWAInstallPrompt from "@/components/PWAInstallPrompt";
+import PWADebug from "@/components/PWADebug";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -18,6 +20,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
           <AuthProvider>
             {children}
             <Toaster />
+            <PWAInstallPrompt />
+            {process.env.NODE_ENV === "development" && <PWADebug />}
           </AuthProvider>
         </NextThemesProvider>
       </NextUIProvider>
