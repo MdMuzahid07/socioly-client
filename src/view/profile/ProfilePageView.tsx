@@ -89,7 +89,7 @@ export default function ProfilePageView({ _profileId }: ProfilePageViewProps) {
             tabList:
               "gap-8 w-full relative rounded-none p-0 border-b border-divider bg-content1/50 backdrop-blur-sm",
             cursor: "w-full bg-primary",
-            tab: "max-w-fit px-0 h-14",
+            tab: "max-w-fit px-4 h-14",
             tabContent:
               "group-data-[selected=true]:text-primary font-semibold text-base",
           }}

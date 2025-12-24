@@ -25,7 +25,7 @@ export default function SignupPageView() {
   return (
     <section className="flex min-h-screen flex-col md:flex-row">
       <div
-        className="flex w-full items-center justify-center bg-blue-700 p-4 text-white md:w-1/2 md:p-8"
+        className="flex w-full items-center justify-center bg-primary p-4 text-white md:w-1/2 md:p-8"
         style={{ flex: "0 0 50%" }}
       >
         <Image
@@ -67,7 +67,7 @@ export default function SignupPageView() {
                 name="password"
                 radius="full"
               />
-              <div className="flex items-center justify-between text-sm font-bold text-blue-700">
+              <div className="flex items-center justify-between text-sm font-bold text-primary">
                 <p>
                   <span className="text-foreground">
                     Already have an account?{" "}
@@ -78,7 +78,7 @@ export default function SignupPageView() {
               <Button
                 type="submit"
                 isLoading={isLoading}
-                className="w-full rounded-full bg-blue-700 py-7 text-xl text-white"
+                className="w-full rounded-full bg-primary py-7 text-xl text-white"
               >
                 SignUp
               </Button>

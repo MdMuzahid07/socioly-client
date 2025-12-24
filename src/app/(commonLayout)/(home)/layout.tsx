@@ -11,10 +11,10 @@ export default function HomeLayout({
     <section className="min-h-screen bg-background">
       <Container>
         <section className="grid min-h-screen grid-cols-1 gap-6 pt-4 md:grid-cols-12">
-          <div className="hidden md:col-span-3 md:block">
+          <div className="hidden md:col-span-4 md:block lg:col-span-3">
             <Profile />
           </div>
-          <div className="md:col-span-6 lg:col-span-6">{children}</div>
+          <div className="md:col-span-8 lg:col-span-6">{children}</div>
           <div className="hidden md:col-span-3 lg:block">
             <Suggestions />
           </div>

@@ -12,7 +12,7 @@ import UserDropdown from "./UserDropdown";
 
 const Navbar = () => {
   return (
-    <header className={`sticky top-0 z-50 w-full bg-blue-700 text-foreground`}>
+    <header className={`sticky top-0 z-50 w-full bg-primary text-foreground`}>
       <Container>
         <nav className="relative flex h-16 items-center justify-between px-4 lg:px-0">
           <div>

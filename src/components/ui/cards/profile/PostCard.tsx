@@ -53,6 +53,7 @@ export default function PostCard({ post, className }: PostCardProps) {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [activeReplyId, setActiveReplyId] = useState<string | null>(null);
 
   const [likePost] = useLikePostMutation();
 
@@ -317,8 +318,13 @@ export default function PostCard({ post, className }: PostCardProps) {
               exit={{ height: 0, opacity: 0 }}
               className="overflow-hidden"
             >
-              <div className="border-t border-divider bg-default-50 p-4">
-                <div className="mb-4 flex gap-2">
+              <div className="border-t border-divider bg-transparent p-4">
+                <div className="mb-6 flex gap-3">
+                  <Avatar
+                    src={user?.avatar}
+                    size="sm"
+                    className="h-8 w-8 flex-shrink-0"
+                  />
                   <Input
                     placeholder="Write a comment..."
                     value={newComment}
@@ -327,7 +333,8 @@ export default function PostCard({ post, className }: PostCardProps) {
                     radius="full"
                     classNames={{
                       inputWrapper:
-                        "bg-background dark:bg-default-100 shadow-sm",
+                        "bg-default-100 hover:bg-default-200 transition-colors shadow-none",
+                      input: "text-small",
                     }}
                     endContent={
                       <Button
@@ -337,6 +344,7 @@ export default function PostCard({ post, className }: PostCardProps) {
                         color="primary"
                         isDisabled={!newComment.trim()}
                         onPress={handleAddComment}
+                        className="text-primary"
                       >
                         <Send size={16} />
                       </Button>
@@ -351,11 +359,17 @@ export default function PostCard({ post, className }: PostCardProps) {
                 </div>
 
                 {/* Comments List */}
-                <div className="max-h-[400px] space-y-3 overflow-y-auto">
+                <div className="custom-scrollbar max-h-[400px] space-y-5 overflow-y-auto pr-2">
                   {comments.length === 0 ? (
-                    <p className="py-4 text-center text-tiny text-default-400">
-                      No comments yet. Be the first!
-                    </p>
+                    <div className="flex flex-col items-center justify-center py-6 text-center">
+                      <MessageCircle className="mb-2 h-8 w-8 text-default-300" />
+                      <p className="text-small text-default-500">
+                        No comments yet.
+                      </p>
+                      <p className="text-tiny text-default-400">
+                        Be the first to share your thoughts!
+                      </p>
+                    </div>
                   ) : (
                     comments.map((comment) => (
                       <motion.div
@@ -367,20 +381,81 @@ export default function PostCard({ post, className }: PostCardProps) {
                         <Avatar
                           src={comment.user.avatar}
                           size="sm"
-                          className="h-8 w-8 flex-shrink-0"
+                          className="h-8 w-8 flex-shrink-0 cursor-pointer transition-opacity hover:opacity-80"
                         />
-                        <div className="flex-1 rounded-lg bg-default-100 px-3 py-2">
-                          <div className="flex items-center gap-2">
-                            <p className="text-sm font-semibold text-foreground">
-                              {comment.user.name}
+                        <div className="flex-1">
+                          <div className="rounded-2xl bg-default-100 px-4 py-3">
+                            <div className="flex items-center justify-between gap-2">
+                              <p className="cursor-pointer text-sm font-semibold text-foreground hover:underline">
+                                {comment.user.name}
+                              </p>
+                              <span className="text-tiny text-default-400">
+                                {timeAgo(comment.createdAt)}
+                              </span>
+                            </div>
+                            <p className="mt-1 text-sm leading-relaxed text-default-700">
+                              {comment.content}
                             </p>
-                            <span className="text-xs text-default-500">
-                              {timeAgo(comment.createdAt)}
-                            </span>
                           </div>
-                          <p className="mt-1 text-sm text-default-700">
-                            {comment.content}
-                          </p>
+                          {/* Comment Actions */}
+                          <div className="mt-1 flex items-center gap-4 px-4">
+                            <button className="text-tiny font-medium text-default-500 hover:text-primary hover:underline">
+                              Like
+                            </button>
+                            <button
+                              onClick={() =>
+                                setActiveReplyId(
+                                  activeReplyId === comment.id
+                                    ? null
+                                    : comment.id,
+                                )
+                              }
+                              className="text-tiny font-medium text-default-500 hover:text-primary hover:underline"
+                            >
+                              Reply
+                            </button>
+                          </div>
+
+                          {/* Reply Input */}
+                          <AnimatePresence>
+                            {activeReplyId === comment.id && (
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="mt-3 flex gap-3 pl-2">
+                                  <Avatar
+                                    src={user?.avatar}
+                                    size="sm"
+                                    className="h-6 w-6 flex-shrink-0"
+                                  />
+                                  <Input
+                                    placeholder={`Reply to ${comment.user.name.split(" ")[0]}...`}
+                                    size="sm"
+                                    radius="full"
+                                    classNames={{
+                                      inputWrapper:
+                                        "bg-default-100 dark:bg-default-50/50 shadow-none h-8 min-h-0",
+                                      input: "text-small",
+                                    }}
+                                    endContent={
+                                      <Button
+                                        isIconOnly
+                                        size="sm"
+                                        variant="light"
+                                        color="primary"
+                                        className="h-6 w-6 min-w-0"
+                                      >
+                                        <Send size={12} />
+                                      </Button>
+                                    }
+                                  />
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
                         </div>
                       </motion.div>
                     ))

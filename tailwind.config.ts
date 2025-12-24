@@ -56,14 +56,14 @@ const config = {
             background: "#fffbf5", // Soft porcelain/peach tint for "eye peace"
             foreground: "#1c1c1c",
             primary: {
-              DEFAULT: "#4f46e5", // Indigo-600 - Premium & Trustworthy
+              DEFAULT: "#1d4ed8", // Blue-700 (Requested Primary)
               foreground: "#FFFFFF",
             },
             secondary: {
               DEFAULT: "#ec4899", // Pink-500
               foreground: "#FFFFFF",
             },
-            focus: "#4f46e5",
+            focus: "#1d4ed8",
             content1: "#ffffff",
             content2: "#f3f4f6", // gray-100
             content3: "#e5e7eb", // gray-200
@@ -76,14 +76,14 @@ const config = {
             background: "#0B1121", // Deep Navy - Premium Dark
             foreground: "#f1f5f9", // Slate-100
             primary: {
-              DEFAULT: "#6366f1", // Indigo-500 - Vibrant against dark
+              DEFAULT: "#1d4ed8", // Blue-700 (Requested Primary)
               foreground: "#ffffff",
             },
             secondary: {
               DEFAULT: "#f472b6", // Pink-400
               foreground: "#000000",
             },
-            focus: "#6366f1",
+            focus: "#1d4ed8",
             content1: "#151e32", // Rich Navy (Cards)
             content2: "#1e293b", // Slate-800
             content3: "#334155", // Slate-700

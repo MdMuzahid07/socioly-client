@@ -51,7 +51,7 @@ export default function PostModal({ styles }: { styles?: string }) {
                       onPress={() => onOpenChange()}
                       isIconOnly
                       title="Click to post"
-                      className="absolute right-3 top-3 rounded-full border bg-slate-100 text-blue-700 drop-shadow-sm hover:bg-blue-700 hover:text-white"
+                      className="absolute right-3 top-3 rounded-full border bg-slate-100 text-primary drop-shadow-sm hover:bg-primary hover:text-white"
                     >
                       <Send className="h-4 w-4" />
                     </Button>

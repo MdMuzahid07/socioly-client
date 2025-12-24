@@ -17,7 +17,7 @@ export default function ProfileAside() {
   return (
     <Card className="relative w-full overflow-hidden rounded-xl bg-content1 text-foreground">
       {/* Cover Image with Gradient */}
-      <section className="relative h-28 bg-gradient-to-r from-blue-700 to-indigo-700">
+      <section className="relative h-28 bg-gradient-to-r from-primary to-primary-foreground/10">
         <Image
           src="https://images.unsplash.com/photo-1636710623312-e50d1a63761b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Cover"
@@ -52,7 +52,7 @@ export default function ProfileAside() {
               <h2 className="text-lg font-semibold text-foreground">
                 Md. Muzahid
               </h2>
-              <BadgeCheck className="h-4 w-4 text-blue-500" />
+              <BadgeCheck className="h-4 w-4 text-primary" />
             </div>
             <p className="text-xs text-default-500">Software Developer</p>
             <p className="mt-2 text-xs font-medium text-default-500/90">
@@ -129,7 +129,7 @@ export default function ProfileAside() {
           {/* View Profile Button */}
           <Button
             onPress={() => handleProfileView("8745")}
-            className="group w-full rounded-full bg-blue-700 font-medium text-white shadow-lg shadow-blue-500/20"
+            className="group w-full rounded-full bg-primary font-medium text-white shadow-lg shadow-primary/20"
           >
             View Profile
             <ExternalLink className="ml-2 h-4 w-4 opacity-70 transition-opacity group-hover:opacity-100" />

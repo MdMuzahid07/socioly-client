@@ -64,7 +64,7 @@ export default function YouMayLikeToConnect() {
   };
 
   return (
-    <Card className="glass-panel premium-shadow relative h-full max-h-[400px] w-full border-none bg-transparent shadow-none">
+    <Card className="relative h-full max-h-[400px] w-full bg-content1 text-foreground">
       <CardHeader className="border-b border-divider/10 pb-4 pt-4">
         <div className="flex items-center gap-3 text-lg font-semibold text-foreground">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">

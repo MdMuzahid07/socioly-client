@@ -57,7 +57,7 @@ export default function SuggestPages() {
   };
 
   return (
-    <Card className="glass-panel premium-shadow relative w-full rounded-xl border-none bg-transparent shadow-none">
+    <Card className="relative w-full rounded-xl bg-content1 text-foreground">
       <CardHeader className="border-b border-divider/10 pb-4 pt-4">
         <div className="flex items-center gap-3 text-lg font-semibold text-foreground">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">

@@ -15,7 +15,7 @@ export default function SettingsAside({
     >
       <div className="relative w-full p-8">
         <Link href="/">
-          <div className="rounded-lg bg-blue-700 px-4">
+          <div className="rounded-lg bg-primary px-4">
             <Image
               src={logo}
               width={110}

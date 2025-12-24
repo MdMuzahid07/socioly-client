@@ -13,7 +13,7 @@ export default function ProfileHeader() {
       <section className="relative">
         {/* Banner */}
         <motion.div
-          className="relative z-0 h-48 bg-blue-700"
+          className="relative z-0 h-48 bg-primary"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -71,7 +71,7 @@ export default function ProfileHeader() {
               </div>
               <div className="flex items-center gap-1">
                 <LinkIcon size={16} />
-                <a href="#" className="text-blue-500 hover:underline">
+                <a href="#" className="text-primary hover:underline">
                   johndoe.com
                 </a>
               </div>

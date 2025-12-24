@@ -14,7 +14,7 @@ export default function PasswordResetView() {
   return (
     <section className="flex min-h-screen flex-col md:flex-row">
       <div
-        className="flex w-full items-center justify-center bg-blue-700 p-4 text-white md:order-2 md:w-1/2 md:p-8"
+        className="flex w-full items-center justify-center bg-primary p-4 text-white md:order-2 md:w-1/2 md:p-8"
         style={{ flex: "0 0 50%" }}
       >
         <h1 className="text-4xl font-bold md:text-6xl">Socioly</h1>
@@ -24,7 +24,7 @@ export default function PasswordResetView() {
         style={{ flex: "1 0 50%" }}
       >
         <div className="w-full max-w-lg rounded-2xl p-4 py-10 md:p-8 md:py-16">
-          <h1 className="mb-8 text-4xl font-bold text-blue-700">
+          <h1 className="mb-8 text-4xl font-bold text-primary">
             Reset Password
           </h1>
 
@@ -41,7 +41,7 @@ export default function PasswordResetView() {
               />
               <Button
                 type="submit"
-                className="w-full rounded-full bg-blue-700 py-7 text-xl text-white"
+                className="w-full rounded-full bg-primary py-7 text-xl text-white"
               >
                 Get an magic link
               </Button>
