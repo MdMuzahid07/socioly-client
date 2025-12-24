@@ -326,7 +326,8 @@ export default function PostCard({ post, className }: PostCardProps) {
                     size="sm"
                     radius="full"
                     classNames={{
-                      inputWrapper: "bg-white dark:bg-default-100 shadow-sm",
+                      inputWrapper:
+                        "bg-background dark:bg-default-100 shadow-sm",
                     }}
                     endContent={
                       <Button

@@ -25,7 +25,7 @@ export default function MobileUserSidebar() {
       <Drawer
         isOpen={isOpen}
         onOpenChange={onOpenChange}
-        className="rounded-none bg-slate-100 text-black"
+        className="rounded-none bg-slate-100 text-foreground"
       >
         <DrawerContent>
           {() => (

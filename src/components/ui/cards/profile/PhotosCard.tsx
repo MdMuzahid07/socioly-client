@@ -17,7 +17,7 @@ export default function PhotosCard() {
 
   return (
     <>
-      <Card className="mt-4 rounded-none border-none text-black shadow-none">
+      <Card className="mt-4 rounded-none border-none text-foreground shadow-none">
         <CardBody>
           <h3 className="mb-4 text-xl font-semibold">
             Photos ({MOCK_PHOTOS.length})

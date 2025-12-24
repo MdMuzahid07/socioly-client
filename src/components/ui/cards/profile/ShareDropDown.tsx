@@ -93,7 +93,7 @@ export default function ShareDropDown() {
       <DropdownTrigger>
         <Button
           variant="light"
-          className="flex-1 text-default-500 data-[hover=true]:bg-default-100 data-[hover=true]:text-foreground"
+          className="flex-1 text-foreground data-[hover=true]:bg-default-100 data-[hover=true]:text-foreground"
           startContent={<Share className="h-5 w-5" />}
         >
           Share

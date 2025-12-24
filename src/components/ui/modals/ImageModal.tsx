@@ -1,9 +1,14 @@
 "use client";
-import { Modal, ModalContent, ModalBody, ModalHeader } from "@nextui-org/react";
-import { X, Download, Share2 } from "lucide-react";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+} from "@nextui-org/react";
+import { Download, Share2, X } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { Button } from "@nextui-org/react";
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -51,10 +56,10 @@ export default function ImageModal({
           url: currentImage,
         });
       } catch (error) {
-        // User cancelled or error occurred
+        // eslint-disable-next-line no-console
+        console.log(error);
       }
     } else {
-      // Fallback: copy to clipboard
       navigator.clipboard.writeText(currentImage);
     }
   };
@@ -84,7 +89,7 @@ export default function ImageModal({
                 isIconOnly
                 variant="light"
                 size="sm"
-                className="text-white hover:bg-white/20"
+                className="hover:bg-background/20 text-white"
                 onPress={handleDownload}
                 aria-label="Download image"
               >
@@ -94,7 +99,7 @@ export default function ImageModal({
                 isIconOnly
                 variant="light"
                 size="sm"
-                className="text-white hover:bg-white/20"
+                className="hover:bg-background/20 text-white"
                 onPress={handleShare}
                 aria-label="Share image"
               >
@@ -104,7 +109,7 @@ export default function ImageModal({
                 isIconOnly
                 variant="light"
                 size="sm"
-                className="text-white hover:bg-white/20"
+                className="hover:bg-background/20 text-white"
                 onPress={onClose}
                 aria-label="Close"
               >

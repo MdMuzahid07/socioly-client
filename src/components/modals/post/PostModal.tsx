@@ -1,12 +1,15 @@
 import {
-  Modal,
-  ModalContent,
-  ModalBody,
-  useDisclosure,
+  Avatar,
+  Button,
+  Card,
+  CardBody,
   Input,
+  Modal,
+  ModalBody,
+  ModalContent,
+  useDisclosure,
 } from "@nextui-org/react";
-import { Card, CardBody, Avatar, Button } from "@nextui-org/react";
-import { ImageIcon, Video, Calendar, Send } from "lucide-react";
+import { Calendar, ImageIcon, Send, Video } from "lucide-react";
 
 export default function PostModal({ styles }: { styles?: string }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -42,7 +45,7 @@ export default function PostModal({ styles }: { styles?: string }) {
                     />
                     <textarea
                       placeholder="What's happening?"
-                      className="h-48 w-full flex-1 resize-none p-2 text-black focus:border-b focus:outline-none"
+                      className="h-48 w-full flex-1 resize-none p-2 text-foreground focus:border-b focus:outline-none"
                     />
                     <Button
                       onPress={() => onOpenChange()}

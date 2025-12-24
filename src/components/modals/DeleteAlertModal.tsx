@@ -1,4 +1,4 @@
-import { Modal, ModalContent, useDisclosure, Button } from "@nextui-org/react";
+import { Button, Modal, ModalContent, useDisclosure } from "@nextui-org/react";
 import { Trash2 } from "lucide-react";
 
 export default function DeleteAlertModal({
@@ -32,7 +32,9 @@ export default function DeleteAlertModal({
             <div className="rounded-full bg-red-100 p-4">
               <Trash2 className="text-red-500" size={28} />
             </div>
-            <h2 className="mt-4 text-lg font-semibold text-black">Confirm Delete</h2>
+            <h2 className="mt-4 text-lg font-semibold text-foreground">
+              Confirm Delete
+            </h2>
             <p className="text-center text-sm text-gray-600">{subText}</p>
             <div className="mt-4 flex justify-between space-x-4">
               <Button

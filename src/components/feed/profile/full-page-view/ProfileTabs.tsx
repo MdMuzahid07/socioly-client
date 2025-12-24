@@ -19,7 +19,7 @@ export default function ProfileTabs() {
         aria-label="Profile tabs"
         color="primary"
         variant="underlined"
-        className="w-full border-b"
+        className="w-full gap-3 border-b"
       >
         {/* posts tab start here  */}
         <Tab className="px-4" key="posts" title="Posts">
@@ -28,7 +28,7 @@ export default function ProfileTabs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <CreatePostInput className="mb-6 mt-4 rounded-none border-b pb-4 text-black shadow-none" />
+            <CreatePostInput className="mb-6 mt-4 rounded-none border-b pb-4 text-foreground shadow-none" />
             <div className="space-y-10">
               {posts?.map((post, index) => (
                 <PostCard

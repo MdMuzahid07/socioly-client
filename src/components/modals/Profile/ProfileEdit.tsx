@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useRef } from "react";
 import {
-  Modal,
-  ModalContent,
-  ModalBody,
-  Button,
-  Tooltip,
   Avatar,
-  Input,
-  Textarea,
+  Button,
   Card,
+  Input,
+  Modal,
+  ModalBody,
+  ModalContent,
+  Textarea,
+  Tooltip,
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { X, Camera } from "lucide-react";
+import { Camera, X } from "lucide-react";
+import React, { useRef, useState } from "react";
 
 export default function ProfileEdit({
   onOpen,
@@ -46,7 +46,13 @@ export default function ProfileEdit({
 
   return (
     <>
-      <Button onPress={onOpen} className="rounded-full" size="sm" color="primary" variant="faded">
+      <Button
+        onPress={onOpen}
+        className="rounded-full"
+        size="sm"
+        color="primary"
+        variant="faded"
+      >
         Edit profile
       </Button>
       <Modal
@@ -55,7 +61,7 @@ export default function ProfileEdit({
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         backdrop="blur"
-        className="rounded-lg text-black"
+        className="rounded-lg text-foreground"
         size="4xl"
       >
         <ModalContent>
@@ -70,7 +76,9 @@ export default function ProfileEdit({
                     className="space-y-4 sm:space-y-8"
                   >
                     <section className="flex flex-col items-center justify-between gap-4 sm:gap-6 md:flex-row">
-                      <h2 className="text-2xl font-bold text-black">Edit Profile</h2>
+                      <h2 className="text-2xl font-bold text-foreground">
+                        Edit Profile
+                      </h2>
                       <div className="relative">
                         <Input
                           type="file"
@@ -81,7 +89,10 @@ export default function ProfileEdit({
                         />
                         <Tooltip content="Upload profile picture">
                           <Avatar
-                            src={profileImage || "/placeholder.svg?height=128&width=128"}
+                            src={
+                              profileImage ||
+                              "/placeholder.svg?height=128&width=128"
+                            }
                             className="h-32 w-32 cursor-pointer text-large transition-transform hover:scale-105"
                             onClick={() => fileInputRef.current?.click()}
                           />
@@ -119,7 +130,11 @@ export default function ProfileEdit({
                       variant="bordered"
                     />
 
-                    <Input label="Location" placeholder="Enter your location" variant="bordered" />
+                    <Input
+                      label="Location"
+                      placeholder="Enter your location"
+                      variant="bordered"
+                    />
 
                     <Textarea
                       label="About"

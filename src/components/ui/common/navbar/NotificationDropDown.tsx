@@ -22,7 +22,7 @@ export default function NotificationDropDown() {
       className="w-full min-w-[380px] max-w-[420px]"
       classNames={{
         content:
-          "bg-white/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-default-200/50 dark:border-default-100/10 shadow-2xl rounded-2xl",
+          "bg-background/90 dark:bg-zinc-900/90 backdrop-blur-xl border border-default-200/50 dark:border-default-100/10 shadow-2xl rounded-2xl",
       }}
     >
       <DropdownTrigger>

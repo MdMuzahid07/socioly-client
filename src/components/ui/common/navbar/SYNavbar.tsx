@@ -12,7 +12,7 @@ import UserDropdown from "./UserDropdown";
 
 const Navbar = () => {
   return (
-    <header className={`sticky top-0 z-50 w-full bg-blue-700 text-black`}>
+    <header className={`sticky top-0 z-50 w-full bg-blue-700 text-foreground`}>
       <Container>
         <nav className="relative flex h-16 items-center justify-between px-4 lg:px-0">
           <div>
@@ -47,7 +47,7 @@ const Navbar = () => {
             <div className="flex items-center gap-3 sm:gap-5">
               <Link
                 href="/chat"
-                className="flex h-7 w-7 items-center justify-center rounded-full bg-default-100 text-default-500 hover:bg-white sm:h-9 sm:w-9"
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-default-100 text-default-500 hover:bg-background sm:h-9 sm:w-9"
               >
                 <div className="relative">
                   <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />

@@ -20,7 +20,7 @@ export default function PasswordResetView() {
         <h1 className="text-4xl font-bold md:text-6xl">Socioly</h1>
       </div>
       <div
-        className="flex w-full items-center justify-center bg-white text-black md:order-1 md:w-1/2"
+        className="flex w-full items-center justify-center bg-background text-foreground md:order-1 md:w-1/2"
         style={{ flex: "1 0 50%" }}
       >
         <div className="w-full max-w-lg rounded-2xl p-4 py-10 md:p-8 md:py-16">

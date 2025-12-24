@@ -1,7 +1,7 @@
 "use client";
 
-import { MOCK_VIDEOS } from "@/lib/data/mockData";
 import VideoModal from "@/components/ui/modals/VideoModal";
+import { MOCK_VIDEOS } from "@/lib/data/mockData";
 import { Card, CardBody } from "@nextui-org/react";
 import { Play } from "lucide-react";
 import Image from "next/image";
@@ -21,7 +21,7 @@ export default function VideosCard() {
   return (
     <>
       <div className="mt-4">
-        <h3 className="ml-4 text-xl font-semibold text-black">
+        <h3 className="ml-4 text-xl font-semibold text-foreground">
           Videos ({MOCK_VIDEOS.length})
         </h3>
 
@@ -29,7 +29,7 @@ export default function VideosCard() {
           {MOCK_VIDEOS.map((video, index) => (
             <Card
               key={video.id}
-              className="group relative cursor-pointer overflow-hidden rounded-lg border-none text-black shadow-none"
+              className="group relative cursor-pointer overflow-hidden rounded-lg border-none text-foreground shadow-none"
               onClick={() => handleVideoClick(index)}
               role="button"
               tabIndex={0}
@@ -50,9 +50,9 @@ export default function VideosCard() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/40">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm transition-transform group-hover:scale-110">
+                    <div className="bg-background/90 flex h-16 w-16 items-center justify-center rounded-full backdrop-blur-sm transition-transform group-hover:scale-110">
                       <Play
-                        className="ml-1 h-8 w-8 text-black"
+                        className="ml-1 h-8 w-8 text-foreground"
                         fill="currentColor"
                       />
                     </div>

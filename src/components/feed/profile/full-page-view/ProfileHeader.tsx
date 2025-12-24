@@ -9,7 +9,7 @@ export default function ProfileHeader() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <header className="w-full overflow-hidden rounded-t-lg border-b bg-white text-black">
+    <header className="w-full overflow-hidden rounded-t-lg border-b bg-background text-foreground">
       <section className="relative">
         {/* Banner */}
         <motion.div

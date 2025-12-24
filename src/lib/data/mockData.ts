@@ -658,3 +658,99 @@ export const PAGE_CATEGORIES = [
   { id: "education", name: "Education", icon: "📚" },
   { id: "entertainment", name: "Entertainment", icon: "🎬" },
 ];
+
+// --- Mock Stories ---
+export const MOCK_STORIES = [
+  {
+    id: "s1",
+    user: {
+      id: "u1",
+      name: "Md. Muzahid",
+      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
+    },
+    backgroundImage:
+      "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    createdAt: "1h ago",
+  },
+  {
+    id: "s2",
+    user: {
+      id: "u2",
+      name: "John Doe",
+      avatar:
+        "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    backgroundImage:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    createdAt: "2h ago",
+  },
+  {
+    id: "s3",
+    user: {
+      id: "u3",
+      name: "Jane Smith",
+      avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024f",
+    },
+    backgroundImage:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    createdAt: "3h ago",
+  },
+  {
+    id: "s4",
+    user: {
+      id: "u4",
+      name: "Bob Johnson",
+      avatar:
+        "https://plus.unsplash.com/premium_photo-1685697414658-ba6e19f7b308?q=80&w=1203&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    backgroundImage:
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    createdAt: "4h ago",
+  },
+  {
+    id: "s5",
+    user: {
+      id: "u5",
+      name: "Alice Williams",
+      avatar: "https://i.pravatar.cc/150?u=a042581f4e290260251",
+    },
+    backgroundImage:
+      "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    createdAt: "5h ago",
+  },
+  {
+    id: "s6",
+    user: {
+      id: "u6",
+      name: "Charlie Brown",
+      avatar:
+        "https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    backgroundImage:
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    createdAt: "6h ago",
+  },
+  {
+    id: "s8",
+    user: {
+      id: "u8",
+      name: "Michael Wilson",
+      avatar: "https://i.pravatar.cc/150?u=a042581f4e290260253",
+    },
+    backgroundImage:
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    createdAt: "8h ago",
+  },
+
+  {
+    id: "s10",
+    user: {
+      id: "u10",
+      name: "David Thompson",
+      avatar: "https://i.pravatar.cc/150?u=a042581f4e290260255",
+    },
+    backgroundImage:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    createdAt: "10h ago",
+  },
+];

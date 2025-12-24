@@ -19,7 +19,7 @@
 //             <Modal backdrop="blur" isOpen={isOpen} className="max-h-[60vh] h-full rounded-lg" size="md" onOpenChange={onOpenChange}>
 //                 <ModalContent>
 //                     <>
-//                         <ModalBody className="p-0 text-black flex flex-col justify-center items-center">
+//                         <ModalBody className="p-0 text-foreground flex flex-col justify-center items-center">
 //                             <button className=" flex flex-col justify-center items-center">
 //                                 <Images />
 //                                 <label htmlFor="selectAddStoryImage">
@@ -35,11 +35,17 @@
 //     );
 // };
 
-import { useState } from "react";
-import { Modal, ModalContent, ModalBody, useDisclosure, Input } from "@nextui-org/react";
-import { Images } from "lucide-react";
 import AddStoryInput from "@/components/feed/feed/AddStoryInput";
+import {
+  Input,
+  Modal,
+  ModalBody,
+  ModalContent,
+  useDisclosure,
+} from "@nextui-org/react";
+import { Images } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function AddStoryModal() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -67,7 +73,7 @@ export default function AddStoryModal() {
       >
         <ModalContent>
           <>
-            <ModalBody className="flex flex-col items-center justify-center p-0 text-black">
+            <ModalBody className="flex flex-col items-center justify-center p-0 text-foreground">
               {!selectedImage ? (
                 // Show the image upload UI if no image is selected
                 <label

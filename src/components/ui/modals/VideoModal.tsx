@@ -1,8 +1,13 @@
 "use client";
-import { Modal, ModalContent, ModalBody, ModalHeader } from "@nextui-org/react";
-import { X, Download, Share2 } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
-import { Button } from "@nextui-org/react";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalHeader,
+} from "@nextui-org/react";
+import { Download, Share2, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 interface VideoModalProps {
   isOpen: boolean;
@@ -131,7 +136,7 @@ export default function VideoModal({
                 isIconOnly
                 variant="light"
                 size="sm"
-                className="text-white hover:bg-white/20"
+                className="hover:bg-background/20 text-white"
                 onPress={handleDownload}
                 aria-label="Download video"
               >
@@ -141,7 +146,7 @@ export default function VideoModal({
                 isIconOnly
                 variant="light"
                 size="sm"
-                className="text-white hover:bg-white/20"
+                className="hover:bg-background/20 text-white"
                 onPress={handleShare}
                 aria-label="Share video"
               >
@@ -151,7 +156,7 @@ export default function VideoModal({
                 isIconOnly
                 variant="light"
                 size="sm"
-                className="text-white hover:bg-white/20"
+                className="hover:bg-background/20 text-white"
                 onPress={onClose}
                 aria-label="Close"
               >

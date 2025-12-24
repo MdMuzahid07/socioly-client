@@ -37,11 +37,13 @@ export default function SignupPageView() {
         />
       </div>
       <div
-        className="flex w-full items-center justify-center bg-white text-black md:order-1 md:w-1/2"
+        className="flex w-full items-center justify-center bg-background text-foreground md:order-1 md:w-1/2"
         style={{ flex: "1 0 50%" }}
       >
         <div className="w-full max-w-lg rounded-2xl p-4 py-10 md:p-8 md:py-16">
-          <h1 className="text-Black mb-8 text-4xl font-bold">Create Account</h1>
+          <h1 className="mb-8 text-4xl font-bold text-foreground">
+            Create Account
+          </h1>
           <SYForm
             onSubmit={onSubmit}
             resolver={zodResolver(loginValidationSchema)}
@@ -67,7 +69,9 @@ export default function SignupPageView() {
               />
               <div className="flex items-center justify-between text-sm font-bold text-blue-700">
                 <p>
-                  <span className="text-black">Already have an account? </span>
+                  <span className="text-foreground">
+                    Already have an account?{" "}
+                  </span>
                   <Link href="/login">Login</Link>
                 </p>
               </div>

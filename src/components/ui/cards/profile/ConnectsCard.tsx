@@ -10,7 +10,7 @@ export default function ConnectsCard() {
   const router = useRouter();
 
   return (
-    <Card className="mt-4 rounded-none border-none text-black shadow-none">
+    <Card className="mt-4 rounded-none border-none text-foreground shadow-none">
       <CardBody>
         <div className="mb-6 flex items-center justify-between">
           <h3 className="text-xl font-semibold">

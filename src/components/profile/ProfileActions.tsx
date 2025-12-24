@@ -23,6 +23,7 @@ const ProfileActions: React.FC<ProfileActionsProps> = ({
         variant="bordered"
         className="border-divider font-medium"
         onPress={onEdit}
+        size="sm"
       >
         Edit profile
       </Button>
@@ -33,6 +34,7 @@ const ProfileActions: React.FC<ProfileActionsProps> = ({
         onPress={onToggleFollow}
         startContent={!isFollowing && <UserPlus size={18} />}
         className="font-medium"
+        size="sm"
       >
         {isFollowing ? "Following" : "Follow"}
       </Button>
@@ -42,6 +44,7 @@ const ProfileActions: React.FC<ProfileActionsProps> = ({
         variant="flat"
         color="primary"
         onPress={onMessage}
+        size="sm"
       >
         <MessageCircle size={20} />
       </Button>
