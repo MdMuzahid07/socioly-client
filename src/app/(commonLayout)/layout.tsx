@@ -1,4 +1,5 @@
 import Providers from "@/lib/providers";
+import SYNavbar from "../../components/ui/common/navbar/SYNavbar";
 
 export default function CommonLayout({
   children,
@@ -7,6 +8,7 @@ export default function CommonLayout({
 }) {
   return (
     <Providers>
+      <SYNavbar />
       <div className="px-2.5">{children}</div>
     </Providers>
   );

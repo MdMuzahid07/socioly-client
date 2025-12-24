@@ -397,11 +397,17 @@ export default function CreatePageModal({
                   Back
                 </Button>
               )}
-              <Button variant="flat" onPress={onClose} isDisabled={isLoading}>
+              <Button
+                className="rounded-full"
+                variant="flat"
+                onPress={onClose}
+                isDisabled={isLoading}
+              >
                 Cancel
               </Button>
               {step < 3 ? (
                 <Button
+                  className="rounded-full"
                   color="primary"
                   onPress={handleNext}
                   endContent={<ArrowRight size={18} />}
