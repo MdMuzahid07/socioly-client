@@ -35,8 +35,8 @@ export default function NotificationDropDown() {
             isInvisible={unreadCount === 0}
             className="border-2 border-background shadow-[0_0_8px_rgba(243,18,96,0.6)]"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-default-100 text-default-500 transition-colors group-hover:bg-default-200 group-hover:text-foreground">
-              <Bell className="h-5 w-5" />
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-default-100 text-default-500 transition-colors group-hover:bg-default-200 group-hover:text-foreground sm:h-9 sm:w-9">
+              <Bell className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
           </Badge>
         </button>

@@ -89,8 +89,13 @@ export default function ProfileAside() {
           {/* Navigation */}
           <nav className="space-y-2">
             {[
-              { icon: Users2, label: "Groups" },
-              { icon: Bell, label: "Notifications", indicator: 5 },
+              { icon: Users2, label: "Pages", link: "/pages" },
+              {
+                icon: Bell,
+                label: "Notifications",
+                indicator: 5,
+                link: "/notifications",
+              },
             ]?.map((item, index) => (
               <motion.div
                 key={item.label}
@@ -99,7 +104,7 @@ export default function ProfileAside() {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link
-                  href="#"
+                  href={item.link}
                   className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors hover:bg-default-100"
                 >
                   <span className="flex items-center gap-3 text-default-600 group-hover:text-foreground">

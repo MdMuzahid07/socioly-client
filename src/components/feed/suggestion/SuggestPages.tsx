@@ -66,7 +66,7 @@ export default function SuggestPages() {
           Pages you may follow
         </div>
       </CardHeader>
-      <CardBody className="custom-scrollbar space-y-4 overflow-y-auto p-4 pb-4">
+      <CardBody className="custom-scrollbar max-h-[35vh] space-y-4 overflow-y-auto p-4 pb-4">
         {fakeData?.map((page, index) => (
           <motion.div
             key={page?.id}

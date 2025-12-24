@@ -536,3 +536,122 @@ export const MOCK_MESSAGES: Record<
     },
   ],
 };
+
+// --- Mock Pages ---
+export const MOCK_PAGES = [
+  {
+    id: "page1",
+    name: "Tech Innovators",
+    category: "Technology",
+    description:
+      "Exploring the latest in technology, AI, and software development. Join us for insights and discussions!",
+    coverImage:
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
+    profileImage:
+      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    likes: 15200,
+    followers: 12500,
+    isLiked: true,
+    isFollowing: true,
+    createdAt: "2023-01-15",
+    posts: 342,
+  },
+  {
+    id: "page2",
+    name: "Nature Photography",
+    category: "Photography",
+    description:
+      "Capturing the beauty of nature one shot at a time. Share your best nature photos with our community!",
+    coverImage:
+      "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    profileImage:
+      "https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    likes: 8900,
+    followers: 7200,
+    isLiked: false,
+    isFollowing: true,
+    createdAt: "2023-03-22",
+    posts: 156,
+  },
+  {
+    id: "page3",
+    name: "Fitness & Wellness",
+    category: "Health & Fitness",
+    description:
+      "Your daily dose of fitness motivation, workout tips, and wellness advice. Let's get healthy together!",
+    coverImage:
+      "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    profileImage:
+      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    likes: 21000,
+    followers: 18500,
+    isLiked: true,
+    isFollowing: false,
+    createdAt: "2022-11-10",
+    posts: 521,
+  },
+  {
+    id: "page4",
+    name: "Foodie Paradise",
+    category: "Food & Cooking",
+    description:
+      "Delicious recipes, cooking tips, and food adventures from around the world. Bon appétit!",
+    coverImage:
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    profileImage:
+      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    likes: 12800,
+    followers: 10200,
+    isLiked: false,
+    isFollowing: false,
+    createdAt: "2023-05-18",
+    posts: 289,
+  },
+  {
+    id: "page5",
+    name: "Travel Wanderlust",
+    category: "Travel & Places",
+    description:
+      "Discover amazing destinations, travel tips, and hidden gems around the globe. Adventure awaits!",
+    coverImage:
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+    profileImage:
+      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    likes: 19500,
+    followers: 16800,
+    isLiked: true,
+    isFollowing: true,
+    createdAt: "2023-02-28",
+    posts: 412,
+  },
+  {
+    id: "page6",
+    name: "Creative Arts Hub",
+    category: "Arts & Design",
+    description:
+      "A community for artists, designers, and creatives. Share your work and get inspired!",
+    coverImage:
+      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80",
+    profileImage:
+      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80",
+    likes: 6700,
+    followers: 5400,
+    isLiked: false,
+    isFollowing: false,
+    createdAt: "2023-04-12",
+    posts: 198,
+  },
+];
+
+export const PAGE_CATEGORIES = [
+  { id: "tech", name: "Technology", icon: "💻" },
+  { id: "photo", name: "Photography", icon: "📷" },
+  { id: "health", name: "Health & Fitness", icon: "💪" },
+  { id: "food", name: "Food & Cooking", icon: "🍳" },
+  { id: "travel", name: "Travel & Places", icon: "✈️" },
+  { id: "arts", name: "Arts & Design", icon: "🎨" },
+  { id: "music", name: "Music", icon: "🎵" },
+  { id: "business", name: "Business", icon: "💼" },
+  { id: "education", name: "Education", icon: "📚" },
+  { id: "entertainment", name: "Entertainment", icon: "🎬" },
+];

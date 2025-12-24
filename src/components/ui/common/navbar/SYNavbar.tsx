@@ -11,10 +11,6 @@ import UnifiedMobileSidebar from "./UnifiedMobileSidebar";
 import UserDropdown from "./UserDropdown";
 
 const Navbar = () => {
-  // const [isMobileNavOpen, setIsMobileAppOpen] = useState(false);
-
-  // const handleMobileNav = () => setIsMobileAppOpen(!isMobileNavOpen);
-
   return (
     <header className={`sticky top-0 z-50 w-full bg-blue-700 text-black`}>
       <Container>
@@ -39,7 +35,7 @@ const Navbar = () => {
                 <li key={nav?.title}>
                   <Link
                     href={nav?.path}
-                    className="flex h-7 w-7 cursor-pointer items-center justify-center gap-1 rounded-full bg-slate-100 hover:bg-white sm:h-9 sm:w-auto sm:px-3"
+                    className="flex h-7 w-7 cursor-pointer items-center justify-center gap-1 rounded-full bg-default-100 text-default-500 group-hover:bg-default-200 group-hover:text-default-600 sm:h-9 sm:w-auto sm:px-3"
                   >
                     <nav.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                     <span className="hidden sm:flex">{nav?.title}</span>
@@ -51,7 +47,7 @@ const Navbar = () => {
             <div className="flex items-center gap-3 sm:gap-5">
               <Link
                 href="/chat"
-                className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 hover:bg-white sm:h-9 sm:w-9"
+                className="flex h-7 w-7 items-center justify-center rounded-full bg-default-100 text-default-500 hover:bg-white sm:h-9 sm:w-9"
               >
                 <div className="relative">
                   <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -65,15 +61,10 @@ const Navbar = () => {
                 <UserDropdown />
               </div>
 
-              {/* Mobile Unified Sidebar (Avatar Trigger) */}
               <UnifiedMobileSidebar />
             </div>
           </div>
           {/* // desktop menu end =================>>>>>>>>>>>>>>>>> */}
-
-          {/* // mobile menu starts =================>>>>>>>>>>>>>>>>> */}
-
-          {/* // mobile menu end  =================>>>>>>>>>>>>>>>>> */}
         </nav>
       </Container>
     </header>

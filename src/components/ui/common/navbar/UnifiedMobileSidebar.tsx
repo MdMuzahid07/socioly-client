@@ -46,7 +46,10 @@ export default function UnifiedMobileSidebar() {
             <>
               <DrawerHeader className="flex flex-col gap-1 border-b border-divider p-4">
                 <div className="flex items-center gap-3">
-                  <Avatar src={user.avatar} className="h-12 w-12" />
+                  <Avatar
+                    src={user.avatar}
+                    className="h-6 w-6 sm:h-12 sm:w-12"
+                  />
                   <div className="flex flex-col">
                     <span className="text-large font-bold">{user.name}</span>
                     <span className="text-small text-default-500">
