@@ -109,7 +109,7 @@ export const MOCK_POSTS: Post[] = [
     user: MOCK_USERS.current,
     content: "Beautiful sunset today! 🌅",
     images: [
-      "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
     ],
     likesCount: 200,
     commentsCount: 50,
@@ -124,7 +124,7 @@ export const MOCK_POSTS: Post[] = [
     content:
       "Nature's masterpiece. The colors at this altitude are unreal. #mountain #sunset #nature",
     images: [
-      "/home/muzahid/.gemini/antigravity/brain/a770f047-7c4a-425e-b9aa-8fbbea5c782f/nature_mountain_sunset_1765876439091.png",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
     ],
     likesCount: 342,
     commentsCount: 28,
@@ -139,7 +139,7 @@ export const MOCK_POSTS: Post[] = [
     content:
       "Found this peaceful spot during my morning hike. The sound of the stream is so relaxing.",
     images: [
-      "/home/muzahid/.gemini/antigravity/brain/a770f047-7c4a-425e-b9aa-8fbbea5c782f/nature_forest_stream_1765876459319.png",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
     ],
     likesCount: 156,
     commentsCount: 14,
@@ -153,7 +153,7 @@ export const MOCK_POSTS: Post[] = [
     user: MOCK_USERS.current,
     content: "The power of the ocean. 🌊 #ocean #waves #dramatic",
     images: [
-      "/home/muzahid/.gemini/antigravity/brain/a770f047-7c4a-425e-b9aa-8fbbea5c782f/nature_ocean_cliffs_1765876480386.png",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
     ],
     likesCount: 289,
     commentsCount: 67,
