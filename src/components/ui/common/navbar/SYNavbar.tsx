@@ -11,7 +11,7 @@ import SearchBar from "./SearchBar";
 import UnifiedMobileSidebar from "./UnifiedMobileSidebar";
 import UserDropdown from "./UserDropdown";
 
-const Navbar = () => {
+const SYNavbar = () => {
   return (
     <header className={`sticky top-0 z-50 w-full bg-primary text-foreground`}>
       <Container>
@@ -74,4 +74,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default SYNavbar;
