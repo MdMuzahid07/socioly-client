@@ -35,7 +35,6 @@ export default function CommunityPageDetails({ pageId }: { pageId: string }) {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Page Header */}
       <CommunityPageHeader
         page={page}
         isLiked={isLiked}
@@ -45,7 +44,6 @@ export default function CommunityPageDetails({ pageId }: { pageId: string }) {
         onShare={handleShare}
       />
 
-      {/* Tabs Section */}
       <div className="mx-auto mt-6 max-w-7xl">
         <Tabs
           aria-label="Page Tabs"

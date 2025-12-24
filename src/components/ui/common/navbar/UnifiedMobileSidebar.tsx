@@ -103,7 +103,7 @@ export default function UnifiedMobileSidebar() {
                       router.push("/settings");
                       onClose();
                     }}
-                    className="flex w-full items-center gap-4 rounded-lg px-2 py-3 text-left transition-colors hover:bg-default-100 active:bg-default-200"
+                    className="flex w-full items-center gap-4 rounded-full px-2 py-3 text-left transition-colors hover:bg-default-100 active:bg-default-200"
                   >
                     <Settings className="h-5 w-5 text-default-600" />
                     <span className="text-medium font-medium">
@@ -111,7 +111,7 @@ export default function UnifiedMobileSidebar() {
                     </span>
                   </button>
 
-                  <button className="flex w-full items-center gap-4 rounded-lg px-2 py-3 text-left transition-colors hover:bg-default-100 active:bg-default-200">
+                  <button className="flex w-full items-center gap-4 rounded-full px-2 py-3 text-left transition-colors hover:bg-default-100 active:bg-default-200">
                     <LifeBuoy className="h-5 w-5 text-default-600" />
                     <span className="text-medium font-medium">Support</span>
                   </button>

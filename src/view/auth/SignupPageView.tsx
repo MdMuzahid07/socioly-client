@@ -18,7 +18,7 @@ export default function SignupPageView() {
     try {
       await signup(data["full-name"], data.email, data.password);
     } catch (error) {
-      // Handled by context
+      console.log(error);
     }
   };
 

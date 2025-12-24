@@ -20,6 +20,10 @@ const config = {
         "fade-in": "fadeIn 0.5s ease-out",
         "scale-up": "scaleUp 0.3s ease-out",
       },
+      animationDelay: {
+        "2000": "2s",
+        "4000": "4s",
+      },
       keyframes: {
         blob: {
           "0%": {

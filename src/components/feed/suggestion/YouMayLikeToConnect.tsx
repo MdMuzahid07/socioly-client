@@ -123,7 +123,7 @@ export default function YouMayLikeToConnect() {
         ))}
       </CardBody>
       <section className="border-t border-divider/10 p-2">
-        <button className="w-full rounded-lg bg-default-50/50 py-2.5 text-small font-medium text-default-600 transition-all hover:bg-default-100 hover:text-primary active:scale-[0.98]">
+        <button className="w-full rounded-full bg-default-50/50 py-2.5 text-small font-medium text-default-600 transition-all hover:bg-default-100 hover:text-primary active:scale-[0.98]">
           View more suggestions
         </button>
       </section>
