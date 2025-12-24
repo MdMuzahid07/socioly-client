@@ -19,7 +19,7 @@ export default function ProfileAside() {
       {/* Cover Image with Gradient */}
       <section className="relative h-28 bg-gradient-to-r from-blue-700 to-indigo-700">
         <Image
-          src="https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?t=st=1735653575~exp=1735657175~hmac=692eb217b46f3a8d64c255c1106bc86e5ee72755f115570662280c586f35a0a5&w=826"
+          src="https://images.unsplash.com/photo-1636710623312-e50d1a63761b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Cover"
           className="object-cover opacity-90"
           fill

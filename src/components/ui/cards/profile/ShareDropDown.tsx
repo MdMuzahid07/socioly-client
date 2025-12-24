@@ -8,7 +8,7 @@ import {
   DropdownTrigger,
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { ArrowRight, Copy, Share2 } from "lucide-react";
+import { ArrowRight, Copy, Share } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   FacebookIcon,
@@ -94,7 +94,7 @@ export default function ShareDropDown() {
         <Button
           variant="light"
           className="flex-1 text-default-500 data-[hover=true]:bg-default-100 data-[hover=true]:text-foreground"
-          startContent={<Share2 className="h-5 w-5" />}
+          startContent={<Share className="h-5 w-5" />}
         >
           Share
         </Button>

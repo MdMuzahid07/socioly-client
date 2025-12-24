@@ -14,7 +14,7 @@ export const MOCK_USERS: Record<string, User> = {
     followers: "2.5K",
     following: "365",
     cover:
-      "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1636710623312-e50d1a63761b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     posts: "256",
     email: "muzahid@example.com",
   },
@@ -22,13 +22,14 @@ export const MOCK_USERS: Record<string, User> = {
     id: "u2",
     name: "John Doe",
     handle: "@johndoe",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024e",
+    avatar:
+      "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bio: "Software Developer",
     work: "Software Developer",
     followers: "1.2K",
     following: "150",
     cover:
-      "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1636710623312-e50d1a63761b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     posts: "45",
   },
   u3: {
@@ -46,7 +47,8 @@ export const MOCK_USERS: Record<string, User> = {
     id: "u4",
     name: "Bob Johnson",
     handle: "@bobjohnson",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e290260250",
+    avatar:
+      "https://plus.unsplash.com/premium_photo-1685697414658-ba6e19f7b308?q=80&w=1203&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bio: "Frontend Developer",
     work: "Frontend Developer",
     followers: "1.5K",
@@ -68,7 +70,8 @@ export const MOCK_USERS: Record<string, User> = {
     id: "u6",
     name: "Charlie Brown",
     handle: "@charliebrown",
-    avatar: "https://i.pravatar.cc/150?u=a042581f4e290260252",
+    avatar:
+      "https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bio: "Data Scientist",
     work: "Data Scientist",
     followers: "3.2K",
@@ -109,7 +112,7 @@ export const MOCK_POSTS: Post[] = [
     user: MOCK_USERS.current,
     content: "Beautiful sunset today! 🌅",
     images: [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
+      "https://images.unsplash.com/photo-1503803548695-c2a7b4a5b875?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     likesCount: 200,
     commentsCount: 50,
@@ -124,7 +127,7 @@ export const MOCK_POSTS: Post[] = [
     content:
       "Nature's masterpiece. The colors at this altitude are unreal. #mountain #sunset #nature",
     images: [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     likesCount: 342,
     commentsCount: 28,
@@ -139,7 +142,7 @@ export const MOCK_POSTS: Post[] = [
     content:
       "Found this peaceful spot during my morning hike. The sound of the stream is so relaxing.",
     images: [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
+      "https://plus.unsplash.com/premium_photo-1664303847960-586318f59035?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     likesCount: 156,
     commentsCount: 14,
@@ -153,7 +156,7 @@ export const MOCK_POSTS: Post[] = [
     user: MOCK_USERS.current,
     content: "The power of the ocean. 🌊 #ocean #waves #dramatic",
     images: [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80",
+      "https://images.unsplash.com/photo-1471922694854-ff1b63b20054?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ],
     likesCount: 289,
     commentsCount: 67,
