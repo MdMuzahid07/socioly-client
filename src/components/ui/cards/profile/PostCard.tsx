@@ -274,7 +274,7 @@ export default function PostCard({ post, className }: PostCardProps) {
         <CardFooter className="gap-2 pt-0">
           <Button
             variant="light"
-            className="flex-1 data-[hover=true]:bg-default-100"
+            className="flex-1 rounded-full data-[hover=true]:bg-default-100"
             onPress={handleLike}
             startContent={
               <motion.div
@@ -298,7 +298,7 @@ export default function PostCard({ post, className }: PostCardProps) {
 
           <Button
             variant="light"
-            className="flex-1 text-default-500 data-[hover=true]:bg-default-100"
+            className="flex-1 rounded-full text-default-500 data-[hover=true]:bg-default-100"
             onPress={() => setShowComments(!showComments)}
             startContent={<MessageCircle className="h-5 w-5" />}
           >

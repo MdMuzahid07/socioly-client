@@ -124,7 +124,7 @@ export default function AddStoryInput() {
                 variant="ghost"
                 onPress={closeAddModal}
                 size="sm"
-                className="sm:size-md"
+                className="sm:size-md rounded-full"
               >
                 Cancel
               </Button>
@@ -134,7 +134,7 @@ export default function AddStoryInput() {
                 onPress={handleUpload}
                 isDisabled={!selectedFile}
                 size="sm"
-                className="sm:size-md"
+                className="sm:size-md rounded-full"
               >
                 Upload
               </Button>

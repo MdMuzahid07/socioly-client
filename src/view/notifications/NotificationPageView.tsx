@@ -22,7 +22,7 @@ export default function NotificationPageView() {
     <div className="min-h-screen bg-background">
       {/* Header Section - Fixed/Sticky */}
       <div className="bg-background/80 sticky top-0 z-10 border-b border-divider backdrop-blur-xl">
-        <div className="mx-auto max-w-5xl px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-5xl py-4">
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-foreground sm:text-3xl">
@@ -38,7 +38,7 @@ export default function NotificationPageView() {
                 size="sm"
                 variant="flat"
                 startContent={<CheckCheck size={16} />}
-                className="hidden font-medium sm:flex"
+                className="hidden rounded-full font-medium sm:flex"
               >
                 Mark all read
               </Button>
@@ -99,7 +99,7 @@ export default function NotificationPageView() {
       </div>
 
       {/* Content Section */}
-      <div className="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl py-6">
         <AnimatePresence mode="wait">
           {filteredNotifications.length > 0 ? (
             <motion.div

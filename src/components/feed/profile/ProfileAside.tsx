@@ -105,7 +105,7 @@ export default function ProfileAside() {
               >
                 <Link
                   href={item.link}
-                  className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm transition-colors hover:bg-default-100"
+                  className="group flex items-center justify-between rounded-full px-3 py-2 text-sm transition-colors hover:bg-default-100"
                 >
                   <span className="flex items-center gap-3 text-default-600 group-hover:text-foreground">
                     <item.icon className="h-4 w-4 text-default-400 transition-colors group-hover:text-foreground" />

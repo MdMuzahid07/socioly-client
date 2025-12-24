@@ -80,7 +80,7 @@ export default function YouMayLikeToConnect() {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: profile.id * 0.1 }}
-            className="group flex items-center justify-between rounded-xl p-2 transition-colors hover:bg-default-100/30"
+            className="group flex items-center justify-between rounded-full p-2 transition-colors hover:bg-default-100/30"
           >
             <motion.div className="flex items-center gap-3">
               <div className="relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-background transition-transform duration-300 group-hover:scale-105">

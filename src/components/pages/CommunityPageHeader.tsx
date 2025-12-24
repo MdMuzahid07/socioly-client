@@ -94,7 +94,7 @@ function CommunityPageHeader({
                         />
                       }
                       onPress={onLike}
-                      className="flex-1 sm:flex-none"
+                      className="flex-1 rounded-full sm:flex-none"
                       size="sm"
                     >
                       {isLiked ? "Liked" : "Like"}
@@ -104,7 +104,7 @@ function CommunityPageHeader({
                       variant={isFollowing ? "flat" : "solid"}
                       startContent={<UserPlus size={18} />}
                       onPress={onFollow}
-                      className="flex-1 sm:flex-none"
+                      className="flex-1 rounded-full sm:flex-none"
                       size="sm"
                     >
                       {isFollowing ? "Following" : "Follow"}
@@ -113,7 +113,7 @@ function CommunityPageHeader({
                       isIconOnly
                       variant="flat"
                       onPress={onShare}
-                      className="sm:flex-none"
+                      className="rounded-full sm:flex-none"
                       size="sm"
                     >
                       <Share2 size={18} />

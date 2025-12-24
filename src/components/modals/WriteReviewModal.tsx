@@ -112,10 +112,19 @@ export default function WriteReviewModal({
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button color="danger" variant="light" onPress={onClose}>
+              <Button
+                className="rounded-full"
+                color="danger"
+                variant="light"
+                onPress={onClose}
+              >
                 Cancel
               </Button>
-              <Button color="primary" onPress={() => handleSubmit(onClose)}>
+              <Button
+                className="rounded-full"
+                color="primary"
+                onPress={() => handleSubmit(onClose)}
+              >
                 Submit Review
               </Button>
             </ModalFooter>

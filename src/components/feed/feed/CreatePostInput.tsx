@@ -26,6 +26,7 @@ export default function CreatePostInput({ className }: Props = {}) {
       setContent("");
       setIsFocused(false);
       toast.success("Post created successfully!");
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast.error("Failed to create post");
     }
@@ -58,8 +59,7 @@ export default function CreatePostInput({ className }: Props = {}) {
               maxRows={8}
               classNames={{
                 base: "flex-1",
-                inputWrapper:
-                  "bg-default-100 hover:bg-default-200 dark:bg-default-50 dark:hover:bg-default-100 transition-all duration-200 border-none",
+                inputWrapper: `bg-default-100 hover:bg-default-200 dark:bg-default-50 dark:hover:bg-default-100 transition-all duration-200 border-none ${isFocused ? "" : "rounded-full"}`,
                 input:
                   "text-sm sm:text-base text-foreground placeholder:text-default-500",
               }}

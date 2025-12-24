@@ -46,7 +46,7 @@ export default function CommunityPageView() {
         <Button
           color="primary"
           startContent={<Plus size={18} />}
-          className="w-full font-semibold sm:w-auto"
+          className="w-full rounded-full font-semibold sm:w-auto"
           onPress={onOpen}
         >
           Create Page
@@ -67,7 +67,8 @@ export default function CommunityPageView() {
               onValueChange={setSearchQuery}
               startContent={<Search className="text-default-400" size={18} />}
               classNames={{
-                inputWrapper: "bg-default-100 border-none dark:bg-default-50",
+                inputWrapper:
+                  "bg-default-100 border-none dark:bg-default-50  rounded-full",
               }}
               className="flex-1"
             />
@@ -77,7 +78,7 @@ export default function CommunityPageView() {
                 variant={filter === "all" ? "solid" : "flat"}
                 color={filter === "all" ? "primary" : "default"}
                 onPress={() => setFilter("all")}
-                className="flex-1 sm:flex-none"
+                className="flex-1 rounded-full sm:flex-none"
               >
                 All
               </Button>
@@ -86,7 +87,7 @@ export default function CommunityPageView() {
                 variant={filter === "liked" ? "solid" : "flat"}
                 color={filter === "liked" ? "primary" : "default"}
                 onPress={() => setFilter("liked")}
-                className="flex-1 sm:flex-none"
+                className="flex-1 rounded-full sm:flex-none"
               >
                 Liked
               </Button>
@@ -95,7 +96,7 @@ export default function CommunityPageView() {
                 variant={filter === "following" ? "solid" : "flat"}
                 color={filter === "following" ? "primary" : "default"}
                 onPress={() => setFilter("following")}
-                className="flex-1 sm:flex-none"
+                className="flex-1 rounded-full sm:flex-none"
               >
                 Following
               </Button>
@@ -106,9 +107,12 @@ export default function CommunityPageView() {
 
       {/* Pages Grid */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2">
-        {filteredPages.map((page, index) => (
-          <CommunityPageCard key={page.id} page={page} />
-        ))}
+        {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          filteredPages.map((page, index) => (
+            <CommunityPageCard key={page.id} page={page} />
+          ))
+        }
       </div>
 
       {/* Empty State */}

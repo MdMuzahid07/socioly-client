@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-
 import { Avatar, Button, Card, CardBody, CardHeader } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { Building2, Check, Plus, Users } from "lucide-react";
@@ -73,7 +72,7 @@ export default function SuggestPages() {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            className="group relative flex items-center justify-between rounded-xl p-2 transition-colors hover:bg-default-100/30"
+            className="group relative flex items-center justify-between rounded-full p-2 transition-colors hover:bg-default-100/30"
           >
             <div className="flex items-center gap-3">
               <Avatar

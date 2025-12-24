@@ -93,7 +93,7 @@ export default function ShareDropDown() {
       <DropdownTrigger>
         <Button
           variant="light"
-          className="flex-1 text-foreground data-[hover=true]:bg-default-100 data-[hover=true]:text-foreground"
+          className="flex-1 rounded-full text-foreground data-[hover=true]:bg-default-100 data-[hover=true]:text-foreground"
           startContent={<Share className="h-5 w-5" />}
         >
           Share
@@ -110,7 +110,7 @@ export default function ShareDropDown() {
           /* Copy Link Option */
           <DropdownItem
             key="copy"
-            className="rounded-lg py-3 hover:bg-default-100"
+            className="rounded-full py-3 hover:bg-default-100"
             startContent={
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-default-100">
                 <Copy className="h-4 w-4 text-default-600" />
@@ -139,7 +139,7 @@ export default function ShareDropDown() {
             return (
               <DropdownItem
                 key={option.key}
-                className="rounded-lg py-3 hover:bg-default-100"
+                className="rounded-full py-3 hover:bg-default-100"
                 textValue={option.label}
               >
                 <ShareButton

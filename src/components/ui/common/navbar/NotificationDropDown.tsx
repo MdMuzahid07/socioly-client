@@ -108,11 +108,11 @@ export default function NotificationDropDown() {
         <DropdownSection>
           <DropdownItem
             key="footer"
-            className="p-2"
+            className="rounded-full p-2"
             textValue="View all notifications"
           >
             <Button
-              className="w-full font-medium"
+              className="w-full rounded-full font-medium"
               color="primary"
               variant="flat"
               as={Link}
