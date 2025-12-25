@@ -19,28 +19,28 @@ const fakeData: SuggestedPage[] = [
     name: "TechCorp Solutions",
     industry: "Information Technology",
     followers: 25420,
-    logo: "https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid",
+    logo: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 2,
     name: "Global Innovations",
     industry: "Software Development",
     followers: 158900,
-    logo: "https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid",
+    logo: "https://images.unsplash.com/photo-1521295121783-8a321d551ad2?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 3,
     name: "Future Finance",
     industry: "Financial Services",
     followers: 89300,
-    logo: "https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid",
+    logo: "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 4,
     name: "EcoSmart Systems",
     industry: "Environmental Services",
     followers: 12800,
-    logo: "https://img.freepik.com/free-vector/cute-astronaut-floating-with-satellite-rocket-space-cartoon-vector-icon-illustration-science_138676-8894.jpg?uid=R74546932&ga=GA1.1.1246546318.1733558748&semt=ais_hybrid",
+    logo: "https://plus.unsplash.com/premium_photo-1680085770875-881edf31094e?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
