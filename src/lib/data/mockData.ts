@@ -754,3 +754,78 @@ export const MOCK_STORIES = [
     createdAt: "10h ago",
   },
 ];
+
+export const MOCK_REVIEWS = [
+  {
+    id: "rev-1",
+    pageId: "page-1",
+    name: "Arif Rahman",
+    username: "@arifr",
+    rating: 5,
+    review:
+      "Fantastic community — always helpful and full of practical tips. Highly recommend!",
+    date: "2025-12-20T10:30:00.000Z",
+    image:
+      "https://plus.unsplash.com/premium_photo-1661481618385-6e5f3780f1c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGNhc3VhbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: "rev-2",
+    pageId: "page-1",
+    name: "Daniel Kim",
+    username: "@danielk",
+    rating: 4,
+    review:
+      "Great discussions and friendly members. Could use more event posts but overall solid.",
+    date: "2025-12-18T14:15:00.000Z",
+    image:
+      "https://plus.unsplash.com/premium_photo-1658506764441-3b2167790507?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGNhc3VhbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: "rev-3",
+    pageId: "page-2",
+    name: "Prithvi Sen",
+    username: "@prithvi",
+    rating: 5,
+    review:
+      "I found many valuable resources here. Moderation is great and conversations stay on topic.",
+    date: "2025-12-14T09:00:00.000Z",
+    image:
+      "https://images.unsplash.com/photo-1733476968353-bf434c33a958?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fGNhc3VhbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: "rev-4",
+    pageId: "page-2",
+    name: "Liam O'Connor",
+    username: "@liamo",
+    rating: 3,
+    review:
+      "Some great threads but lately it's become a bit noisy. Still useful at times.",
+    date: "2025-12-10T18:45:00.000Z",
+    image:
+      "https://plus.unsplash.com/premium_photo-1665461699335-2f4c0857f16a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fGNhc3VhbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: "rev-5",
+    pageId: "page-3",
+    name: "Sergio Alvarez",
+    username: "@sergioa",
+    rating: 5,
+    review:
+      "Amazing people and excellent curated content. I learned a lot in just a few days.",
+    date: "2025-12-05T11:20:00.000Z",
+    image:
+      "https://plus.unsplash.com/premium_photo-1667511127370-c9843772312f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGNhc3VhbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+  },
+  {
+    id: "rev-6",
+    pageId: "page-1",
+    name: "Noah Patel",
+    username: "@noahp",
+    rating: 4,
+    review:
+      "Very supportive community. Occasional spam, but moderators react quickly.",
+    date: "2025-11-28T07:50:00.000Z",
+    image:
+      "https://plus.unsplash.com/premium_photo-1661481618385-6e5f3780f1c9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGNhc3VhbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
+  },
+];

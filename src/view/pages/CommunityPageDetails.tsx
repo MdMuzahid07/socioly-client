@@ -2,7 +2,7 @@
 import ReviewCard from "@/components/cards/ReviewCard";
 import WriteReviewModal from "@/components/modals/WriteReviewModal";
 import CommunityPageHeader from "@/components/pages/CommunityPageHeader";
-import { MOCK_PAGES } from "@/lib/data/mockData";
+import { MOCK_PAGES, MOCK_REVIEWS } from "@/lib/data/mockData";
 import { Button, Card, Tab, Tabs, useDisclosure } from "@nextui-org/react";
 import { PenLine } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -101,15 +101,15 @@ export default function CommunityPageDetails({ pageId }: { pageId: string }) {
                 </Button>
               </div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {[1, 2, 3].map((i) => (
+                {MOCK_REVIEWS.map((review, i) => (
                   <ReviewCard
                     key={i}
-                    name={`User ${i}`}
-                    username={`@user${i}`}
-                    rating={5}
-                    review="Great community page! Very informative and helpful content."
-                    date="2 days ago"
-                    image={`https://i.pravatar.cc/150?u=${i}`}
+                    name={review.name}
+                    username={review.username}
+                    rating={review.rating}
+                    review={review.review}
+                    date={review.date}
+                    image={review.image}
                   />
                 ))}
               </div>
